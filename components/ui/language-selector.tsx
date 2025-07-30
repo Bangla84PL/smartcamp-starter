@@ -29,22 +29,32 @@ export default function LanguageSelector() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 mt-1 py-1 bg-white/90 backdrop-blur border border-white/20 rounded-md shadow-xl z-[100] min-w-[120px] max-w-[180px] whitespace-nowrap">
-          {languages.map((lang) => (
-            <button
-              key={lang.code}
-              onClick={() => {
-                setLanguage(lang.code)
-                setIsOpen(false)
-              }}
-              className={`w-full flex items-center space-x-2 px-3 py-2 text-left hover:bg-white/50 transition-colors duration-150 ${
-                language === lang.code ? 'bg-white/30 text-primary font-medium' : 'text-gray-700'
-              }`}
-            >
-              <span className="text-lg">{lang.flag}</span>
-              <span className="text-sm">{lang.name}</span>
-            </button>
-          ))}
+        <div 
+          className="absolute top-full right-0 mt-1 py-1 border border-white/20 rounded-md shadow-xl z-[100] min-w-[120px] max-w-[180px] whitespace-nowrap"
+          style={{
+            backgroundImage: "url('/jungle background.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat"
+          }}
+        >
+          <div className="bg-black/40 backdrop-blur-sm rounded-md">
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => {
+                  setLanguage(lang.code)
+                  setIsOpen(false)
+                }}
+                className={`w-full flex items-center space-x-2 px-3 py-2 text-left hover:bg-white/20 transition-colors duration-150 ${
+                  language === lang.code ? 'bg-white/30 text-white font-medium' : 'text-white'
+                }`}
+              >
+                <span className="text-lg">{lang.flag}</span>
+                <span className="text-sm">{lang.name}</span>
+              </button>
+            ))}
+          </div>
         </div>
       )}
 
