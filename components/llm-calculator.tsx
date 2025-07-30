@@ -92,9 +92,9 @@ export default function LLMCalculator() {
                     id={option.id}
                   >
                     <div>
-                      <div className="font-medium">{t(`quantization${option.id}` as any)}</div>
+                      <div className="font-medium">{option.id === 'Q4' ? t('quantizationQ4') : option.id === 'Q8' ? t('quantizationQ8') : t('quantizationFP16')}</div>
                       <div className="text-xs text-muted-foreground">
-                        {t(`quantization${option.id}Desc` as any)}
+                        {option.id === 'Q4' ? t('quantizationQ4Desc') : option.id === 'Q8' ? t('quantizationQ8Desc') : t('quantizationFP16Desc')}
                       </div>
                     </div>
                   </RadioGroupItem>
@@ -188,7 +188,7 @@ export default function LLMCalculator() {
                   <div>
                     <h3 className="font-semibold mb-3 text-white">{t('localHardware')}</h3>
                     <div className="space-y-3">
-                      {result.recommendedGPUs.slice(0, 3).map((rec, index) => (
+                      {result.recommendedGPUs.slice(0, 3).map((rec) => (
                         <div
                           key={rec.gpu.id}
                           className={`p-3 rounded-lg border backdrop-blur ${
@@ -228,7 +228,7 @@ export default function LLMCalculator() {
                   <div>
                     <h3 className="font-semibold mb-3 text-white">{t('cloudVPS')}</h3>
                     <div className="space-y-3">
-                      {result.vpsOptions.slice(0, 3).map((rec, index) => (
+                      {result.vpsOptions.slice(0, 3).map((rec) => (
                         <div
                           key={rec.vps.id}
                           className={`p-3 rounded-lg border backdrop-blur ${

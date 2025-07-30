@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useLanguage } from '@/lib/i18n/context'
-import { languages, Language } from '@/lib/i18n/translations'
+import { languages } from '@/lib/i18n/translations'
 
 export default function LanguageSelector() {
   const { language, setLanguage } = useLanguage()
