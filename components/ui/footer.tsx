@@ -1,7 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useLanguage } from '@/lib/i18n/context'
 
 export default function Footer() {
+  const { t } = useLanguage()
+  
   return (
     <footer className="w-full border-t border-white/20 shadow-md mt-auto" style={{
       backgroundImage: "url('/jungle background.png')",
@@ -30,9 +33,9 @@ export default function Footer() {
           
           {/* Copyright and additional info */}
           <div className="text-center text-sm text-white/80">
-            <p>&copy; 2025 SmartCamp AI. All rights reserved.</p>
+            <p>&copy; 2025 SmartCamp AI. {t('allRightsReserved')}.</p>
             <p className="mt-1">
-              Powered by{' '}
+              {t('poweredBy')}{' '}
               <Link 
                 href="https://smartcamp.ai" 
                 target="_blank" 

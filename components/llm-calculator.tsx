@@ -9,8 +9,10 @@ import { Slider } from '@/components/ui/slider'
 import { Button } from '@/components/ui/button'
 import { calculateHardwareRequirements, CalculatorResult } from '@/lib/calculator'
 import { LLM_MODELS, QUANTIZATION_OPTIONS, QuantizationType } from '@/lib/data/models'
+import { useLanguage } from '@/lib/i18n/context'
 
 export default function LLMCalculator() {
+  const { t } = useLanguage()
   const [modelId, setModelId] = useState<string>('')
   const [quantization, setQuantization] = useState<QuantizationType>('Q4')
   const [targetTokensPerSecond, setTargetTokensPerSecond] = useState<number[]>([20])
@@ -44,9 +46,9 @@ export default function LLMCalculator() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-white mb-4">LLM Hardware Calculator</h1>
+        <h1 className="text-4xl font-bold text-white mb-4">{t('appTitle')}</h1>
         <p className="text-white/80 text-lg">
-          Find the perfect hardware to run your favorite Large Language Models
+          {t('appSubtitle')}
         </p>
       </div>
 
@@ -54,19 +56,19 @@ export default function LLMCalculator() {
         {/* Input Panel */}
         <Card className="bg-white/15 backdrop-blur border-white/20">
           <CardHeader>
-            <CardTitle>Configuration</CardTitle>
+            <CardTitle>{t('configuration')}</CardTitle>
             <CardDescription>
-              Select your model and performance requirements
+              {t('configDescription')}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             {/* Model Selection */}
             <div className="space-y-2">
-              <label className="text-sm font-medium">LLM Model</label>
+              <label className="text-sm font-medium">{t('llmModel')}</label>
               <Select
                 value={modelId}
                 onChange={(e) => setModelId(e.target.value)}
-                placeholder="Choose a model"
+                placeholder={t('chooseModel')}
               >
                 {LLM_MODELS.map((model) => (
                   <option key={model.id} value={model.id}>
@@ -78,7 +80,7 @@ export default function LLMCalculator() {
 
             {/* Quantization */}
             <div className="space-y-3">
-              <label className="text-sm font-medium">Quantization</label>
+              <label className="text-sm font-medium">{t('quantization')}</label>
               <RadioGroup
                 value={quantization}
                 onValueChange={(value) => setQuantization(value as QuantizationType)}
@@ -90,9 +92,9 @@ export default function LLMCalculator() {
                     id={option.id}
                   >
                     <div>
-                      <div className="font-medium">{option.name}</div>
+                      <div className="font-medium">{t(`quantization${option.id}` as any)}</div>
                       <div className="text-xs text-muted-foreground">
-                        {option.description}
+                        {t(`quantization${option.id}Desc` as any)}
                       </div>
                     </div>
                   </RadioGroupItem>
@@ -103,7 +105,7 @@ export default function LLMCalculator() {
             {/* Performance Target */}
             <div className="space-y-3">
               <label className="text-sm font-medium">
-                Target Performance: {targetTokensPerSecond[0]} tokens/second
+                {t('targetPerformance')}: {targetTokensPerSecond[0]} {t('tokensPerSecond')}
               </label>
               <Slider
                 value={targetTokensPerSecond}
@@ -114,17 +116,17 @@ export default function LLMCalculator() {
                 className="w-full"
               />
               <div className="flex justify-between text-xs text-muted-foreground">
-                <span>5 tokens/s</span>
-                <span>50 tokens/s</span>
+                <span>5 {t('tokensPerSecond')}</span>
+                <span>50 {t('tokensPerSecond')}</span>
               </div>
             </div>
 
             {/* Budget */}
             <div className="space-y-2">
-              <label className="text-sm font-medium">Budget (USD)</label>
+              <label className="text-sm font-medium">{t('budget')}</label>
               <Input
                 type="number"
-                placeholder="Enter your budget"
+                placeholder={t('enterBudget')}
                 value={budgetUSD}
                 onChange={(e) => setBudgetUSD(e.target.value)}
                 min="0"
@@ -141,7 +143,7 @@ export default function LLMCalculator() {
                 disabled={!isFormValid}
                 className="w-full relative"
               >
-                {isCalculating ? 'CALCULATING...' : 'CHECK CONFIG'}
+                {isCalculating ? t('calculating') : t('checkConfig')}
               </Button>
             </div>
           </CardContent>
@@ -150,33 +152,33 @@ export default function LLMCalculator() {
         {/* Results Panel */}
         <Card className="bg-white/15 backdrop-blur border-white/20">
           <CardHeader>
-            <CardTitle>Recommendations</CardTitle>
+            <CardTitle>{t('recommendations')}</CardTitle>
             <CardDescription>
-              Hardware suggestions based on your requirements
+              {t('recommendationsDesc')}
             </CardDescription>
           </CardHeader>
           <CardContent>
             {!result ? (
               <div className="text-center py-8 text-white/70">
                 {isCalculating ? (
-                  <div>Calculating recommendations...</div>
+                  <div>{t('calculatingRecommendations')}</div>
                 ) : (
-                  <div>Fill in the configuration and click "CHECK CONFIG" to see recommendations</div>
+                  <div>{t('fillConfiguration')}</div>
                 )}
               </div>
             ) : (
               <div className="space-y-6">
                 {/* Requirements Summary */}
                 <div className="bg-white/10 backdrop-blur border border-white/20 p-4 rounded-lg">
-                  <h3 className="font-semibold text-white mb-2">Requirements</h3>
+                  <h3 className="font-semibold text-white mb-2">{t('requirements')}</h3>
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
-                      <span className="text-white/80">RAM needed:</span>
-                      <span className="font-medium ml-2 text-white">{result.requirements.ramGB} GB</span>
+                      <span className="text-white/80">{t('ramNeeded')}:</span>
+                      <span className="font-medium ml-2 text-white">{result.requirements.ramGB} {t('gb')}</span>
                     </div>
                     <div>
-                      <span className="text-white/80">VRAM needed:</span>
-                      <span className="font-medium ml-2 text-white">{result.requirements.vramGB} GB</span>
+                      <span className="text-white/80">{t('vramNeeded')}:</span>
+                      <span className="font-medium ml-2 text-white">{result.requirements.vramGB} {t('gb')}</span>
                     </div>
                   </div>
                 </div>
@@ -184,7 +186,7 @@ export default function LLMCalculator() {
                 {/* GPU Recommendations */}
                 {result.recommendedGPUs.length > 0 && (
                   <div>
-                    <h3 className="font-semibold mb-3 text-white">Local Hardware Options</h3>
+                    <h3 className="font-semibold mb-3 text-white">{t('localHardware')}</h3>
                     <div className="space-y-3">
                       {result.recommendedGPUs.slice(0, 3).map((rec, index) => (
                         <div
@@ -199,20 +201,20 @@ export default function LLMCalculator() {
                             <div>
                               <div className="font-medium text-white">{rec.gpu.name}</div>
                               <div className="text-sm text-white/70">
-                                {rec.gpu.vramGB} GB VRAM
+                                {rec.gpu.vramGB} {t('gb')} {t('vram')}
                               </div>
                             </div>
                             <div className="text-right">
                               <div className="font-medium text-white">${rec.gpu.priceUSD}</div>
                               <div className={`text-xs ${rec.withinBudget ? 'text-green-300' : 'text-red-300'}`}>
-                                {rec.withinBudget ? 'Within budget' : 'Over budget'}
+                                {rec.withinBudget ? t('withinBudget') : t('overBudget')}
                               </div>
                             </div>
                           </div>
                           <div className="text-sm">
-                            <span className="text-white/70">Performance:</span>
+                            <span className="text-white/70">{t('performance')}:</span>
                             <span className="ml-2 font-medium text-white">
-                              ~{rec.estimatedTokensPerSecond} tokens/second
+                              ~{rec.estimatedTokensPerSecond} {t('tokensPerSecond')}
                             </span>
                           </div>
                         </div>
@@ -224,7 +226,7 @@ export default function LLMCalculator() {
                 {/* VPS Options */}
                 {result.vpsOptions.length > 0 && (
                   <div>
-                    <h3 className="font-semibold mb-3 text-white">Cloud VPS Options</h3>
+                    <h3 className="font-semibold mb-3 text-white">{t('cloudVPS')}</h3>
                     <div className="space-y-3">
                       {result.vpsOptions.slice(0, 3).map((rec, index) => (
                         <div
@@ -243,16 +245,16 @@ export default function LLMCalculator() {
                               </div>
                             </div>
                             <div className="text-right">
-                              <div className="font-medium text-white">${rec.vps.monthlyCostUSD}/month</div>
+                              <div className="font-medium text-white">${rec.vps.monthlyCostUSD}{t('month')}</div>
                               <div className={`text-xs ${rec.withinBudget ? 'text-blue-300' : 'text-red-300'}`}>
-                                {rec.withinBudget ? 'Within budget' : 'Over budget'}
+                                {rec.withinBudget ? t('withinBudget') : t('overBudget')}
                               </div>
                             </div>
                           </div>
                           <div className="text-sm">
-                            <span className="text-white/70">Performance:</span>
+                            <span className="text-white/70">{t('performance')}:</span>
                             <span className="ml-2 font-medium text-white">
-                              ~{rec.estimatedTokensPerSecond} tokens/second
+                              ~{rec.estimatedTokensPerSecond} {t('tokensPerSecond')}
                             </span>
                           </div>
                         </div>
@@ -263,7 +265,7 @@ export default function LLMCalculator() {
 
                 {/* Recommendation Summary */}
                 <div className="bg-white/10 backdrop-blur border border-white/20 p-4 rounded-lg">
-                  <h3 className="font-semibold text-white mb-2">Recommendation</h3>
+                  <h3 className="font-semibold text-white mb-2">{t('recommendation')}</h3>
                   <p className="text-sm text-white/90">{result.summary.recommendation}</p>
                 </div>
               </div>

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import LanguageSelector from './language-selector'
 
 export default function Header() {
   return (
@@ -29,9 +30,9 @@ export default function Header() {
             />
           </Link>
           
-          {/* Navigation or additional content can be added here */}
-          <nav className="hidden sm:flex items-center space-x-6">
-            {/* Future navigation items */}
+          {/* Language selector */}
+          <nav className="flex items-center space-x-4">
+            <LanguageSelector />
           </nav>
         </div>
         </div>
