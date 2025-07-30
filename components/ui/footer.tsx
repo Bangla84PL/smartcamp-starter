@@ -3,8 +3,14 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-green-800/30 bg-gradient-to-r from-green-800 to-green-700 shadow-md mt-auto">
-      <div className="container mx-auto px-4 py-8">
+    <footer className="w-full border-t border-white/20 shadow-md mt-auto" style={{
+      backgroundImage: "url('/jungle background.png')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat"
+    }}>
+      <div className="bg-black/30 backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col items-center space-y-4">
           {/* Logo */}
           <Link 
@@ -37,6 +43,7 @@ export default function Footer() {
               </Link>
             </p>
           </div>
+        </div>
         </div>
       </div>
     </footer>

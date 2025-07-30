@@ -6,6 +6,7 @@ import { Select } from '@/components/ui/select'
 import { Input } from '@/components/ui/input'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Slider } from '@/components/ui/slider'
+import { Button } from '@/components/ui/button'
 import { calculateHardwareRequirements, CalculatorResult } from '@/lib/calculator'
 import { LLM_MODELS, QUANTIZATION_OPTIONS, QuantizationType } from '@/lib/data/models'
 
@@ -37,11 +38,8 @@ export default function LLMCalculator() {
     }
   }
 
-  // Auto-calculate when all inputs are filled
-  const shouldAutoCalculate = modelId && quantization && budgetUSD && !isCalculating
-  if (shouldAutoCalculate && !result) {
-    handleCalculate()
-  }
+  // Check if form is valid for calculation
+  const isFormValid = modelId && quantization && budgetUSD && !isCalculating
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
@@ -133,6 +131,19 @@ export default function LLMCalculator() {
                 step="100"
               />
             </div>
+
+            {/* Check Config Button */}
+            <div className="pt-4">
+              <Button
+                variant="jungle"
+                size="lg"
+                onClick={handleCalculate}
+                disabled={!isFormValid}
+                className="w-full relative"
+              >
+                {isCalculating ? 'CALCULATING...' : 'CHECK CONFIG'}
+              </Button>
+            </div>
           </CardContent>
         </Card>
 
@@ -146,11 +157,11 @@ export default function LLMCalculator() {
           </CardHeader>
           <CardContent>
             {!result ? (
-              <div className="text-center py-8 text-muted-foreground">
+              <div className="text-center py-8 text-white/70">
                 {isCalculating ? (
                   <div>Calculating recommendations...</div>
                 ) : (
-                  <div>Fill in the configuration to see recommendations</div>
+                  <div>Fill in the configuration and click "CHECK CONFIG" to see recommendations</div>
                 )}
               </div>
             ) : (

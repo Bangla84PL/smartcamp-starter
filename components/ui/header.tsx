@@ -3,8 +3,14 @@ import Link from 'next/link'
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-green-800/30 bg-gradient-to-r from-green-800 to-green-700 shadow-md">
-      <div className="container mx-auto px-4 py-4">
+    <header className="sticky top-0 z-50 w-full border-b border-white/20 shadow-md" style={{
+      backgroundImage: "url('/jungle background.png')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat"
+    }}>
+      <div className="bg-black/30 backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           {/* Logo on the left */}
           <Link 
@@ -27,6 +33,7 @@ export default function Header() {
           <nav className="hidden sm:flex items-center space-x-6">
             {/* Future navigation items */}
           </nav>
+        </div>
         </div>
       </div>
     </header>
