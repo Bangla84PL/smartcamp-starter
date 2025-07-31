@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { useLanguage } from '@/lib/i18n/context'
 import { subscribeToNewsletter } from '@/app/actions/newsletter'
 
+type ErrorMessageKey = 'subscriptionError' | 'alreadySubscribed' | 'invalidEmail'
+
 export default function NewsletterSignup() {
   const { t } = useLanguage()
   const [email, setEmail] = useState('')
@@ -25,13 +27,13 @@ export default function NewsletterSignup() {
         setEmail('')
       } else {
         // Handle specific error messages
-        let errorKey = 'subscriptionError'
+        let errorKey: ErrorMessageKey = 'subscriptionError'
         if (result.message.includes('already subscribed')) {
           errorKey = 'alreadySubscribed'
         } else if (result.message.includes('valid email')) {
           errorKey = 'invalidEmail'
         }
-        setMessage({ type: 'error', text: t(errorKey as any) })
+        setMessage({ type: 'error', text: t(errorKey) })
       }
     } catch (error) {
       console.error('Newsletter subscription error:', error)
