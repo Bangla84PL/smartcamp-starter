@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useLanguage } from '@/lib/i18n/context'
+import NewsletterSignup from './newsletter-signup'
 
 export default function Footer() {
   const { t } = useLanguage()
@@ -49,6 +50,11 @@ export default function Footer() {
                     SmartCamp AI
                   </Link>
                 </p>
+              </div>
+
+              {/* Newsletter Signup */}
+              <div className="mt-6 lg:mt-4 w-full lg:max-w-sm">
+                <NewsletterSignup />
               </div>
             </div>
 

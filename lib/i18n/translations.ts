@@ -48,6 +48,15 @@ export const translations = {
     allRightsReserved: "All rights reserved",
     poweredBy: "Powered by",
     
+    // Newsletter
+    newsletterPlaceholder: "my email",
+    subscribeNewsletter: "Subscribe to Newsletter",
+    subscribing: "Subscribing...",
+    subscriptionSuccess: "Successfully subscribed!",
+    subscriptionError: "Subscription failed",
+    alreadySubscribed: "Email already subscribed",
+    invalidEmail: "Please enter a valid email",
+    
     // Units
     gb: "GB",
     month: "/month",
@@ -103,6 +112,15 @@ export const translations = {
     allRightsReserved: "Wszystkie prawa zastrzeżone",
     poweredBy: "Napędzane przez",
     
+    // Newsletter
+    newsletterPlaceholder: "mój email",
+    subscribeNewsletter: "Zapisz się do Newslettera",
+    subscribing: "Zapisywanie...",
+    subscriptionSuccess: "Pomyślnie zapisano!",
+    subscriptionError: "Błąd zapisu",
+    alreadySubscribed: "Email już zapisany",
+    invalidEmail: "Podaj prawidłowy email",
+    
     // Units
     gb: "GB",
     month: "/miesiąc",
@@ -157,6 +175,15 @@ export const translations = {
     // Footer
     allRightsReserved: "版权所有",
     poweredBy: "技术支持",
+    
+    // Newsletter
+    newsletterPlaceholder: "我的邮箱",
+    subscribeNewsletter: "订阅通讯",
+    subscribing: "订阅中...",
+    subscriptionSuccess: "订阅成功！",
+    subscriptionError: "订阅失败",
+    alreadySubscribed: "邮箱已订阅",
+    invalidEmail: "请输入有效邮箱",
     
     // Units
     gb: "GB",
