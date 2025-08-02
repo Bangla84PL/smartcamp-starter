@@ -19,9 +19,9 @@ export async function subscribeToNewsletter(email: string): Promise<NewsletterRe
       }
     }
 
-    // Check if email already exists
+    // Check if email already exists in Newsletter-signup table
     const { data: existingSubscription, error: checkError } = await supabaseServer
-      .from('Newsletter')
+      .from('Newsletter-signup')
       .select('email')
       .eq('email', email.toLowerCase())
       .eq('source', 'llmcalc')
@@ -31,7 +31,7 @@ export async function subscribeToNewsletter(email: string): Promise<NewsletterRe
       console.error('Error checking existing subscription:', checkError)
       return {
         success: false,
-        message: 'An error occurred. Please try again.'
+        message: 'An error occurred while checking subscription. Please try again.'
       }
     }
 
@@ -42,9 +42,9 @@ export async function subscribeToNewsletter(email: string): Promise<NewsletterRe
       }
     }
 
-    // Insert new subscription
+    // Insert new subscription into Newsletter-signup table
     const { error: insertError } = await supabaseServer
-      .from('Newsletter')
+      .from('Newsletter-signup')
       .insert({
         email: email.toLowerCase(),
         source: 'llmcalc'
@@ -54,7 +54,7 @@ export async function subscribeToNewsletter(email: string): Promise<NewsletterRe
       console.error('Error inserting newsletter subscription:', insertError)
       return {
         success: false,
-        message: 'An error occurred. Please try again.'
+        message: 'An error occurred while subscribing. Please try again.'
       }
     }
 
