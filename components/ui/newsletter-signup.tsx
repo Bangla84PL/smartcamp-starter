@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useLanguage } from '@/lib/i18n/context'
 import { subscribeToNewsletter } from '@/app/actions/newsletter'
+import { Button } from '@/components/ui/button'
 
 type ErrorMessageKey = 'subscriptionError' | 'alreadySubscribed' | 'invalidEmail'
 
@@ -54,13 +55,15 @@ export default function NewsletterSignup() {
           disabled={isSubmitting}
           className="flex-1 px-3 py-2 text-sm bg-white/10 border border-white/20 rounded-md text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
         />
-        <button
+        <Button
           type="submit"
+          variant="jungle"
+          size="lg"
           disabled={isSubmitting || !email.trim()}
-          className="px-4 py-2 text-sm font-medium text-white bg-green-600/80 hover:bg-green-600 disabled:bg-gray-600/50 disabled:cursor-not-allowed rounded-md transition-all duration-200 backdrop-blur-sm border border-white/20 hover:border-white/40 focus:outline-none focus:ring-2 focus:ring-white/30"
+          className="relative"
         >
           {isSubmitting ? t('subscribing') : t('subscribeNewsletter')}
-        </button>
+        </Button>
       </form>
       
       {message && (

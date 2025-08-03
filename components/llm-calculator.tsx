@@ -14,16 +14,23 @@ import { useLanguage } from '@/lib/i18n/context'
 export default function LLMCalculator() {
   const { t } = useLanguage()
   const [modelId, setModelId] = useState<string>('')
-  const [quantization, setQuantization] = useState<QuantizationType>('Q4')
+  const [quantization, setQuantization] = useState<QuantizationType>('Q4_K_M')
   const [targetTokensPerSecond, setTargetTokensPerSecond] = useState<number[]>([20])
   const [budgetUSD, setBudgetUSD] = useState<string>('')
   const [result, setResult] = useState<CalculatorResult | null>(null)
   const [isCalculating, setIsCalculating] = useState(false)
+  const [emailForReport, setEmailForReport] = useState<string>('')
+  const [isSendingReport, setIsSendingReport] = useState(false)
+  const [reportSentMessage, setReportSentMessage] = useState<string>('')
 
   const handleCalculate = () => {
     if (!modelId || !budgetUSD) return
 
     setIsCalculating(true)
+    // Clear previous report messages
+    setReportSentMessage('')
+    setEmailForReport('')
+    
     try {
       const calculatorResult = calculateHardwareRequirements({
         modelId,
@@ -37,6 +44,30 @@ export default function LLMCalculator() {
       setResult(null)
     } finally {
       setIsCalculating(false)
+    }
+  }
+
+  const handleSendReport = async () => {
+    if (!emailForReport.trim() || !result) return
+
+    setIsSendingReport(true)
+    setReportSentMessage('')
+
+    try {
+      // Simulate sending email report (replace with actual email service)
+      await new Promise(resolve => setTimeout(resolve, 1500))
+      
+      // In a real implementation, you would send the email here
+      console.log('Sending report to:', emailForReport)
+      console.log('Report data:', result)
+      
+      setReportSentMessage(t('reportSentSuccess'))
+      setEmailForReport('')
+    } catch (error) {
+      console.error('Error sending report:', error)
+      setReportSentMessage(t('reportSentError'))
+    } finally {
+      setIsSendingReport(false)
     }
   }
 
@@ -92,9 +123,9 @@ export default function LLMCalculator() {
                     id={option.id}
                   >
                     <div>
-                      <div className="font-medium">{option.id === 'Q4' ? t('quantizationQ4') : option.id === 'Q8' ? t('quantizationQ8') : t('quantizationFP16')}</div>
+                      <div className="font-medium">{option.name}</div>
                       <div className="text-xs text-muted-foreground">
-                        {option.id === 'Q4' ? t('quantizationQ4Desc') : option.id === 'Q8' ? t('quantizationQ8Desc') : t('quantizationFP16Desc')}
+                        {option.description}
                       </div>
                     </div>
                   </RadioGroupItem>
@@ -267,6 +298,32 @@ export default function LLMCalculator() {
                 <div className="bg-white/10 backdrop-blur border border-white/20 p-4 rounded-lg">
                   <h3 className="font-semibold text-white mb-2">{t('recommendation')}</h3>
                   <p className="text-sm text-white/90">{result.summary.recommendation}</p>
+                </div>
+
+                {/* Email Report Section */}
+                <div className="bg-white/10 backdrop-blur border border-white/20 p-4 rounded-lg">
+                  <h3 className="font-semibold text-white mb-3">{t('emailReport')}</h3>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Input
+                      type="email"
+                      placeholder={t('enterEmailForReport')}
+                      value={emailForReport}
+                      onChange={(e) => setEmailForReport(e.target.value)}
+                      className="flex-1"
+                    />
+                    <Button
+                      variant="jungle"
+                      size="lg"
+                      onClick={handleSendReport}
+                      disabled={!emailForReport.trim() || isSendingReport}
+                      className="sm:w-auto w-full"
+                    >
+                      {isSendingReport ? t('sending') : t('sendReport')}
+                    </Button>
+                  </div>
+                  {reportSentMessage && (
+                    <p className="text-sm text-green-300 mt-2">{reportSentMessage}</p>
+                  )}
                 </div>
               </div>
             )}

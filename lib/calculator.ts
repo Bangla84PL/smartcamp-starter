@@ -110,8 +110,11 @@ export function calculateHardwareRequirements(input: CalculatorInput): Calculato
 }
 
 function getMemoryRequirement(model: LLMModel, quantization: QuantizationType, type: 'ram' | 'vram'): number {
+  // Map new quantization types to legacy ones for memory calculation
+  const legacyQuantization = mapToLegacyQuantization(quantization);
   const suffix = type === 'ram' ? 'MemoryGB' : 'VRAMGB';
-  switch (quantization) {
+  
+  switch (legacyQuantization) {
     case 'Q4':
       return model[`base${suffix}Q4` as keyof LLMModel] as number;
     case 'Q8':
@@ -120,6 +123,25 @@ function getMemoryRequirement(model: LLMModel, quantization: QuantizationType, t
       return model[`base${suffix}FP16` as keyof LLMModel] as number;
     default:
       throw new Error(`Unknown quantization: ${quantization}`);
+  }
+}
+
+function mapToLegacyQuantization(quantization: QuantizationType): 'Q4' | 'Q8' | 'FP16' {
+  switch (quantization) {
+    case 'Q2_K':
+      return 'Q4'; // Q2_K uses similar memory to Q4 but lower quality
+    case 'Q4_0':
+    case 'Q4_K_M':
+      return 'Q4';
+    case 'Q5_K_M':
+    case 'Q8_0':
+      return 'Q8';
+    case 'FP16':
+      return 'FP16';
+    case 'FP32':
+      return 'FP16'; // FP32 uses roughly 2x FP16, but we approximate
+    default:
+      return 'Q4';
   }
 }
 
@@ -142,22 +164,32 @@ function calculateVPSTokensPerSecond(vps: VPSOption, model: LLMModel, quantizati
 }
 
 function getModelSizeMultiplier(model: LLMModel): number {
-  // Smaller models run faster
+  // Smaller models run faster - updated for more model sizes
   switch (model.parameterCount) {
+    case '3.8B': return 1.3;
     case '7B': return 1.0;
+    case '8B': return 0.9;
     case '13B': return 0.7;
+    case '33B':
     case '34B': return 0.4;
-    case '70B': return 0.2;
+    case '47B': return 0.35; // Mixtral 8x7B
+    case '70B':
+    case '72B': return 0.2;
+    case '123B': return 0.1; // Mistral Large
     default: return 0.5;
   }
 }
 
 function getQuantizationMultiplier(quantization: QuantizationType): number {
-  // Lower precision runs faster
+  // Lower precision runs faster - realistic multipliers for new quantization types
   switch (quantization) {
-    case 'Q4': return 1.2;
-    case 'Q8': return 1.0;
-    case 'FP16': return 0.8;
+    case 'Q2_K': return 1.5; // Fastest but lowest quality
+    case 'Q4_0': return 1.3; // Legacy Q4
+    case 'Q4_K_M': return 1.2; // Modern Q4, slightly slower but better quality
+    case 'Q5_K_M': return 1.1; // Between Q4 and Q8
+    case 'Q8_0': return 1.0; // Baseline
+    case 'FP16': return 0.8; // Slower but high quality
+    case 'FP32': return 0.6; // Slowest, research quality
     default: return 1.0;
   }
 }

@@ -44,6 +44,14 @@ export const translations = {
     // Recommendation
     recommendation: "Recommendation",
     
+    // Email Report
+    emailReport: "Email Report",
+    enterEmailForReport: "Enter email to receive report",
+    sendReport: "Send Report",
+    sending: "Sending...",
+    reportSentSuccess: "Report sent successfully!",
+    reportSentError: "Failed to send report. Please try again.",
+    
     // Footer
     allRightsReserved: "All rights reserved",
     poweredBy: "Powered by",
@@ -108,6 +116,14 @@ export const translations = {
     // Recommendation
     recommendation: "Rekomendacja",
     
+    // Email Report
+    emailReport: "Raport Email",
+    enterEmailForReport: "Wprowadź email aby otrzymać raport",
+    sendReport: "Wyślij Raport",
+    sending: "Wysyłanie...",
+    reportSentSuccess: "Raport wysłany pomyślnie!",
+    reportSentError: "Nie udało się wysłać raportu. Spróbuj ponownie.",
+    
     // Footer
     allRightsReserved: "Wszystkie prawa zastrzeżone",
     poweredBy: "Napędzane przez",
@@ -171,6 +187,14 @@ export const translations = {
     
     // Recommendation
     recommendation: "推荐",
+    
+    // Email Report
+    emailReport: "邮件报告",
+    enterEmailForReport: "输入邮箱接收报告",
+    sendReport: "发送报告",
+    sending: "发送中...",
+    reportSentSuccess: "报告发送成功！",
+    reportSentError: "发送报告失败，请重试。",
     
     // Footer
     allRightsReserved: "版权所有",
