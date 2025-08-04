@@ -15,7 +15,7 @@ import { saveEmailReport } from '@/app/actions/save-email-report'
 export default function LLMCalculator() {
   const { t, language } = useLanguage()
   const [modelId, setModelId] = useState<string>('')
-  const [quantization, setQuantization] = useState<QuantizationType>('Q4_K_M')
+  const [quantization, setQuantization] = useState<QuantizationType>('' as QuantizationType)
   const [targetTokensPerSecond, setTargetTokensPerSecond] = useState<number[]>([20])
   const [budgetUSD, setBudgetUSD] = useState<string>('')
   const [result, setResult] = useState<CalculatorResult | null>(null)
