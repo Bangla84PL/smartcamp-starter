@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Select } from '@/components/ui/select'
 import { Input } from '@/components/ui/input'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+
 import { Slider } from '@/components/ui/slider'
 import { Button } from '@/components/ui/button'
 import { calculateHardwareRequirements, CalculatorResult } from '@/lib/calculator'
@@ -110,27 +110,19 @@ export default function LLMCalculator() {
             </div>
 
             {/* Quantization */}
-            <div className="space-y-3">
+            <div className="space-y-2">
               <label className="text-sm font-medium">{t('quantization')}</label>
-              <RadioGroup
+              <Select
                 value={quantization}
-                onValueChange={(value) => setQuantization(value as QuantizationType)}
+                onChange={(e) => setQuantization(e.target.value as QuantizationType)}
+                placeholder={t('chooseQuantization')}
               >
                 {QUANTIZATION_OPTIONS.map((option) => (
-                  <RadioGroupItem
-                    key={option.id}
-                    value={option.id}
-                    id={option.id}
-                  >
-                    <div>
-                      <div className="font-medium">{option.name}</div>
-                      <div className="text-xs text-muted-foreground">
-                        {option.description}
-                      </div>
-                    </div>
-                  </RadioGroupItem>
+                  <option key={option.id} value={option.id}>
+                    {option.name} - {option.description}
+                  </option>
                 ))}
-              </RadioGroup>
+              </Select>
             </div>
 
             {/* Performance Target */}
