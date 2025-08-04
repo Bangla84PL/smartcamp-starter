@@ -33,18 +33,20 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       return 'en'
     }
 
-    // Priority: 1. localStorage (user preference), 2. browser language, 3. default 'en'
+    // Detect current browser language
+    const detectedLanguage = detectBrowserLanguage()
     const savedLanguage = localStorage.getItem('language') as Language
+    const userManuallySet = localStorage.getItem('languageManuallySet') === 'true'
     
-    if (savedLanguage && ['en', 'pl', 'zh'].includes(savedLanguage)) {
-      // User has previously selected a language
+    if (userManuallySet && savedLanguage && ['en', 'pl', 'zh'].includes(savedLanguage)) {
+      // User has manually selected a language - respect their choice
       setLanguage(savedLanguage)
     } else {
-      // No saved preference, detect browser language
-      const detectedLanguage = detectBrowserLanguage()
+      // No manual selection or first visit - use browser language
       setLanguage(detectedLanguage)
-      // Save the detected language to localStorage for future visits
       localStorage.setItem('language', detectedLanguage)
+      // Clear manual selection flag since we're using browser detection
+      localStorage.removeItem('languageManuallySet')
     }
     
     setIsHydrated(true)
@@ -53,6 +55,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const handleSetLanguage = (lang: Language) => {
     setLanguage(lang)
     localStorage.setItem('language', lang)
+    // Mark that user manually selected a language
+    localStorage.setItem('languageManuallySet', 'true')
   }
 
   const t = (key: TranslationKey): string => {
