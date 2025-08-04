@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button'
 import { calculateHardwareRequirements, CalculatorResult } from '@/lib/calculator'
 import { LLM_MODELS, QUANTIZATION_OPTIONS, QuantizationType } from '@/lib/data/models'
 import { useLanguage } from '@/lib/i18n/context'
+import { saveEmailReport } from '@/app/actions/save-email-report'
 
 export default function LLMCalculator() {
   const { t } = useLanguage()
@@ -54,18 +55,17 @@ export default function LLMCalculator() {
     setReportSentMessage('')
 
     try {
-      // Simulate sending email report (replace with actual email service)
-      await new Promise(resolve => setTimeout(resolve, 1500))
+      const saveResult = await saveEmailReport(emailForReport, result)
       
-      // In a real implementation, you would send the email here
-      console.log('Sending report to:', emailForReport)
-      console.log('Report data:', result)
-      
-      setReportSentMessage(t('reportSentSuccess'))
-      setEmailForReport('')
+      if (saveResult.success) {
+        setReportSentMessage('Report saved! You should receive an email shortly.')
+        setEmailForReport('')
+      } else {
+        setReportSentMessage(saveResult.message)
+      }
     } catch (error) {
       console.error('Error sending report:', error)
-      setReportSentMessage(t('reportSentError'))
+      setReportSentMessage('Failed to save report. Please try again.')
     } finally {
       setIsSendingReport(false)
     }
@@ -200,7 +200,7 @@ export default function LLMCalculator() {
             ) : (
               <div className="space-y-6">
                 {/* Requirements Summary */}
-                <div className="bg-white/10 backdrop-blur border border-white/20 p-4 rounded-lg">
+                <div className="bg-black/20 border border-white/30 p-4 rounded-lg">
                   <h3 className="font-semibold text-white mb-2">{t('requirements')}</h3>
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
@@ -295,36 +295,45 @@ export default function LLMCalculator() {
                 )}
 
                 {/* Recommendation Summary */}
-                <div className="bg-white/10 backdrop-blur border border-white/20 p-4 rounded-lg">
+                <div className="bg-black/20 border border-white/30 p-4 rounded-lg">
                   <h3 className="font-semibold text-white mb-2">{t('recommendation')}</h3>
                   <p className="text-sm text-white/90">{result.summary.recommendation}</p>
                 </div>
 
-                {/* Email Report Section */}
-                <div className="bg-white/10 backdrop-blur border border-white/20 p-4 rounded-lg">
-                  <h3 className="font-semibold text-white mb-3">{t('emailReport')}</h3>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <Input
-                      type="email"
-                      placeholder={t('enterEmailForReport')}
-                      value={emailForReport}
-                      onChange={(e) => setEmailForReport(e.target.value)}
-                      className="flex-1"
-                    />
-                    <Button
-                      variant="jungle"
-                      size="lg"
-                      onClick={handleSendReport}
-                      disabled={!emailForReport.trim() || isSendingReport}
-                      className="sm:w-auto w-full"
-                    >
-                      {isSendingReport ? t('sending') : t('sendReport')}
-                    </Button>
+                                  {/* Email Report Section */}
+                  <div className="bg-black/20 border border-white/30 p-4 rounded-lg">
+                    <h3 className="font-semibold text-white mb-3">📧 {t('emailReport')}</h3>
+                    <p className="text-sm text-white/70 mb-3">
+                      Get detailed hardware recommendations sent to your email for easy reference and sharing.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <Input
+                        type="email"
+                        placeholder={t('enterEmailForReport')}
+                        value={emailForReport}
+                        onChange={(e) => setEmailForReport(e.target.value)}
+                        className="flex-1"
+                      />
+                      <Button
+                        variant="jungle"
+                        size="lg"
+                        onClick={handleSendReport}
+                        disabled={!emailForReport.trim() || isSendingReport}
+                        className="sm:w-auto w-full"
+                      >
+                        {isSendingReport ? t('sending') : t('sendReport')}
+                      </Button>
+                    </div>
+                    {reportSentMessage && (
+                      <div className={`text-sm mt-2 p-2 rounded ${
+                        reportSentMessage.includes('saved') || reportSentMessage.includes('shortly') 
+                          ? 'bg-green-500/20 text-green-200 border border-green-500/30' 
+                          : 'bg-red-500/20 text-red-200 border border-red-500/30'
+                      }`}>
+                        {reportSentMessage}
+                      </div>
+                    )}
                   </div>
-                  {reportSentMessage && (
-                    <p className="text-sm text-green-300 mt-2">{reportSentMessage}</p>
-                  )}
-                </div>
               </div>
             )}
           </CardContent>

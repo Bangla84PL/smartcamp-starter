@@ -28,6 +28,26 @@ export type Database = {
           created_at?: string
         }
       }
+      "LLM-calc-report": {
+        Row: {
+          id: number
+          email: string
+          html_string: string
+          created_at: string
+        }
+        Insert: {
+          id?: number
+          email: string
+          html_string: string
+          created_at?: string
+        }
+        Update: {
+          id?: number
+          email?: string
+          html_string?: string
+          created_at?: string
+        }
+      }
     }
   }
 }
