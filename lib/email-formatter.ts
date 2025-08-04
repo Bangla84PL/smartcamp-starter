@@ -1,6 +1,10 @@
 import type { CalculatorResult } from './calculator'
+import { translations, Language } from './i18n/translations'
 
-export function formatRecommendationsAsHTML(result: CalculatorResult, userEmail: string): string {
+export function formatRecommendationsAsHTML(result: CalculatorResult, userEmail: string, language: Language = 'en'): string {
+  const t = (key: keyof typeof translations.en): string => {
+    return translations[language][key] || translations.en[key] || key
+  }
   // Get best GPU recommendation (first one that's within budget, or first overall)
   const bestGPU = result.recommendedGPUs && result.recommendedGPUs.length > 0 
     ? (result.recommendedGPUs.find(rec => rec.withinBudget) || result.recommendedGPUs[0])
@@ -16,7 +20,7 @@ export function formatRecommendationsAsHTML(result: CalculatorResult, userEmail:
 <html>
 <head>
   <meta charset="utf-8">
-  <title>LLM Hardware Calculator Report</title>
+  <title>${t('emailReportTitle')}</title>
   <style>
     body { 
       font-family: 'Arial', sans-serif; 
@@ -229,9 +233,9 @@ export function formatRecommendationsAsHTML(result: CalculatorResult, userEmail:
           🏕️ SmartCamp.ai
         </a>
       </div>
-      <h1><span class="emoji">🖥️</span>LLM Hardware Calculator Report</h1>
-      <p><strong>Report for:</strong> ${userEmail}</p>
-      <p><strong>Generated:</strong> ${new Date().toLocaleString('en-US', { 
+                    <h1><span class="emoji">🖥️</span>${t('emailReportTitle')}</h1>
+              <p><strong>${t('reportFor')}</strong> ${userEmail}</p>
+              <p><strong>${t('generated')}</strong> ${new Date().toLocaleString('en-US', { 
         weekday: 'long', 
         year: 'numeric', 
         month: 'long', 
@@ -242,26 +246,26 @@ export function formatRecommendationsAsHTML(result: CalculatorResult, userEmail:
     </div>
 
     <div class="summary-box">
-      <h2>📊 Configuration Summary</h2>
+                            <h2>📊 ${t('configurationSummary')}</h2>
       <table>
         <tr>
           <td class="metric">
             <span class="metric-value">${result.model?.name || 'Unknown Model'}</span>
-            <div class="metric-label">Selected Model</div>
+            <div class="metric-label">${t('selectedModel')}</div>
           </td>
           <td class="metric">
             <span class="metric-value">${result.quantization || 'Unknown'}</span>
-            <div class="metric-label">Quantization</div>
+            <div class="metric-label">${t('quantizationLabel')}</div>
           </td>
         </tr>
         <tr>
           <td class="metric">
             <span class="metric-value">${result.requirements?.ramGB || 0}GB</span>
-            <div class="metric-label">RAM Required</div>
+            <div class="metric-label">${t('minRam')}</div>
           </td>
           <td class="metric">
             <span class="metric-value">${result.requirements?.vramGB || 0}GB</span>
-            <div class="metric-label">VRAM Required</div>
+            <div class="metric-label">${t('minVram')}</div>
           </td>
         </tr>
       </table>
@@ -271,25 +275,25 @@ export function formatRecommendationsAsHTML(result: CalculatorResult, userEmail:
 
     <div class="recommendations">
       <h2 style="color: #10b981; font-size: 28px; margin-bottom: 24px; text-align: center;">
-        <span class="emoji">💡</span>Hardware Recommendations
+                                <span class="emoji">💡</span>${t('hardwareRecommendations')}
       </h2>
       
       <div class="recommendation-grid">
         ${bestGPU ? `
         <!-- GPU Recommendation -->
         <div class="recommendation-card">
-          <h3><span class="emoji">🎮</span>GPU Recommendation</h3>
+          <h3><span class="emoji">🎮</span>${t('gpuRecommendation')}</h3>
           <div class="price ${bestGPU.withinBudget ? 'within-budget' : 'over-budget'}">
             $${bestGPU.gpu?.priceUSD?.toLocaleString() || 'N/A'}
           </div>
           <ul class="specs">
-            <li><span class="label">Model:</span> <span class="value">${bestGPU.gpu?.name || 'Unknown'}</span></li>
+            <li><span class="label">${t('modelLabel')}</span> <span class="value">${bestGPU.gpu?.name || 'Unknown'}</span></li>
             <li><span class="label">VRAM:</span> <span class="value">${bestGPU.gpu?.vramGB || 0}GB</span></li>
             <li><span class="label">Memory Bandwidth:</span> <span class="value">${bestGPU.gpu?.memoryBandwidth || 0} GB/s</span></li>
-            <li><span class="label">Performance:</span> <span class="value">~${bestGPU.estimatedTokensPerSecond || 0} tokens/sec</span></li>
+            <li><span class="label">${t('performance')}</span> <span class="value">~${bestGPU.estimatedTokensPerSecond || 0} tokens/sec</span></li>
           </ul>
           <div class="status ${bestGPU.withinBudget ? 'recommended' : 'budget-exceeded'}">
-            ${bestGPU.withinBudget ? '✅ Within Budget' : '⚠️ Over Budget'}
+            ${bestGPU.withinBudget ? `✅ ${t('withinBudget')}` : `⚠️ ${t('overBudget')}`}
           </div>
         </div>
         ` : ''}
@@ -297,30 +301,30 @@ export function formatRecommendationsAsHTML(result: CalculatorResult, userEmail:
         ${bestVPS ? `
         <!-- VPS Recommendation -->
         <div class="recommendation-card">
-          <h3><span class="emoji">☁️</span>VPS Recommendation</h3>
+          <h3><span class="emoji">☁️</span>${t('vpsRecommendation')}</h3>
           <div class="price within-budget">
             $${bestVPS.vps?.monthlyCostUSD?.toLocaleString() || 'N/A'}/month
           </div>
           <ul class="specs">
-            <li><span class="label">Provider:</span> <span class="value">${bestVPS.vps?.provider || 'Unknown'}</span></li>
-            <li><span class="label">Configuration:</span> <span class="value">${bestVPS.vps?.name || 'Unknown'}</span></li>
-            <li><span class="label">Performance:</span> <span class="value">~${bestVPS.estimatedTokensPerSecond || 0} tokens/sec</span></li>
+            <li><span class="label">${t('provider')}</span> <span class="value">${bestVPS.vps?.provider || 'Unknown'}</span></li>
+            <li><span class="label">${t('configuration')}</span> <span class="value">${bestVPS.vps?.name || 'Unknown'}</span></li>
+            <li><span class="label">${t('performance')}</span> <span class="value">~${bestVPS.estimatedTokensPerSecond || 0} tokens/sec</span></li>
           </ul>
           <div class="status recommended">
-            ✅ Cloud Solution
+            ✅ ${t('cloudSolution')}
           </div>
         </div>
         ` : ''}
 
         <!-- Requirements Summary -->
         <div class="recommendation-card">
-          <h3><span class="emoji">📋</span>Technical Requirements</h3>
+          <h3><span class="emoji">📋</span>${t('technicalRequirements')}</h3>
           <ul class="specs">
-            <li><span class="label">Model:</span> <span class="value">${result.model?.name || 'Unknown'}</span></li>
-            <li><span class="label">Parameters:</span> <span class="value">${result.model?.parameterCount || 'Unknown'}</span></li>
-            <li><span class="label">Min RAM:</span> <span class="value">${result.requirements?.ramGB || 0}GB</span></li>
-            <li><span class="label">Min VRAM:</span> <span class="value">${result.requirements?.vramGB || 0}GB</span></li>
-            <li><span class="label">Quantization:</span> <span class="value">${result.quantization || 'Unknown'}</span></li>
+            <li><span class="label">${t('modelLabel')}</span> <span class="value">${result.model?.name || 'Unknown'}</span></li>
+            <li><span class="label">${t('parameterCount')}</span> <span class="value">${result.model?.parameterCount || 'Unknown'}</span></li>
+            <li><span class="label">${t('minRam')}</span> <span class="value">${result.requirements?.ramGB || 0}GB</span></li>
+            <li><span class="label">${t('minVram')}</span> <span class="value">${result.requirements?.vramGB || 0}GB</span></li>
+            <li><span class="label">${t('quantizationLabel')}</span> <span class="value">${result.quantization || 'Unknown'}</span></li>
           </ul>
         </div>
 
@@ -344,7 +348,7 @@ export function formatRecommendationsAsHTML(result: CalculatorResult, userEmail:
         <a href="mailto:hello@smartcamp.ai">Contact Us</a>
       </p>
       <p style="margin-top: 16px; font-size: 12px; color: rgba(255, 255, 255, 0.6);">
-        This report was generated automatically. For custom hardware recommendations and enterprise solutions, contact our AI infrastructure experts.
+        ${t('reportFooterText')}
       </p>
     </div>
   </div>

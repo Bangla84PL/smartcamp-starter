@@ -3,6 +3,7 @@
 import { supabaseServer } from '@/lib/supabase/server'
 import { formatRecommendationsAsHTML } from '@/lib/email-formatter'
 import type { CalculatorResult } from '@/lib/calculator'
+import type { Language } from '@/lib/i18n/translations'
 
 export type SaveEmailReportResult = {
   success: boolean
@@ -12,7 +13,8 @@ export type SaveEmailReportResult = {
 
 export async function saveEmailReport(
   email: string, 
-  result: CalculatorResult
+  result: CalculatorResult,
+  language: Language = 'en'
 ): Promise<SaveEmailReportResult> {
   try {
     // Basic email validation
@@ -25,7 +27,7 @@ export async function saveEmailReport(
     }
 
     // Generate HTML content
-    const htmlContent = formatRecommendationsAsHTML(result, email)
+    const htmlContent = formatRecommendationsAsHTML(result, email, language)
 
     // Insert into LLM-calc-report table (using the exact table structure from Supabase)
     const { data, error } = await supabaseServer

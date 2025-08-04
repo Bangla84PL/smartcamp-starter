@@ -55,7 +55,7 @@ export default function LLMCalculator() {
     setReportSentMessage('')
 
     try {
-      const saveResult = await saveEmailReport(emailForReport, result)
+      const saveResult = await saveEmailReport(emailForReport, result, language)
       
       if (saveResult.success) {
         setReportSentMessage('Report saved! You should receive an email shortly.')
