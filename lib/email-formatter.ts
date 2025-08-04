@@ -285,7 +285,7 @@ export function formatRecommendationsAsHTML(result: CalculatorResult, userEmail:
           <ul class="specs">
             <li><span class="label">Model:</span> <span class="value">${bestGPU.gpu?.name || 'Unknown'}</span></li>
             <li><span class="label">VRAM:</span> <span class="value">${bestGPU.gpu?.vramGB || 0}GB</span></li>
-            <li><span class="label">Memory Type:</span> <span class="value">${bestGPU.gpu?.memoryType || 'GDDR6'}</span></li>
+            <li><span class="label">Memory Bandwidth:</span> <span class="value">${bestGPU.gpu?.memoryBandwidth || 0} GB/s</span></li>
             <li><span class="label">Performance:</span> <span class="value">~${bestGPU.estimatedTokensPerSecond || 0} tokens/sec</span></li>
           </ul>
           <div class="status ${bestGPU.withinBudget ? 'recommended' : 'budget-exceeded'}">
@@ -317,7 +317,7 @@ export function formatRecommendationsAsHTML(result: CalculatorResult, userEmail:
           <h3><span class="emoji">📋</span>Technical Requirements</h3>
           <ul class="specs">
             <li><span class="label">Model:</span> <span class="value">${result.model?.name || 'Unknown'}</span></li>
-            <li><span class="label">Parameters:</span> <span class="value">${result.model?.parameters || 'Unknown'}</span></li>
+            <li><span class="label">Parameters:</span> <span class="value">${result.model?.parameterCount || 'Unknown'}</span></li>
             <li><span class="label">Min RAM:</span> <span class="value">${result.requirements?.ramGB || 0}GB</span></li>
             <li><span class="label">Min VRAM:</span> <span class="value">${result.requirements?.vramGB || 0}GB</span></li>
             <li><span class="label">Quantization:</span> <span class="value">${result.quantization || 'Unknown'}</span></li>
