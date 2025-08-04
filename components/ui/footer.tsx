@@ -41,20 +41,16 @@ export default function Footer() {
                 />
               </Link>
               
-              {/* Copyright and additional info */}
+              {/* Copyright */}
               <div className="text-center lg:text-left text-xs text-white/70">
-                <p>&copy; 2025 SmartCamp AI. {t('allRightsReserved')}.</p>
-                <p className="mt-0.5">
-                  {t('poweredBy')}{' '}
-                  <Link 
+                <p>&copy; 2025 <Link 
                     href="https://smartcamp.ai" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="hover:text-white transition-colors duration-200"
                   >
                     SmartCamp AI
-                  </Link>
-                </p>
+                  </Link>. {t('allRightsReserved')}.</p>
               </div>
             </div>
 
