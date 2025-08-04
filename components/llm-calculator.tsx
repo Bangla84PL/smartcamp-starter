@@ -293,7 +293,7 @@ export default function LLMCalculator() {
                 </div>
 
                                   {/* Email Report Section */}
-                  <div className="bg-black/20 border border-white/30 p-4 rounded-lg">
+                  <div className="bg-gradient-to-br from-emerald-900/30 to-green-800/20 border-2 border-emerald-400/50 p-5 rounded-xl shadow-lg shadow-emerald-500/10 backdrop-blur-sm">
                     <h3 className="font-semibold text-white mb-3">📧 {t('emailReport')}</h3>
                     <p className="text-sm text-white/70 mb-3">
                       Get detailed hardware recommendations sent to your email for easy reference and sharing.
