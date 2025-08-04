@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Welcome to SmartCamp.AI Newsletter</title>
+  <style>
+    body { 
+      font-family: 'Arial', sans-serif; 
+      line-height: 1.6; 
+      color: #ffffff; 
+      max-width: 600px; 
+      margin: 0 auto; 
+      padding: 20px; 
+      /* Email-compatible jungle background */
+      background-color: #1a472a;
+      background-image: linear-gradient(45deg, #1a472a 25%, #166534 25%, #166534 50%, #1a472a 50%, #1a472a 75%, #166534 75%);
+      background-size: 40px 40px;
+    }
+    
+    .container {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 32px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    
+    .logo {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    
+    .logo-text {
+      font-size: 24px;
+      font-weight: bold;
+      color: #10b981;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .logo-text:hover {
+      color: #34d399;
+    }
+    
+    h1 {
+      color: #10b981;
+      font-size: 32px;
+      margin-bottom: 24px;
+      text-align: center;
+      border-bottom: 2px solid #10b981;
+      padding-bottom: 16px;
+    }
+    
+    h2 {
+      color: #34d399;
+      font-size: 24px;
+      margin: 32px 0 16px 0;
+      border-left: 4px solid #10b981;
+      padding-left: 16px;
+    }
+    
+    .emoji {
+      font-size: 1.2em;
+      margin-right: 8px;
+    }
+    
+    .welcome-section {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    
+    .benefits-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .benefits-list li {
+      padding: 8px 0;
+      padding-left: 32px;
+      position: relative;
+    }
+    
+    .benefits-list li:before {
+      content: "✨";
+      position: absolute;
+      left: 0;
+      font-size: 1.2em;
+    }
+    
+    .cta-section {
+      text-align: center;
+      margin: 32px 0;
+      padding: 24px;
+      background: rgba(16, 185, 129, 0.15);
+      border-radius: 12px;
+      border: 2px solid #10b981;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 16px 32px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 18px;
+      margin: 16px 8px;
+      border: 2px solid #10b981;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-button:hover {
+      background: linear-gradient(135deg, #059669, #047857);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    }
+    
+    .language-divider {
+      border-top: 2px solid rgba(16, 185, 129, 0.3);
+      margin: 48px 0;
+      position: relative;
+    }
+    
+    .language-divider:after {
+      content: "• • •";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a472a;
+      padding: 0 16px;
+      color: #10b981;
+      font-size: 18px;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .footer a {
+      color: #10b981;
+      text-decoration: none;
+    }
+    
+    .footer a:hover {
+      color: #34d399;
+    }
+    
+    .social-links {
+      margin: 16px 0;
+    }
+    
+    .social-links a {
+      display: inline-block;
+      margin: 0 8px;
+      color: #10b981;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .unsubscribe {
+      margin-top: 24px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .unsubscribe a {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="https://smartcamp.ai" target="_blank" class="logo-text">
+        🏕️ SmartCamp.ai
+      </a>
+    </div>
+
+    <!-- ENGLISH VERSION -->
+    <h1><span class="emoji">🎉</span>Welcome to SmartCamp.AI!</h1>
+    
+    <div class="welcome-section">
+      <h2><span class="emoji">🚀</span>Thank you for joining our community!</h2>
+      <p>We're thrilled to have you on board! You've just taken the first step towards mastering AI, automation, and cutting-edge web development.</p>
+      
+      <p><strong>What to expect from our newsletter:</strong></p>
+      <ul class="benefits-list">
+        <li>Latest AI trends and breakthrough technologies</li>
+        <li>Step-by-step automation tutorials and guides</li>
+        <li>Web development tips from industry experts</li>
+        <li>Exclusive access to our tools and calculators</li>
+        <li>Early notifications about new courses and workshops</li>
+        <li>Community insights and success stories</li>
+      </ul>
+    </div>
+
+    <div class="cta-section">
+      <h2><span class="emoji">🛠️</span>Get Started Today!</h2>
+      <p>Explore our AI-powered tools and start your journey:</p>
+      <a href="https://smartcamp.ai" target="_blank" class="cta-button">Visit SmartCamp.AI</a>
+    </div>
+
+    <div class="language-divider"></div>
+
+    <!-- POLISH VERSION -->
+    <h1><span class="emoji">🎉</span>Witamy w SmartCamp.AI!</h1>
+    
+    <div class="welcome-section">
+      <h2><span class="emoji">🚀</span>Dziękujemy za dołączenie do naszej społeczności!</h2>
+      <p>Cieszymy się, że jesteś z nami! Właśnie postawiłeś pierwszy krok w kierunku opanowania AI, automatyzacji i nowoczesnego web developmentu.</p>
+      
+      <p><strong>Czego możesz spodziewać się po naszym newsletterze:</strong></p>
+      <ul class="benefits-list">
+        <li>Najnowsze trendy AI i przełomowe technologie</li>
+        <li>Szczegółowe tutoriale i przewodniki automatyzacji</li>
+        <li>Wskazówki web developmentu od ekspertów branży</li>
+        <li>Ekskluzywny dostęp do naszych narzędzi i kalkulatorów</li>
+        <li>Wczesne powiadomienia o nowych kursach i warsztatach</li>
+        <li>Spostrzeżenia społeczności i historie sukcesu</li>
+      </ul>
+    </div>
+
+    <div class="cta-section">
+      <h2><span class="emoji">🛠️</span>Zacznij już dziś!</h2>
+      <p>Odkryj nasze narzędzia AI i rozpocznij swoją podróż:</p>
+      <a href="https://smartcamp.ai" target="_blank" class="cta-button">Odwiedź SmartCamp.AI</a>
+    </div>
+
+    <div class="language-divider"></div>
+
+    <!-- CHINESE VERSION -->
+    <h1><span class="emoji">🎉</span>欢迎来到 SmartCamp.AI！</h1>
+    
+    <div class="welcome-section">
+      <h2><span class="emoji">🚀</span>感谢您加入我们的社区！</h2>
+      <p>我们很高兴您的加入！您刚刚迈出了掌握AI、自动化和前沿Web开发的第一步。</p>
+      
+      <p><strong>我们的通讯将为您带来：</strong></p>
+      <ul class="benefits-list">
+        <li>最新的AI趋势和突破性技术</li>
+        <li>详细的自动化教程和指南</li>
+        <li>来自行业专家的Web开发技巧</li>
+        <li>独家访问我们的工具和计算器</li>
+        <li>新课程和研讨会的早期通知</li>
+        <li>社区洞察和成功故事</li>
+      </ul>
+    </div>
+
+    <div class="cta-section">
+      <h2><span class="emoji">🛠️</span>立即开始！</h2>
+      <p>探索我们的AI驱动工具，开始您的旅程：</p>
+      <a href="https://smartcamp.ai" target="_blank" class="cta-button">访问 SmartCamp.AI</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="social-links">
+        <a href="https://smartcamp.ai" target="_blank">🌐 Website</a>
+        <a href="mailto:hello@smartcamp.ai">📧 Contact</a>
+        <a href="tel:+48518894156">📞 +48 518 894 156</a>
+      </div>
+      
+      <p>
+        <a href="https://smartcamp.ai" target="_blank">Visit SmartCamp.ai</a> | 
+        <a href="mailto:hello@smartcamp.ai">Contact Us</a>
+      </p>
+      
+      <p style="margin-top: 16px; font-size: 12px; color: rgba(255, 255, 255, 0.6);">
+        This welcome message was generated automatically. For custom AI solutions and enterprise services, contact our experts.
+      </p>
+      
+      <div class="unsubscribe">
+        <p>You received this email because you subscribed to our newsletter.</p>
+        <p><a href="#unsubscribe">Unsubscribe</a> | <a href="#preferences">Update Preferences</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
