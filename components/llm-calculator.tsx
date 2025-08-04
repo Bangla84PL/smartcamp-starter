@@ -13,7 +13,7 @@ import { useLanguage } from '@/lib/i18n/context'
 import { saveEmailReport } from '@/app/actions/save-email-report'
 
 export default function LLMCalculator() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const [modelId, setModelId] = useState<string>('')
   const [quantization, setQuantization] = useState<QuantizationType>('Q4_K_M')
   const [targetTokensPerSecond, setTargetTokensPerSecond] = useState<number[]>([20])
