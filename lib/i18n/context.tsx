@@ -16,11 +16,37 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [isHydrated, setIsHydrated] = useState(false)
 
   useEffect(() => {
-    // Load language from localStorage after hydration
-    const savedLanguage = localStorage.getItem('language') as Language
-    if (savedLanguage && ['en', 'pl', 'zh'].includes(savedLanguage)) {
-      setLanguage(savedLanguage)
+    // Function to detect browser language
+    const detectBrowserLanguage = (): Language => {
+      if (typeof navigator === 'undefined') return 'en'
+      
+      // Get browser language, fallback to 'en' if not available
+      const browserLang = navigator.language || navigator.languages?.[0] || 'en'
+      
+      // Map browser language codes to our supported languages
+      const langCode = browserLang.toLowerCase()
+      
+      if (langCode.startsWith('pl')) return 'pl'
+      if (langCode.startsWith('zh')) return 'zh'
+      
+      // Default to English for all other languages
+      return 'en'
     }
+
+    // Priority: 1. localStorage (user preference), 2. browser language, 3. default 'en'
+    const savedLanguage = localStorage.getItem('language') as Language
+    
+    if (savedLanguage && ['en', 'pl', 'zh'].includes(savedLanguage)) {
+      // User has previously selected a language
+      setLanguage(savedLanguage)
+    } else {
+      // No saved preference, detect browser language
+      const detectedLanguage = detectBrowserLanguage()
+      setLanguage(detectedLanguage)
+      // Save the detected language to localStorage for future visits
+      localStorage.setItem('language', detectedLanguage)
+    }
+    
     setIsHydrated(true)
   }, [])
 
