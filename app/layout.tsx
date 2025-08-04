@@ -15,6 +15,15 @@ const jost = Jost({
 export const metadata: Metadata = {
   title: "LLM Hardware Calculator - SmartCamp AI",
   description: "Calculate optimal hardware requirements and costs for running Large Language Models locally or in the cloud.",
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '192x192', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({
