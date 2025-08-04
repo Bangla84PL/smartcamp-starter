@@ -47,6 +47,7 @@ export const translations = {
     
     // Email Report
     emailReport: "Email Report",
+    emailReportDescription: "Get detailed hardware recommendations sent to your email for easy reference and sharing.",
     enterEmailForReport: "Enter email to receive report",
     sendReport: "Send Report",
     sending: "Sending...",
@@ -120,6 +121,7 @@ export const translations = {
     
     // Email Report
     emailReport: "Raport Email",
+    emailReportDescription: "Otrzymaj szczegółowe rekomendacje sprzętowe na swojego emaila dla łatwego dostępu i udostępniania.",
     enterEmailForReport: "Wprowadź email aby otrzymać raport",
     sendReport: "Wyślij Raport",
     sending: "Wysyłanie...",
@@ -193,6 +195,7 @@ export const translations = {
     
     // Email Report
     emailReport: "邮件报告",
+    emailReportDescription: "获取详细的硬件推荐发送到您的邮箱，便于参考和分享。",
     enterEmailForReport: "输入邮箱接收报告",
     sendReport: "发送报告",
     sending: "发送中...",
