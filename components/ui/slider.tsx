@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { useState, useEffect } from "react"
 
 export interface SliderProps {
   value: number[]
@@ -14,9 +15,17 @@ export interface SliderProps {
 
 const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
   ({ className, value, onValueChange, max = 100, min = 0, step = 1, disabled, ...props }, ref) => {
+    const [isHydrated, setIsHydrated] = useState(false)
+    
+    useEffect(() => {
+      setIsHydrated(true)
+    }, [])
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       onValueChange([parseInt(e.target.value)])
     }
+
+    const bananaPosition = isHydrated ? ((value[0] - min) / (max - min)) * 100 : 50
 
     return (
       <div className={`relative flex w-full touch-none select-none items-center ${className || ''}`}>
@@ -32,12 +41,12 @@ const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
           ref={ref}
           {...props}
         />
-        <div className="absolute inset-0 pointer-events-none flex items-center">
+        <div className="absolute inset-0 pointer-events-none flex items-center" suppressHydrationWarning>
           <div 
             className="text-lg transition-transform duration-200 hover:scale-125"
             style={{
               position: 'absolute',
-              left: `${((value[0] - min) / (max - min)) * 100}%`,
+              left: `${bananaPosition}%`,
               transform: 'translateX(-50%)',
               zIndex: 10
             }}
