@@ -20,6 +20,11 @@ export default function Footer() {
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center space-y-4 lg:space-y-0">
             {/* Main footer content - centered on mobile, left on desktop */}
             <div className="flex flex-col items-center lg:items-start space-y-2 lg:flex-1">
+              {/* Newsletter Signup */}
+              <div className="w-full lg:max-w-sm">
+                <NewsletterSignup />
+              </div>
+
               {/* Logo */}
               <Link 
                 href="https://smartcamp.ai" 
@@ -50,11 +55,6 @@ export default function Footer() {
                     SmartCamp AI
                   </Link>
                 </p>
-              </div>
-
-              {/* Newsletter Signup */}
-              <div className="mt-2 w-full lg:max-w-sm">
-                <NewsletterSignup />
               </div>
             </div>
 
