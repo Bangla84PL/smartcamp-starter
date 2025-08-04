@@ -16,10 +16,10 @@ export default function Footer() {
       backgroundRepeat: "no-repeat"
     }}>
       <div className="bg-black/30 backdrop-blur-sm">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-end space-y-6 lg:space-y-0">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center space-y-4 lg:space-y-0">
             {/* Main footer content - centered on mobile, left on desktop */}
-            <div className="flex flex-col items-center lg:items-start space-y-4 lg:flex-1">
+            <div className="flex flex-col items-center lg:items-start space-y-2 lg:flex-1">
               {/* Logo */}
               <Link 
                 href="https://smartcamp.ai" 
@@ -30,16 +30,16 @@ export default function Footer() {
                 <Image
                   src="/SmartCampAIpng.png"
                   alt="SmartCamp AI"
-                  width={120}
-                  height={60}
-                  className="h-8 w-auto sm:h-10"
+                  width={100}
+                  height={50}
+                  className="h-6 w-auto sm:h-8"
                 />
               </Link>
               
               {/* Copyright and additional info */}
-              <div className="text-center lg:text-left text-sm text-white/80">
+              <div className="text-center lg:text-left text-xs text-white/70">
                 <p>&copy; 2025 SmartCamp AI. {t('allRightsReserved')}.</p>
-                <p className="mt-1">
+                <p className="mt-0.5">
                   {t('poweredBy')}{' '}
                   <Link 
                     href="https://smartcamp.ai" 
@@ -53,7 +53,7 @@ export default function Footer() {
               </div>
 
               {/* Newsletter Signup */}
-              <div className="mt-6 lg:mt-4 w-full lg:max-w-sm">
+              <div className="mt-2 w-full lg:max-w-sm">
                 <NewsletterSignup />
               </div>
             </div>
