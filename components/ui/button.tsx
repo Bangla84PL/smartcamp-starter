@@ -13,7 +13,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     
     const variants = {
       default: "bg-primary text-primary-foreground hover:bg-primary/90",
-      jungle: "text-white font-semibold shadow-lg hover:opacity-90 transition-all duration-200 ease-in-out border border-white/30",
+      jungle: "text-white font-semibold shadow-xl border border-white/30 relative overflow-hidden hover:scale-105 hover:shadow-2xl transform transition-all duration-300 ease-out hover:border-white/50",
       outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
       ghost: "hover:bg-accent hover:text-accent-foreground",
     }
@@ -41,7 +41,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {variant === "jungle" && (
-          <div className="absolute inset-0 bg-black/40 rounded-md"></div>
+          <>
+            <div className="absolute inset-0 bg-black/40 rounded-md transition-all duration-300 hover:bg-black/30"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-green-600/20 rounded-md opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+          </>
         )}
         <span className="relative z-10">{props.children}</span>
       </button>

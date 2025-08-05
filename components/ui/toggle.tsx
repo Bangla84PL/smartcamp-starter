@@ -29,14 +29,14 @@ export function Toggle({
           className="sr-only"
           disabled={disabled}
         />
-        <div className={`w-11 h-6 rounded-full transition-all duration-200 ${
+        <div className={`w-11 h-6 rounded-full transition-all duration-200 flex items-center ${
           checked 
             ? 'bg-emerald-500' 
             : 'bg-white/20 border border-white/30'
         } ${!disabled && 'group-hover:bg-opacity-80'}`}>
           <div className={`w-4 h-4 rounded-full bg-white transition-all duration-200 transform ${
             checked ? 'translate-x-6' : 'translate-x-1'
-          } mt-1 shadow-sm`} />
+          } shadow-sm`} />
         </div>
       </div>
       {(label || description) && (
