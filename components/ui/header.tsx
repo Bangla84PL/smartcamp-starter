@@ -1,7 +1,19 @@
-"use client"
+'use client'
 
 import Image from 'next/image'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
+
+// Dynamically import the language selector to avoid hydration issues
+const LanguageSelector = dynamic(() => import('./language-selector'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center space-x-2 px-3 py-2 rounded-md bg-white/10 backdrop-blur border border-white/20 text-white animate-pulse">
+      <span className="text-lg">🇺🇸</span>
+      <span className="text-sm font-medium hidden sm:block">Loading...</span>
+    </div>
+  )
+})
 
 export default function Header() {
   return (
@@ -46,11 +58,12 @@ export default function Header() {
             </Link>
           </div>
           
-          {/* Navigation placeholder - customize for your app */}
+          {/* Navigation and Language Selector */}
           <nav className="flex items-center space-x-4">
-            <div className="text-white/80 text-sm">
+            <div className="text-white/80 text-sm hidden md:block">
               Starter Template
             </div>
+            <LanguageSelector />
           </nav>
         </div>
         </div>

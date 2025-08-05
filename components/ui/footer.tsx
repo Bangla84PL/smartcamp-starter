@@ -1,7 +1,23 @@
-"use client"
+'use client'
 
 import Image from 'next/image'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
+
+// Dynamically import the newsletter component to avoid hydration issues
+const NewsletterSignup = dynamic(() => import('./newsletter-signup'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex flex-col sm:flex-row gap-2">
+      <div className="flex-1 px-3 py-2 text-sm bg-white/10 border border-white/20 rounded-md text-white/60 animate-pulse">
+        Loading...
+      </div>
+      <div className="bg-emerald-600/50 px-4 py-2 rounded-md text-white font-medium animate-pulse whitespace-nowrap">
+        Subscribe
+      </div>
+    </div>
+  )
+})
 
 export default function Footer() {
   return (
@@ -12,35 +28,22 @@ export default function Footer() {
       backgroundRepeat: "no-repeat"
     }}>
       <div className="bg-black/30 backdrop-blur-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center space-y-4 lg:space-y-0">
-            {/* Main footer content - centered on mobile, left on desktop */}
-            <div className="flex flex-col items-center lg:items-start space-y-2 lg:flex-1">
-              {/* Demo Newsletter Section - Replace with your own functionality */}
-              <div className="w-full lg:max-w-sm">
-                <div className="text-center lg:text-left">
-                  <p className="text-sm text-white/80 mb-2">
-                    SmartCamp.AI Starter Template
-                  </p>
-                  <p className="text-xs text-white/60">
-                    Beautiful, responsive, ready to customize
-                  </p>
-                </div>
-              </div>
-
-              {/* Logo */}
+        <div className="container mx-auto px-2 py-2">
+          <div className="flex flex-col lg:flex-row lg:items-center space-y-2 lg:space-y-0">
+            {/* Monkey graphic with copyright - left side */}
+            <div className="flex flex-col items-center lg:items-start lg:flex-shrink-0 space-y-2">
               <Link 
                 href="https://smartcamp.ai" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="block transition-all duration-300 ease-in-out hover:scale-105 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg"
+                className="block transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-lg"
               >
                 <Image
-                  src="/SmartCampAIpng.png"
-                  alt="SmartCamp AI"
-                  width={100}
-                  height={50}
-                  className="h-6 w-auto sm:h-8"
+                  src="/Monkey SmartCampAI.png"
+                  alt="SmartCamp AI Monkey - Visit SmartCamp.ai"
+                  width={240}
+                  height={240}
+                  className="h-48 w-48 sm:h-60 sm:w-60 object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
                 />
               </Link>
               
@@ -57,8 +60,24 @@ export default function Footer() {
               </div>
             </div>
 
+            {/* Main footer content - more centered */}
+            <div className="flex flex-col items-center space-y-1 lg:flex-1 lg:px-4">
+              {/* Newsletter Section */}
+              <div className="w-full lg:max-w-sm">
+                <div className="text-center mb-2">
+                  <p className="text-sm text-white/80 mb-1">
+                    Stay Updated
+                  </p>
+                  <p className="text-xs text-white/60 mb-2">
+                    Get the latest SmartCamp AI updates and features
+                  </p>
+                </div>
+                <NewsletterSignup />
+              </div>
+            </div>
+
             {/* Contact Info - right side on desktop, centered on mobile */}
-            <div className="flex flex-col items-center lg:items-end space-y-2 text-sm text-white/80">
+            <div className="flex flex-col items-center lg:items-end space-y-2 text-sm text-white/80 lg:flex-shrink-0">
               {/* Email */}
               <Link
                 href="mailto:hello@smartcamp.ai"
