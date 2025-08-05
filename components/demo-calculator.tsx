@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Select } from '@/components/ui/select'
 import { Input } from '@/components/ui/input'
 import { Slider } from '@/components/ui/slider'
@@ -73,16 +72,14 @@ export default function DemoCalculator() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Column 1: Elements - Interactive UI Components */}
         <div className="rounded-lg border border-white/20 shadow-sm bg-white/15 backdrop-blur" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15) !important' }}>
-          <CardHeader>
-            <CardTitle>Elements</CardTitle>
-            <CardDescription>
-              Interactive UI components from our design system
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
+          <div className="flex flex-col space-y-1.5 p-6">
+            <h3 className="text-2xl font-semibold leading-none tracking-tight text-white">Elements</h3>
+            <p className="text-sm text-white/70">Interactive UI components from our design system</p>
+          </div>
+          <div className="p-6 pt-0 space-y-6">
             {/* Dropdown/Select Menus */}
             <div className="space-y-4">
               <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Dropdown & Select</h3>
@@ -276,18 +273,16 @@ export default function DemoCalculator() {
                 description="I agree to the terms of service and privacy policy"
               />
             </div>
-          </CardContent>
+          </div>
         </div>
 
         {/* Column 2: Typography - IDENTICAL structure to Column 1 */}
         <div className="rounded-lg border border-white/20 shadow-sm bg-white/15 backdrop-blur" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15) !important' }}>
-          <CardHeader>
-            <CardTitle>Typography</CardTitle>
-            <CardDescription>
-              Visual styles and design system elements
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
+          <div className="flex flex-col space-y-1.5 p-6">
+            <h3 className="text-2xl font-semibold leading-none tracking-tight text-white">Typography</h3>
+            <p className="text-sm text-white/70">Visual styles and design system elements</p>
+          </div>
+          <div className="p-6 pt-0 space-y-6">
             {/* Typography Scale */}
             <div className="space-y-4">
               <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Typography Scale</h3>
@@ -511,7 +506,7 @@ export default function DemoCalculator() {
                 </div>
               </div>
             </div>
-          </CardContent>
+          </div>
         </div>
 
         {/* Column 3: Typography Copy */}
@@ -743,6 +738,209 @@ export default function DemoCalculator() {
                   <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded block text-center">8px</code>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Column 4: Elements Copy */}
+        <div className="rounded-lg border border-white/20 shadow-sm bg-white/15 backdrop-blur" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15) !important' }}>
+          <div className="flex flex-col space-y-1.5 p-6">
+            <h3 className="text-2xl font-semibold leading-none tracking-tight text-white">Elements Copy</h3>
+            <p className="text-sm text-white/70">Interactive UI components from our design system</p>
+          </div>
+          <div className="p-6 pt-0 space-y-6">
+            {/* Dropdown/Select Menus */}
+            <div className="space-y-4">
+              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Dropdown & Select</h3>
+              
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Model Selection</label>
+                <Select
+                  value={modelId}
+                  onChange={(e) => setModelId(e.target.value)}
+                  placeholder="Choose a model"
+                >
+                  {DEMO_MODELS.map((model) => (
+                    <option key={model.id} value={model.id}>
+                      {model.name} ({model.parameterCount})
+                    </option>
+                  ))}
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Additional Features</label>
+                <Select
+                  value=""
+                  onChange={() => {}}
+                  placeholder="Select additional features"
+                >
+                  <option value="monitoring">Performance Monitoring</option>
+                  <option value="backup">Automated Backups</option>
+                  <option value="security">Enhanced Security</option>
+                  <option value="analytics">Advanced Analytics</option>
+                </Select>
+              </div>
+            </div>
+
+            {/* Radio Button Groups */}
+            <div className="space-y-4">
+              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Radio Buttons</h3>
+              
+              <div className="space-y-3">
+                <label className="text-sm font-medium">Deployment Type</label>
+                <RadioGroup
+                  options={DEMO_DEPLOYMENT_OPTIONS}
+                  value={deploymentType}
+                  onChange={setDeploymentType}
+                  name="deployment"
+                />
+              </div>
+
+              <div className="space-y-3">
+                <label className="text-sm font-medium">Optimization Priority</label>
+                <RadioGroup
+                  options={DEMO_PRIORITY_OPTIONS}
+                  value={priority}
+                  onChange={setPriority}
+                  name="priority"
+                />
+              </div>
+            </div>
+
+            {/* Text Inputs */}
+            <div className="space-y-4">
+              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Text Inputs</h3>
+              
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Budget (USD)</label>
+                <Input
+                  type="number"
+                  placeholder="Enter your budget"
+                  value={budgetUSD}
+                  onChange={(e) => setBudgetUSD(e.target.value)}
+                  min="0"
+                  step="100"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Email Address</label>
+                <Input
+                  type="email"
+                  placeholder="Enter your email address"
+                  value={emailForReport}
+                  onChange={(e) => setEmailForReport(e.target.value)}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Project Description</label>
+                <Textarea
+                  placeholder="Describe your project goals and requirements..."
+                  value={projectDescription}
+                  onChange={(e) => setProjectDescription(e.target.value)}
+                  rows={3}
+                />
+              </div>
+            </div>
+
+            {/* Sliders */}
+            <div className="space-y-4">
+              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Range Sliders</h3>
+              
+              <div className="space-y-3">
+                <label className="text-sm font-medium">
+                  Performance Target: {targetTokensPerSecond[0]} tokens/second
+                </label>
+                <Slider
+                  value={targetTokensPerSecond}
+                  onValueChange={setTargetTokensPerSecond}
+                  max={50}
+                  min={5}
+                  step={1}
+                  className="w-full"
+                />
+                <div className="flex justify-between text-xs text-muted-foreground">
+                  <span>5 tokens/sec</span>
+                  <span>50 tokens/sec</span>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <label className="text-sm font-medium">
+                  Memory Limit: {memoryLimit[0]} GB
+                </label>
+                <Slider
+                  value={memoryLimit}
+                  onValueChange={setMemoryLimit}
+                  max={64}
+                  min={4}
+                  step={2}
+                  className="w-full"
+                />
+                <div className="flex justify-between text-xs text-muted-foreground">
+                  <span>4 GB</span>
+                  <span>64 GB</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Date Pickers */}
+            <div className="space-y-4">
+              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Date Pickers</h3>
+              
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Project Start Date</label>
+                <DatePicker
+                  value={projectStartDate}
+                  onChange={setProjectStartDate}
+                  placeholder="Select start date"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Analysis Period</label>
+                <DateRangePicker
+                  startDate={startDate}
+                  endDate={endDate}
+                  onStartDateChange={setStartDate}
+                  onEndDateChange={setEndDate}
+                />
+              </div>
+            </div>
+
+            {/* Toggles & Checkboxes */}
+            <div className="space-y-4">
+              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Toggles & Checkboxes</h3>
+              
+              <Toggle
+                checked={enableAdvanced}
+                onChange={setEnableAdvanced}
+                label="Enable Advanced Options"
+                description="Show additional configuration options"
+              />
+              
+              <Toggle
+                checked={enableNotifications}
+                onChange={setEnableNotifications}
+                label="Email Notifications"
+                description="Receive updates about your project"
+              />
+              
+              <Toggle
+                checked={enableAutoScale}
+                onChange={setEnableAutoScale}
+                label="Auto-scaling"
+                description="Automatically adjust resources based on demand"
+              />
+              
+              <Checkbox
+                checked={acceptTerms}
+                onChange={setAcceptTerms}
+                label="Accept Terms and Conditions"
+                description="I agree to the terms of service and privacy policy"
+              />
             </div>
           </div>
         </div>
