@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "description": "A beautiful Next.js starter template with SmartCamp.AI design system",
-  "keywords": ["nextjs", "tailwindcss", "typescript", "starter-template", "design-system"],
+  "keywords": [
+    "nextjs",
+    "tailwindcss",
+    "typescript",
+    "starter-template",
+    "design-system"
+  ],
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -11,6 +17,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.53.0",
     "next": "15.4.5",
     "react": "19.1.0",
     "react-dom": "19.1.0"
@@ -21,6 +28,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.2.1",
     "eslint": "^9",
     "eslint-config-next": "15.4.5",
     "tailwindcss": "^4",

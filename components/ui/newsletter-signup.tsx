@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { Button } from '@/components/ui/button'
+import { subscribeToNewsletter } from '@/app/actions/newsletter'
 
 export default function NewsletterSignup() {
   const [email, setEmail] = useState('')
@@ -16,15 +16,17 @@ export default function NewsletterSignup() {
     setMessage(null)
 
     try {
-      // Simulate API call - replace with actual newsletter subscription logic
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      const result = await subscribeToNewsletter(email)
       
-      // For now, just show success message
-      setMessage({ type: 'success', text: 'Successfully subscribed to newsletter!' })
-      setEmail('')
+      if (result.success) {
+        setMessage({ type: 'success', text: result.message })
+        setEmail('')
+      } else {
+        setMessage({ type: 'error', text: result.message })
+      }
     } catch (error) {
       console.error('Newsletter subscription error:', error)
-      setMessage({ type: 'error', text: 'Failed to subscribe. Please try again.' })
+      setMessage({ type: 'error', text: 'An unexpected error occurred. Please try again.' })
     } finally {
       setIsSubmitting(false)
     }
