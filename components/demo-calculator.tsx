@@ -347,86 +347,18 @@ export default function DemoCalculator() {
           </div>
         </div>
 
-        {/* Column 3: Typography Copy - EXACT COPY OF COLUMN 2 */}
+        {/* Column 3: Typography Copy */}
         <div className="rounded-lg border border-white/20 shadow-sm bg-white/15 backdrop-blur" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15) !important' }}>
           <div className="flex flex-col space-y-1.5 p-6">
             <h3 className="text-2xl font-semibold leading-none tracking-tight text-white">Typography Copy</h3>
-            <p className="text-sm text-white/70">Design system visual styles</p>
+            <p className="text-sm text-white/70">Duplicate of design system visual styles</p>
           </div>
           <div className="p-6 pt-0 space-y-6">
-            {/* Typography Scale - Simplified */}
+            {/* Typography Scale */}
             <div className="space-y-4">
               <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Typography Scale</h3>
               
-              <div className="space-y-3">
-                <div>
-                  <h1 className="text-4xl font-bold text-white mb-1">Heading 1</h1>
-                  <p className="text-xs text-white/60">text-4xl font-bold</p>
-                </div>
-                <div>
-                  <h2 className="text-3xl font-semibold text-white mb-1">Heading 2</h2>
-                  <p className="text-xs text-white/60">text-3xl font-semibold</p>
-                </div>
-                <div>
-                  <p className="text-base text-white/90 mb-1">Body Text - Regular paragraph text</p>
-                  <p className="text-xs text-white/60">text-base text-white/90</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Color Palette - Simplified */}
-            <div className="space-y-4">
-              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Color Palette</h3>
-              
-              <div className="space-y-3">
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="space-y-2">
-                    <div className="w-full h-12 bg-emerald-500 rounded-md flex items-center justify-center text-white font-medium text-sm">
-                      Primary
-                    </div>
-                    <p className="text-xs text-white/60">emerald-500</p>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="w-full h-12 bg-emerald-600 rounded-md flex items-center justify-center text-white font-medium text-sm">
-                      Primary Dark
-                    </div>
-                    <p className="text-xs text-white/60">emerald-600</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Spacing Examples */}
-            <div className="space-y-4">
-              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Spacing & Layout</h3>
-              
-              <div className="space-y-2">
-                <div className="flex gap-2">
-                  <div className="w-4 h-4 bg-white/30 rounded"></div>
-                  <p className="text-sm text-white/80">Small spacing (gap-2)</p>
-                </div>
-                <div className="flex gap-4">
-                  <div className="w-4 h-4 bg-white/30 rounded"></div>
-                  <p className="text-sm text-white/80">Medium spacing (gap-4)</p>
-                </div>
-                <div className="flex gap-6">
-                  <div className="w-4 h-4 bg-white/30 rounded"></div>
-                  <p className="text-sm text-white/80">Large spacing (gap-6)</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Column 4: Elements Copy */}
-        <div className="rounded-lg border border-white/20 shadow-sm bg-white/15 backdrop-blur" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15) !important' }}>
-          <div className="flex flex-col space-y-1.5 p-6">
-            <h3 className="text-2xl font-semibold leading-none tracking-tight text-white">Elements Copy</h3>
-            <p className="text-sm text-white/70">Interactive UI components from our design system</p>
-          </div>
-          <div className="p-6 pt-0 space-y-6">
-            {/* Dropdown/Select Menus */}
-            <div className="space-y-4">
+              <div className="space-y-4">
                 <div>
                   <h1 className="text-4xl font-bold text-white mb-2">Heading 1</h1>
                   <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">text-4xl font-bold</code>
