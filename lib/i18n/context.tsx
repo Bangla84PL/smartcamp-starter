@@ -52,6 +52,7 @@ export function I18nProvider({ children }: I18nProviderProps) {
   const [language, setLanguageState] = useState<SupportedLanguageCode>('en')
   const [translations, setTranslations] = useState<Record<string, string>>({})
   const [isLoading, setIsLoading] = useState(true)
+  const [isInitialized, setIsInitialized] = useState(false)
 
   // Initialize language on mount
   useEffect(() => {
@@ -67,14 +68,18 @@ export function I18nProvider({ children }: I18nProviderProps) {
         const detectedLanguage = detectBrowserLanguage()
         setLanguageState(detectedLanguage)
       }
+      setIsInitialized(true)
     } else {
       // SSR fallback
       setLanguageState('en')
+      setIsInitialized(true)
     }
   }, [])
 
-  // Load translations when language changes
+  // Load translations when language changes and is initialized
   useEffect(() => {
+    if (!isInitialized) return
+
     const loadTranslations = async () => {
       setIsLoading(true)
       try {
@@ -96,7 +101,7 @@ export function I18nProvider({ children }: I18nProviderProps) {
     }
 
     loadTranslations()
-  }, [language])
+  }, [language, isInitialized])
 
   const setLanguage = (lang: SupportedLanguageCode) => {
     setLanguageState(lang)

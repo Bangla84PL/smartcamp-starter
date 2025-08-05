@@ -38,18 +38,6 @@ export default function LanguageSelector() {
           }}
         >
           <div className="bg-black/40 backdrop-blur-sm rounded-md">
-            {/* Auto-detect option */}
-            <button
-              onClick={() => {
-                resetToDetectedLanguage()
-                setIsOpen(false)
-              }}
-              className="w-full flex items-center space-x-2 px-3 py-2 text-left hover:bg-white/20 transition-colors duration-150 text-white border-b border-white/10"
-            >
-              <span className="text-lg">🌐</span>
-              <span className="text-sm">Auto (Browser)</span>
-            </button>
-            
             {SUPPORTED_LANGUAGES.map((lang) => (
               <button
                 key={lang.code}
