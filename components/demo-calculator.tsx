@@ -344,6 +344,208 @@ export default function DemoCalculator() {
                 </div>
               </div>
             </div>
+
+            {/* Extended Typography Scale */}
+            <div className="space-y-4">
+              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Complete Typography Scale</h3>
+              
+              <div className="space-y-4">
+                <div>
+                  <h1 className="text-4xl font-bold text-white mb-2">Heading 1</h1>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">text-4xl font-bold</code>
+                </div>
+                <div>
+                  <h2 className="text-3xl font-semibold text-white mb-2">Heading 2</h2>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">text-3xl font-semibold</code>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-medium text-white mb-2">Heading 3</h3>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">text-2xl font-medium</code>
+                </div>
+                <div>
+                  <h4 className="text-xl font-medium text-white mb-2">Heading 4</h4>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">text-xl font-medium</code>
+                </div>
+                <div>
+                  <p className="text-base text-white/90 mb-2">Body Text - Regular paragraph text for content</p>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">text-base text-white/90</code>
+                </div>
+                <div>
+                  <p className="text-sm text-white/80 mb-2">Small Text - Secondary information and labels</p>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">text-sm text-white/80</code>
+                </div>
+                <div>
+                  <p className="text-xs text-white/70 mb-2">Caption Text - Fine print and metadata</p>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">text-xs text-white/70</code>
+                </div>
+              </div>
+            </div>
+
+            {/* Extended Color Palette */}
+            <div className="space-y-4">
+              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Extended Color Palette</h3>
+              
+              <div className="space-y-3">
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="space-y-2">
+                    <div className="w-full h-12 bg-emerald-500 rounded-md flex items-center justify-center text-white font-medium text-sm">
+                      Primary
+                    </div>
+                    <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded block">emerald-500</code>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="w-full h-12 bg-emerald-600 rounded-md flex items-center justify-center text-white font-medium text-sm">
+                      Primary Dark
+                    </div>
+                    <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded block">emerald-600</code>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="space-y-2">
+                    <div className="w-full h-12 bg-white/20 rounded-md flex items-center justify-center text-white font-medium text-sm border border-white/30">
+                      Surface
+                    </div>
+                    <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded block">bg-white/20</code>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="w-full h-12 bg-white/10 rounded-md flex items-center justify-center text-white font-medium text-sm border border-white/20">
+                      Background
+                    </div>
+                    <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded block">bg-white/10</code>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-4 gap-2">
+                  <div className="space-y-1">
+                    <div className="w-full h-8 bg-red-500 rounded"></div>
+                    <code className="text-xs text-white/60 text-center block">red-500</code>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="w-full h-8 bg-blue-500 rounded"></div>
+                    <code className="text-xs text-white/60 text-center block">blue-500</code>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="w-full h-8 bg-yellow-500 rounded"></div>
+                    <code className="text-xs text-white/60 text-center block">yellow-500</code>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="w-full h-8 bg-purple-500 rounded"></div>
+                    <code className="text-xs text-white/60 text-center block">purple-500</code>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Button Variations */}
+            <div className="space-y-4">
+              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Button Variations</h3>
+              
+              <div className="space-y-4">
+                <div>
+                  <p className="text-sm text-white/80 mb-3">Primary Buttons</p>
+                  <div className="flex flex-wrap gap-3">
+                    <Button variant="jungle" size="sm">Small</Button>
+                    <Button variant="jungle" size="default">Medium</Button>
+                    <Button variant="jungle" size="lg">Large</Button>
+                  </div>
+                </div>
+                
+                <div>
+                  <p className="text-sm text-white/80 mb-3">Outline Buttons</p>
+                  <div className="flex flex-wrap gap-3">
+                    <Button variant="outline" size="default" className="border-white/30 text-white hover:bg-white/10">
+                      Default
+                    </Button>
+                    <Button variant="outline" size="default" className="border-emerald-400/50 text-emerald-300 hover:bg-emerald-400/10">
+                      Accent
+                    </Button>
+                  </div>
+                </div>
+                
+                <div>
+                  <p className="text-sm text-white/80 mb-3">Secondary & States</p>
+                  <div className="flex flex-wrap gap-3">
+                    <Button variant="default" size="default" className="bg-blue-600 hover:bg-blue-700">
+                      Secondary
+                    </Button>
+                    <Button variant="default" size="default" disabled>
+                      Disabled
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Spacing System */}
+            <div className="space-y-4">
+              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Spacing System</h3>
+              
+              <div className="space-y-3">
+                <div className="flex items-center space-x-4">
+                  <div className="w-1 h-6 bg-emerald-400 rounded"></div>
+                  <span className="text-sm text-white/80">4px</span>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">space-y-1</code>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="w-2 h-6 bg-emerald-400 rounded"></div>
+                  <span className="text-sm text-white/80">8px</span>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">space-y-2</code>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="w-3 h-6 bg-emerald-400 rounded"></div>
+                  <span className="text-sm text-white/80">12px</span>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">space-y-3</code>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="w-4 h-6 bg-emerald-400 rounded"></div>
+                  <span className="text-sm text-white/80">16px</span>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">space-y-4</code>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="w-6 h-6 bg-emerald-400 rounded"></div>
+                  <span className="text-sm text-white/80">24px</span>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">space-y-6</code>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="w-8 h-6 bg-emerald-400 rounded"></div>
+                  <span className="text-sm text-white/80">32px</span>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">space-y-8</code>
+                </div>
+              </div>
+            </div>
+
+            {/* Border Radius System */}
+            <div className="space-y-4">
+              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Border Radius</h3>
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <div className="w-full h-12 bg-emerald-500/20 border border-emerald-400/50 rounded-sm flex items-center justify-center">
+                    <span className="text-xs text-white">rounded-sm</span>
+                  </div>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded block text-center">2px</code>
+                </div>
+                <div className="space-y-2">
+                  <div className="w-full h-12 bg-emerald-500/20 border border-emerald-400/50 rounded flex items-center justify-center">
+                    <span className="text-xs text-white">rounded</span>
+                  </div>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded block text-center">4px</code>
+                </div>
+                <div className="space-y-2">
+                  <div className="w-full h-12 bg-emerald-500/20 border border-emerald-400/50 rounded-md flex items-center justify-center">
+                    <span className="text-xs text-white">rounded-md</span>
+                  </div>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded block text-center">6px</code>
+                </div>
+                <div className="space-y-2">
+                  <div className="w-full h-12 bg-emerald-500/20 border border-emerald-400/50 rounded-lg flex items-center justify-center">
+                    <span className="text-xs text-white">rounded-lg</span>
+                  </div>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded block text-center">8px</code>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
