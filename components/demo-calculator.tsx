@@ -6,6 +6,10 @@ import { Select } from '@/components/ui/select'
 import { Input } from '@/components/ui/input'
 import { Slider } from '@/components/ui/slider'
 import { Button } from '@/components/ui/button'
+import { RadioGroup } from '@/components/ui/radio-group-demo'
+import { Textarea } from '@/components/ui/textarea'
+import { Toggle, Checkbox } from '@/components/ui/toggle'
+import { DatePicker, DateRangePicker } from '@/components/ui/date-picker'
 
 // Mock data for demo purposes
 const DEMO_MODELS = [
@@ -20,6 +24,19 @@ const DEMO_QUANTIZATION = [
   { id: 'Q4_K_M', name: 'Q4_K_M', description: 'Good quality, smaller size' },
   { id: 'Q8_0', name: 'Q8_0', description: 'High quality, medium size' },
   { id: 'FP16', name: 'FP16', description: 'Highest quality, largest size' },
+]
+
+const DEMO_DEPLOYMENT_OPTIONS = [
+  { id: 'local', label: 'Local Hardware', description: 'Run on your own GPU' },
+  { id: 'cloud', label: 'Cloud VPS', description: 'Rent cloud computing power' },
+  { id: 'hybrid', label: 'Hybrid Setup', description: 'Combine local and cloud resources' },
+]
+
+const DEMO_PRIORITY_OPTIONS = [
+  { id: 'speed', label: 'Speed Priority', description: 'Optimize for fastest inference' },
+  { id: 'cost', label: 'Cost Priority', description: 'Optimize for lowest cost' },
+  { id: 'quality', label: 'Quality Priority', description: 'Optimize for best output quality' },
+  { id: 'balanced', label: 'Balanced', description: 'Balance between all factors' },
 ]
 
 const DEMO_GPU_RECOMMENDATIONS = [
@@ -87,6 +104,19 @@ export default function DemoCalculator() {
   const [showResults, setShowResults] = useState(false)
   const [isCalculating, setIsCalculating] = useState(false)
   const [emailForReport, setEmailForReport] = useState<string>('')
+  
+  // New state for additional components
+  const [deploymentType, setDeploymentType] = useState<string>('')
+  const [priority, setPriority] = useState<string>('')
+  const [projectDescription, setProjectDescription] = useState<string>('')
+  const [enableAdvanced, setEnableAdvanced] = useState(false)
+  const [enableNotifications, setEnableNotifications] = useState(true)
+  const [acceptTerms, setAcceptTerms] = useState(false)
+  const [enableAutoScale, setEnableAutoScale] = useState(false)
+  const [projectStartDate, setProjectStartDate] = useState<string>('')
+  const [startDate, setStartDate] = useState<string>('')
+  const [endDate, setEndDate] = useState<string>('')
+  const [memoryLimit, setMemoryLimit] = useState<number[]>([16])
 
   const handleCalculate = () => {
     if (!modelId || !budgetUSD) return
@@ -120,7 +150,7 @@ export default function DemoCalculator() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-2 gap-8">
         {/* Input Panel */}
         <Card className="bg-white/15 backdrop-blur border-white/20">
           <CardHeader>
@@ -191,6 +221,38 @@ export default function DemoCalculator() {
                 onChange={(e) => setBudgetUSD(e.target.value)}
                 min="0"
                 step="100"
+              />
+            </div>
+
+            {/* Deployment Type Radio Group */}
+            <div className="space-y-3">
+              <label className="text-sm font-medium">Deployment Type</label>
+              <RadioGroup
+                options={DEMO_DEPLOYMENT_OPTIONS}
+                value={deploymentType}
+                onChange={setDeploymentType}
+                name="deployment"
+              />
+            </div>
+
+            {/* Project Description Textarea */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium">Project Description</label>
+              <Textarea
+                placeholder="Describe your project goals and requirements..."
+                value={projectDescription}
+                onChange={(e) => setProjectDescription(e.target.value)}
+                rows={3}
+              />
+            </div>
+
+            {/* Advanced Options Toggle */}
+            <div className="space-y-3">
+              <Toggle
+                checked={enableAdvanced}
+                onChange={setEnableAdvanced}
+                label="Enable Advanced Options"
+                description="Show additional configuration options"
               />
             </div>
 
@@ -355,6 +417,138 @@ export default function DemoCalculator() {
                 </div>
               </div>
             )}
+          </CardContent>
+        </Card>
+
+        {/* Additional Components Showcase Panel */}
+        <Card className="bg-white/15 backdrop-blur border-white/20 xl:col-span-1 lg:col-span-2 xl:col-start-3">
+          <CardHeader>
+            <CardTitle>Component Showcase</CardTitle>
+            <CardDescription>
+              Additional UI components from our design system
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            {/* Priority Selection Radio Group */}
+            <div className="space-y-3">
+              <label className="text-sm font-medium">Optimization Priority</label>
+              <RadioGroup
+                options={DEMO_PRIORITY_OPTIONS}
+                value={priority}
+                onChange={setPriority}
+                name="priority"
+              />
+            </div>
+
+            {/* Memory Limit Slider */}
+            <div className="space-y-3">
+              <label className="text-sm font-medium">
+                Memory Limit: {memoryLimit[0]} GB
+              </label>
+              <Slider
+                value={memoryLimit}
+                onValueChange={setMemoryLimit}
+                max={64}
+                min={4}
+                step={2}
+                className="w-full"
+              />
+              <div className="flex justify-between text-xs text-muted-foreground">
+                <span>4 GB</span>
+                <span>64 GB</span>
+              </div>
+            </div>
+
+            {/* Date Picker */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium">Project Start Date</label>
+              <DatePicker
+                value={projectStartDate}
+                onChange={setProjectStartDate}
+                placeholder="Select start date"
+              />
+            </div>
+
+            {/* Date Range Picker */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium">Analysis Period</label>
+              <DateRangePicker
+                startDate={startDate}
+                endDate={endDate}
+                onStartDateChange={setStartDate}
+                onEndDateChange={setEndDate}
+              />
+            </div>
+
+            {/* Checkboxes and Toggles */}
+            <div className="space-y-4">
+              <label className="text-sm font-medium block">Preferences</label>
+              
+              <Checkbox
+                checked={acceptTerms}
+                onChange={setAcceptTerms}
+                label="Accept Terms and Conditions"
+                description="I agree to the terms of service and privacy policy"
+              />
+              
+              <Toggle
+                checked={enableNotifications}
+                onChange={setEnableNotifications}
+                label="Email Notifications"
+                description="Receive updates about your project"
+              />
+              
+              <Toggle
+                checked={enableAutoScale}
+                onChange={setEnableAutoScale}
+                label="Auto-scaling"
+                description="Automatically adjust resources based on demand"
+              />
+            </div>
+
+            {/* Sample Multi-select */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium">Additional Features</label>
+              <Select
+                value=""
+                onChange={() => {}}
+                placeholder="Select additional features"
+              >
+                <option value="monitoring">Performance Monitoring</option>
+                <option value="backup">Automated Backups</option>
+                <option value="security">Enhanced Security</option>
+                <option value="analytics">Advanced Analytics</option>
+              </Select>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="pt-4 space-y-3">
+              <Button
+                variant="default"
+                size="lg"
+                className="w-full bg-blue-600 hover:bg-blue-700"
+                disabled={!acceptTerms}
+              >
+                Save Configuration
+              </Button>
+              
+              <div className="grid grid-cols-2 gap-3">
+                <Button
+                  variant="outline"
+                  size="default"
+                  className="border-white/30 text-white hover:bg-white/10"
+                >
+                  Reset Form
+                </Button>
+                <Button
+                  variant="outline"
+                  size="default" 
+                  className="border-emerald-400/50 text-emerald-300 hover:bg-emerald-400/10"
+                >
+                  Export Config
+                </Button>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>
