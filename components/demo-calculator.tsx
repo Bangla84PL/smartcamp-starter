@@ -376,11 +376,20 @@ export default function DemoCalculator() {
                 <div>
                   <p className="text-sm text-white/80 mb-3">Primary Buttons</p>
                   <div className="flex flex-wrap gap-3">
-                    <div className="px-3 py-1 bg-emerald-500 rounded-md text-white text-xs font-medium">Small</div>
-                    <div className="px-4 py-2 bg-emerald-500 rounded-md text-white text-sm font-medium">Medium</div>
-                    <div className="px-6 py-3 bg-emerald-500 rounded-md text-white text-base font-medium">Large</div>
+                    <div className="px-3 py-1 rounded-md text-white text-xs font-medium border border-white/30 relative overflow-hidden" style={{ backgroundImage: "url('/jungle background.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+                      <div className="absolute inset-0 bg-black/40 rounded-md"></div>
+                      <span className="relative z-10">Small</span>
+                    </div>
+                    <div className="px-4 py-2 rounded-md text-white text-sm font-medium border border-white/30 relative overflow-hidden" style={{ backgroundImage: "url('/jungle background.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+                      <div className="absolute inset-0 bg-black/40 rounded-md"></div>
+                      <span className="relative z-10">Medium</span>
+                    </div>
+                    <div className="px-6 py-3 rounded-md text-white text-base font-medium border border-white/30 relative overflow-hidden" style={{ backgroundImage: "url('/jungle background.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+                      <div className="absolute inset-0 bg-black/40 rounded-md"></div>
+                      <span className="relative z-10">Large</span>
+                    </div>
                   </div>
-                  <p className="text-xs text-white/60 mt-2">variant="jungle" | emerald background</p>
+                  <p className="text-xs text-white/60 mt-2">variant="jungle" | jungle background</p>
                 </div>
                 
                 <div>

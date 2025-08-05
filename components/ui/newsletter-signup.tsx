@@ -46,9 +46,16 @@ export default function NewsletterSignup() {
         <button
           type="submit"
           disabled={isSubmitting || !email.trim()}
-          className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-600/50 text-white font-medium rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:cursor-not-allowed whitespace-nowrap"
+          className="px-4 py-2 text-white font-medium rounded-md border border-white/30 relative overflow-hidden hover:scale-105 hover:shadow-xl transform transition-all duration-300 ease-out hover:border-white/50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 whitespace-nowrap"
+          style={{ 
+            backgroundImage: "url('/jungle background.png')", 
+            backgroundSize: "cover", 
+            backgroundPosition: "center" 
+          }}
         >
-          {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+          <div className="absolute inset-0 bg-black/40 rounded-md transition-all duration-300 hover:bg-black/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-green-600/20 rounded-md opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+          <span className="relative z-10">{isSubmitting ? 'Subscribing...' : 'Subscribe'}</span>
         </button>
       </form>
       
