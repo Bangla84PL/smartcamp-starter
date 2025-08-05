@@ -368,6 +368,49 @@ export default function DemoCalculator() {
               </div>
             </div>
 
+            {/* Button Styles */}
+            <div className="space-y-4">
+              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Button Styles</h3>
+              
+              <div className="space-y-4">
+                <div>
+                  <p className="text-sm text-white/80 mb-3">Primary Buttons</p>
+                  <div className="flex flex-wrap gap-3">
+                    <Button variant="jungle" size="sm">Small</Button>
+                    <Button variant="jungle" size="default">Medium</Button>
+                    <Button variant="jungle" size="lg">Large</Button>
+                  </div>
+                  <p className="text-xs text-white/60 mt-2">variant="jungle" | emerald background</p>
+                </div>
+                
+                <div>
+                  <p className="text-sm text-white/80 mb-3">Outline Buttons</p>
+                  <div className="flex flex-wrap gap-3">
+                    <Button variant="outline" size="default" className="border-white/30 text-white hover:bg-white/10">
+                      Default
+                    </Button>
+                    <Button variant="outline" size="default" className="border-emerald-400/50 text-emerald-300 hover:bg-emerald-400/10">
+                      Accent
+                    </Button>
+                  </div>
+                  <p className="text-xs text-white/60 mt-2">variant="outline" | transparent with border</p>
+                </div>
+                
+                <div>
+                  <p className="text-sm text-white/80 mb-3">Secondary & States</p>
+                  <div className="flex flex-wrap gap-3">
+                    <Button variant="default" size="default" className="bg-blue-600 hover:bg-blue-700">
+                      Secondary
+                    </Button>
+                    <Button variant="default" size="default" disabled>
+                      Disabled
+                    </Button>
+                  </div>
+                  <p className="text-xs text-white/60 mt-2">Custom colors and disabled state</p>
+                </div>
+              </div>
+            </div>
+
             {/* Border Radius */}
             <div className="space-y-4">
               <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Border Radius</h3>
