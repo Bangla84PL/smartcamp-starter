@@ -79,6 +79,93 @@ None
 
 ---
 
+### Issue ID: BUG-002
+**Priority**: P0  
+**Status**: Resolved  
+**Reporter**: Development Agent  
+**Date Reported**: 2024-12-28  
+**Component**: Build/Deployment
+
+#### Description
+Vercel deployment failed with multiple linting and TypeScript errors preventing production build completion.
+
+#### Steps to Reproduce
+1. Push code to GitHub dev branch
+2. Trigger Vercel deployment
+3. Build fails with errors in multiple components
+
+#### Expected Behavior
+Clean build with no linting or TypeScript errors, successful deployment to Vercel.
+
+#### Actual Behavior
+Build fails with multiple errors:
+- Unused imports and variables in multiple UI components
+- Unescaped quotes in JSX content  
+- Empty interface TypeScript error
+- TypeScript type mismatch in i18n context for nested translation objects
+
+#### Environment
+- Vercel deployment environment
+- Next.js 15.4.5
+- TypeScript 5.9.2
+- ESLint 9.32.0
+
+#### Error Details
+```
+./components/demo-calculator.tsx
+7:10  Warning: 'Button' is defined but never used.  @typescript-eslint/no-unused-vars
+23:7  Warning: 'DEMO_QUANTIZATION' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+47:10  Warning: 'quantization' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+47:24  Warning: 'setQuantization' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+394:69  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+407:69  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+
+./components/ui/textarea.tsx
+3:18  Error: An interface declaring no members is equivalent to its supertype.  @typescript-eslint/no-empty-object-type
+
+./lib/i18n/context.tsx
+Type error: Argument of type '{ title: string; ... }' is not assignable to parameter of type 'SetStateAction<Record<string, string>>'.
+```
+
+#### Root Cause Analysis
+1. **Unused imports/variables**: Leftover code from development not cleaned up
+2. **Unescaped quotes**: JSX content with literal quotes not properly escaped
+3. **Empty interface**: TypeScript interface without proper properties
+4. **Type mismatch**: Translation JSON contains nested objects but TypeScript expected flat string record
+
+#### Solution Implemented
+**Files Modified:**
+1. `components/demo-calculator.tsx`:
+   - Removed unused Button import
+   - Removed unused DEMO_QUANTIZATION constant
+   - Removed unused quantization state variables
+   - Escaped quotes in JSX content using `&quot;`
+
+2. `components/ui/textarea.tsx`:
+   - Added `className?: string` property to TextareaProps interface
+
+3. `components/ui/date-picker.tsx`, `components/ui/radio-group-demo.tsx`, `components/ui/toggle.tsx`:
+   - Removed unused useState imports
+
+4. `components/ui/language-selector.tsx`:
+   - Removed unused resetToDetectedLanguage variable
+
+5. `lib/i18n/context.tsx`:
+   - Created proper TypeScript interface for nested translations: `NestedTranslations`
+   - Updated translation state type from `Record<string, string>` to `NestedTranslations`
+   - Enhanced translation function to support nested object access with dot notation
+
+#### Test Cases Added
+- Verified build passes locally with `pnpm run build`
+- Confirmed all linting errors resolved
+- Tested TypeScript compilation succeeds
+- Verified translation system works with nested objects (e.g., `footer.copyright`, `typography.heading`)
+
+#### Related Issues
+This resolves the Vercel deployment blocking issue mentioned in user query.
+
+---
+
 ## Issue Reporting Template
 
 When reporting a new issue, please use the following template:

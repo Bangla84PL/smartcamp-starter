@@ -12,6 +12,12 @@ export const SUPPORTED_LANGUAGES = [
 
 export type SupportedLanguageCode = typeof SUPPORTED_LANGUAGES[number]['code']
 
+// Interface for translations that can contain nested objects
+interface NestedTranslations {
+  [key: string]: string | NestedTranslations
+}
+type TranslationsType = NestedTranslations
+
 interface I18nContextType {
   language: SupportedLanguageCode
   setLanguage: (lang: SupportedLanguageCode) => void
@@ -50,7 +56,7 @@ interface I18nProviderProps {
 
 export function I18nProvider({ children }: I18nProviderProps) {
   const [language, setLanguageState] = useState<SupportedLanguageCode>('en')
-  const [translations, setTranslations] = useState<Record<string, string>>({})
+  const [translations, setTranslations] = useState<TranslationsType>({})
   const [isLoading, setIsLoading] = useState(true)
   const [isInitialized, setIsInitialized] = useState(false)
 
@@ -122,9 +128,20 @@ export function I18nProvider({ children }: I18nProviderProps) {
     }
   }
 
-  // Translation function
+  // Translation function with support for nested keys
   const t = (key: string): string => {
-    return translations[key] || key // Return key if translation not found
+    const keys = key.split('.')
+    let value: string | NestedTranslations | undefined = translations
+    
+    for (const k of keys) {
+      if (value && typeof value === 'object' && k in value) {
+        value = value[k]
+      } else {
+        return key // Return key if translation not found
+      }
+    }
+    
+    return typeof value === 'string' ? value : key
   }
 
   const value: I18nContextType = {

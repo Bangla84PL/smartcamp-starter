@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { Select } from '@/components/ui/select'
 import { Input } from '@/components/ui/input'
 import { Slider } from '@/components/ui/slider'
-import { Button } from '@/components/ui/button'
 import { RadioGroup } from '@/components/ui/radio-group-demo'
 import { Textarea } from '@/components/ui/textarea'
 import { Toggle, Checkbox } from '@/components/ui/toggle'
@@ -20,11 +19,7 @@ const DEMO_MODELS = [
   { id: 'codellama-34b', name: 'CodeLlama 34B', parameterCount: '34B parameters' },
 ]
 
-const DEMO_QUANTIZATION = [
-  { id: 'Q4_K_M', name: 'Q4_K_M', description: 'Good quality, smaller size' },
-  { id: 'Q8_0', name: 'Q8_0', description: 'High quality, medium size' },
-  { id: 'FP16', name: 'FP16', description: 'Highest quality, largest size' },
-]
+
 
 const DEMO_DEPLOYMENT_OPTIONS = [
   { id: 'local', label: 'Local Hardware', description: 'Run on your own GPU' },
@@ -44,7 +39,7 @@ const DEMO_PRIORITY_OPTIONS = [
 export default function DemoCalculator() {
   const { t } = useI18n()
   const [modelId, setModelId] = useState<string>('')
-  const [quantization, setQuantization] = useState<string>('')
+
   const [targetTokensPerSecond, setTargetTokensPerSecond] = useState<number[]>([20])
   const [budgetUSD, setBudgetUSD] = useState<string>('')
 
@@ -391,7 +386,7 @@ export default function DemoCalculator() {
                       <span className="relative z-10">Large</span>
                     </div>
                   </div>
-                  <p className="text-xs text-white/60 mt-2">variant="jungle" | jungle background</p>
+                  <p className="text-xs text-white/60 mt-2">variant=&quot;jungle&quot; | jungle background</p>
                 </div>
                 
                 <div>
@@ -404,7 +399,7 @@ export default function DemoCalculator() {
                       Accent
                     </div>
                   </div>
-                  <p className="text-xs text-white/60 mt-2">variant="outline" | transparent with border</p>
+                  <p className="text-xs text-white/60 mt-2">variant=&quot;outline&quot; | transparent with border</p>
                 </div>
                 
                 <div>

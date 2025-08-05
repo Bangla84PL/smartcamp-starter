@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useI18n, SUPPORTED_LANGUAGES } from '@/lib/i18n/context'
 
 export default function LanguageSelector() {
-  const { language, setLanguage, resetToDetectedLanguage } = useI18n()
+  const { language, setLanguage } = useI18n()
   const [isOpen, setIsOpen] = useState(false)
 
   const currentLanguage = SUPPORTED_LANGUAGES.find(lang => lang.code === language)
