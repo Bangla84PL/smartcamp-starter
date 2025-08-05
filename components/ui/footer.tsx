@@ -2,12 +2,8 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useLanguage } from '@/lib/i18n/context'
-import NewsletterSignup from './newsletter-signup'
 
 export default function Footer() {
-  const { t } = useLanguage()
-  
   return (
     <footer className="w-full border-t border-white/20 shadow-md mt-auto" style={{
       backgroundImage: "url('/jungle background.png')",
@@ -20,9 +16,16 @@ export default function Footer() {
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center space-y-4 lg:space-y-0">
             {/* Main footer content - centered on mobile, left on desktop */}
             <div className="flex flex-col items-center lg:items-start space-y-2 lg:flex-1">
-              {/* Newsletter Signup */}
+              {/* Demo Newsletter Section - Replace with your own functionality */}
               <div className="w-full lg:max-w-sm">
-                <NewsletterSignup />
+                <div className="text-center lg:text-left">
+                  <p className="text-sm text-white/80 mb-2">
+                    SmartCamp.AI Starter Template
+                  </p>
+                  <p className="text-xs text-white/60">
+                    Beautiful, responsive, ready to customize
+                  </p>
+                </div>
               </div>
 
               {/* Logo */}
@@ -50,7 +53,7 @@ export default function Footer() {
                     className="hover:text-white transition-colors duration-200"
                   >
                     SmartCamp AI
-                  </Link>. {t('allRightsReserved')}.</p>
+                  </Link>. All rights reserved.</p>
               </div>
             </div>
 

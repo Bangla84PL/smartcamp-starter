@@ -1,5 +1,5 @@
-import LLMCalculator from '@/components/llm-calculator'
+import DemoCalculator from '@/components/demo-calculator'
 
 export default function Home() {
-  return <LLMCalculator />
+  return <DemoCalculator />
 }

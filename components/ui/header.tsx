@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import LanguageSelector from './language-selector'
 
 export default function Header() {
   return (
@@ -47,9 +46,11 @@ export default function Header() {
             </Link>
           </div>
           
-          {/* Language selector */}
+          {/* Navigation placeholder - customize for your app */}
           <nav className="flex items-center space-x-4">
-            <LanguageSelector />
+            <div className="text-white/80 text-sm">
+              Starter Template
+            </div>
           </nav>
         </div>
         </div>
