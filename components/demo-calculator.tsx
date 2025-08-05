@@ -279,7 +279,7 @@ export default function DemoCalculator() {
           </CardContent>
         </div>
 
-        {/* Column 2: Typography - Visual Styles */}
+        {/* Column 2: Typography - Copy of left column structure */}
         <div className="rounded-lg border border-white/20 shadow-sm bg-white/15 backdrop-blur" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15) !important' }}>
           <CardHeader>
             <CardTitle>Typography</CardTitle>
@@ -288,7 +288,7 @@ export default function DemoCalculator() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            {/* Typography Styles */}
+            {/* Typography Showcase Content */}
             <div className="space-y-4">
               <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Typography Scale</h3>
               
@@ -306,20 +306,8 @@ export default function DemoCalculator() {
                   <code className="text-xs text-white/60">text-2xl font-medium</code>
                 </div>
                 <div>
-                  <h4 className="text-xl font-medium text-white mb-1">Heading 4</h4>
-                  <code className="text-xs text-white/60">text-xl font-medium</code>
-                </div>
-                <div>
-                  <p className="text-base text-white/90 mb-1">Body Text - Regular paragraph text for content</p>
+                  <p className="text-base text-white/90 mb-1">Body Text - Regular paragraph text</p>
                   <code className="text-xs text-white/60">text-base text-white/90</code>
-                </div>
-                <div>
-                  <p className="text-sm text-white/80 mb-1">Small Text - Secondary information and labels</p>
-                  <code className="text-xs text-white/60">text-sm text-white/80</code>
-                </div>
-                <div>
-                  <p className="text-xs text-white/70 mb-1">Caption Text - Fine print and metadata</p>
-                  <code className="text-xs text-white/60">text-xs text-white/70</code>
                 </div>
               </div>
             </div>
@@ -341,147 +329,23 @@ export default function DemoCalculator() {
                   </div>
                   <code className="text-xs text-white/60">emerald-600</code>
                 </div>
-                <div className="space-y-2">
-                  <div className="w-full h-12 bg-white/20 rounded-md flex items-center justify-center text-white font-medium text-sm border border-white/30">
-                    Surface
-                  </div>
-                  <code className="text-xs text-white/60">white/20</code>
-                </div>
-                <div className="space-y-2">
-                  <div className="w-full h-12 bg-white/10 rounded-md flex items-center justify-center text-white font-medium text-sm border border-white/20">
-                    Background
-                  </div>
-                  <code className="text-xs text-white/60">white/10</code>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-4 gap-2">
-                <div className="space-y-1">
-                  <div className="w-full h-8 bg-red-500 rounded"></div>
-                  <code className="text-xs text-white/60">red-500</code>
-                </div>
-                <div className="space-y-1">
-                  <div className="w-full h-8 bg-blue-500 rounded"></div>
-                  <code className="text-xs text-white/60">blue-500</code>
-                </div>
-                <div className="space-y-1">
-                  <div className="w-full h-8 bg-yellow-500 rounded"></div>
-                  <code className="text-xs text-white/60">yellow-500</code>
-                </div>
-                <div className="space-y-1">
-                  <div className="w-full h-8 bg-purple-500 rounded"></div>
-                  <code className="text-xs text-white/60">purple-500</code>
-                </div>
               </div>
             </div>
 
-            {/* Button Variations */}
+            {/* Button Examples */}
             <div className="space-y-4">
               <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Button Variations</h3>
               
-              <div className="space-y-3">
-                <div className="flex flex-wrap gap-3">
-                  <Button variant="jungle" size="sm">
-                    Primary Small
-                  </Button>
-                  <Button variant="jungle" size="default">
-                    Primary Medium
-                  </Button>
-                  <Button variant="jungle" size="lg">
-                    Primary Large
-                  </Button>
-                </div>
-                
-                <div className="flex flex-wrap gap-3">
-                  <Button variant="outline" size="default" className="border-white/30 text-white hover:bg-white/10">
-                    Outline
-                  </Button>
-                  <Button variant="outline" size="default" className="border-emerald-400/50 text-emerald-300 hover:bg-emerald-400/10">
-                    Outline Accent
-                  </Button>
-                </div>
-                
-                <div className="flex flex-wrap gap-3">
-                  <Button variant="default" size="default" className="bg-blue-600 hover:bg-blue-700">
-                    Secondary
-                  </Button>
-                  <Button variant="default" size="default" disabled>
-                    Disabled
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            {/* Spacing System */}
-            <div className="space-y-4">
-              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Spacing System</h3>
-              
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-1 h-6 bg-emerald-400"></div>
-                  <span className="text-sm text-white/80">space-y-1 (4px)</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-6 bg-emerald-400"></div>
-                  <span className="text-sm text-white/80">space-y-2 (8px)</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-6 bg-emerald-400"></div>
-                  <span className="text-sm text-white/80">space-y-3 (12px)</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-4 h-6 bg-emerald-400"></div>
-                  <span className="text-sm text-white/80">space-y-4 (16px)</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-6 h-6 bg-emerald-400"></div>
-                  <span className="text-sm text-white/80">space-y-6 (24px)</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-6 bg-emerald-400"></div>
-                  <span className="text-sm text-white/80">space-y-8 (32px)</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Glass Morphism Effects */}
-            <div className="space-y-4">
-              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Glass Morphism</h3>
-              
-              <div className="space-y-3">
-                <div className="p-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg">
-                  <p className="text-sm text-white/90">Light Glass Effect</p>
-                  <code className="text-xs text-white/60">bg-white/10 backdrop-blur-sm border-white/20</code>
-                </div>
-                
-                <div className="p-4 bg-white/15 backdrop-blur border border-white/30 rounded-lg">
-                  <p className="text-sm text-white/90">Medium Glass Effect</p>
-                  <code className="text-xs text-white/60">bg-white/15 backdrop-blur border-white/30</code>
-                </div>
-                
-                <div className="p-4 bg-black/20 backdrop-blur border border-white/40 rounded-lg">
-                  <p className="text-sm text-white/90">Dark Glass Effect</p>
-                  <code className="text-xs text-white/60">bg-black/20 backdrop-blur border-white/40</code>
-                </div>
-              </div>
-            </div>
-
-            {/* Sample Content Cards */}
-            <div className="space-y-4">
-              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Content Cards</h3>
-              
-              <div className="bg-gradient-to-br from-emerald-900/30 to-green-800/20 border-2 border-emerald-400/50 p-4 rounded-xl shadow-lg shadow-emerald-500/10 backdrop-blur-sm">
-                <h4 className="font-semibold text-white mb-2">Success Card</h4>
-                <p className="text-sm text-white/80">
-                  This card style is used for positive actions and successful states.
-                </p>
-              </div>
-              
-              <div className="bg-blue-500/20 border border-blue-400/50 p-4 rounded-lg backdrop-blur">
-                <h4 className="font-semibold text-white mb-2">Info Card</h4>
-                <p className="text-sm text-white/80">
-                  This card style is used for informational content and neutral states.
-                </p>
+              <div className="flex flex-wrap gap-3">
+                <Button variant="jungle" size="sm">
+                  Primary Small
+                </Button>
+                <Button variant="jungle" size="default">
+                  Primary Medium
+                </Button>
+                <Button variant="outline" size="default" className="border-white/30 text-white hover:bg-white/10">
+                  Outline
+                </Button>
               </div>
             </div>
           </CardContent>
