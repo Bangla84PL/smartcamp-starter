@@ -73,13 +73,13 @@ export default function DemoCalculator() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Column 1: Elements - Interactive UI Components */}
+      <div className="max-w-4xl mx-auto">
+        {/* Single Column: Elements - Interactive UI Components */}
         <div className="rounded-lg border border-white/20 shadow-sm bg-white/15 backdrop-blur" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15) !important' }}>
           <CardHeader>
-            <CardTitle>Elements</CardTitle>
+            <CardTitle>Interactive Design System Elements</CardTitle>
             <CardDescription>
-              Interactive UI components from our design system
+              Complete showcase of UI components from our design system
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
@@ -277,82 +277,6 @@ export default function DemoCalculator() {
               />
             </div>
           </CardContent>
-        </div>
-
-        {/* Column 2: Typography - Pure HTML with inline styles */}
-        <div 
-          className="rounded-lg border border-white/20 shadow-sm bg-white/15 backdrop-blur" 
-          style={{ 
-            backgroundColor: 'rgba(255, 255, 255, 0.15) !important',
-            border: '1px solid rgba(255, 255, 255, 0.2) !important'
-          }}
-        >
-          <div className="flex flex-col space-y-1.5 p-6">
-            <h3 className="text-2xl font-semibold leading-none tracking-tight text-white">Typography</h3>
-            <p className="text-sm text-white/70">Visual styles and design system elements</p>
-          </div>
-          <div className="p-6 pt-0 space-y-6">
-            {/* Typography Showcase Content */}
-            <div className="space-y-4">
-              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Typography Scale</h3>
-              
-              <div className="space-y-3">
-                <div>
-                  <h1 className="text-4xl font-bold text-white mb-1">Heading 1</h1>
-                  <code className="text-xs text-white/60">text-4xl font-bold</code>
-                </div>
-                <div>
-                  <h2 className="text-3xl font-semibold text-white mb-1">Heading 2</h2>
-                  <code className="text-xs text-white/60">text-3xl font-semibold</code>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-medium text-white mb-1">Heading 3</h3>
-                  <code className="text-xs text-white/60">text-2xl font-medium</code>
-                </div>
-                <div>
-                  <p className="text-base text-white/90 mb-1">Body Text - Regular paragraph text</p>
-                  <code className="text-xs text-white/60">text-base text-white/90</code>
-                </div>
-              </div>
-            </div>
-
-            {/* Color Palette */}
-            <div className="space-y-4">
-              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Color Palette</h3>
-              
-              <div className="grid grid-cols-2 gap-3">
-                <div className="space-y-2">
-                  <div className="w-full h-12 bg-emerald-500 rounded-md flex items-center justify-center text-white font-medium text-sm">
-                    Primary
-                  </div>
-                  <code className="text-xs text-white/60">emerald-500</code>
-                </div>
-                <div className="space-y-2">
-                  <div className="w-full h-12 bg-emerald-600 rounded-md flex items-center justify-center text-white font-medium text-sm">
-                    Primary Dark
-                  </div>
-                  <code className="text-xs text-white/60">emerald-600</code>
-                </div>
-              </div>
-            </div>
-
-            {/* Button Examples */}
-            <div className="space-y-4">
-              <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Button Variations</h3>
-              
-              <div className="flex flex-wrap gap-3">
-                <Button variant="jungle" size="sm">
-                  Primary Small
-                </Button>
-                <Button variant="jungle" size="default">
-                  Primary Medium
-                </Button>
-                <Button variant="outline" size="default" className="border-white/30 text-white hover:bg-white/10">
-                  Outline
-                </Button>
-              </div>
-            </div>
-          </div>
         </div>
 
 
