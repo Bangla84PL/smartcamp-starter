@@ -28,10 +28,10 @@ export default function Footer() {
       backgroundRepeat: "no-repeat"
     }}>
       <div className="bg-black/30 backdrop-blur-sm">
-        <div className="container mx-auto px-2 py-2">
-          <div className="flex flex-col lg:flex-row lg:items-center space-y-2 lg:space-y-0">
+        <div className="container mx-auto px-2 py-1">
+          <div className="flex flex-col lg:flex-row lg:items-center space-y-1 lg:space-y-0">
             {/* Monkey graphic with copyright - left side */}
-            <div className="flex flex-col items-center lg:items-start lg:flex-shrink-0 space-y-2">
+            <div className="flex flex-col items-center lg:items-start lg:flex-shrink-0 space-y-1">
               <Link 
                 href="https://smartcamp.ai" 
                 target="_blank" 
@@ -39,11 +39,11 @@ export default function Footer() {
                 className="block transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-lg"
               >
                 <Image
-                  src="/Monkey SmartCampAI.png"
+                  src="/Monkey_SmartCampAI-no-background.png"
                   alt="SmartCamp AI Monkey - Visit SmartCamp.ai"
                   width={240}
                   height={240}
-                  className="h-48 w-48 sm:h-60 sm:w-60 object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
+                  className="h-40 w-40 sm:h-48 sm:w-48 object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
                 />
               </Link>
               
@@ -61,14 +61,14 @@ export default function Footer() {
             </div>
 
             {/* Main footer content - more centered */}
-            <div className="flex flex-col items-center space-y-1 lg:flex-1 lg:px-4">
+            <div className="flex flex-col items-center space-y-1 lg:flex-1 lg:px-2">
               {/* Newsletter Section */}
               <div className="w-full lg:max-w-sm">
-                <div className="text-center mb-2">
-                  <p className="text-sm text-white/80 mb-1">
+                <div className="text-center mb-1">
+                  <p className="text-sm text-white/80 mb-0.5">
                     Stay Updated
                   </p>
-                  <p className="text-xs text-white/60 mb-2">
+                  <p className="text-xs text-white/60 mb-1">
                     Get the latest SmartCamp AI updates and features
                   </p>
                 </div>
@@ -77,7 +77,7 @@ export default function Footer() {
             </div>
 
             {/* Contact Info - right side on desktop, centered on mobile */}
-            <div className="flex flex-col items-center lg:items-end space-y-2 text-sm text-white/80 lg:flex-shrink-0">
+            <div className="flex flex-col items-center lg:items-end space-y-1 text-sm text-white/80 lg:flex-shrink-0">
               {/* Email */}
               <Link
                 href="mailto:hello@smartcamp.ai"
