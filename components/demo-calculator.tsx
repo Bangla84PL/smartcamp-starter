@@ -73,7 +73,7 @@ export default function DemoCalculator() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Column 1: Elements - Interactive UI Components */}
         <div className="rounded-lg border border-white/20 shadow-sm bg-white/15 backdrop-blur" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15) !important' }}>
           <CardHeader>
@@ -510,6 +510,21 @@ export default function DemoCalculator() {
                   <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded block text-center">8px</code>
                 </div>
               </div>
+            </div>
+          </CardContent>
+        </div>
+
+        {/* Column 3: Empty Column */}
+        <div className="rounded-lg border border-white/20 shadow-sm bg-white/15 backdrop-blur" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15) !important' }}>
+          <CardHeader>
+            <CardTitle>Column 3</CardTitle>
+            <CardDescription>
+              This is an empty column ready for your content
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="text-center text-white/60 py-12">
+              <p>Empty column - add your content here</p>
             </div>
           </CardContent>
         </div>
