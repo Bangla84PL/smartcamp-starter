@@ -15,6 +15,7 @@ export type SupportedLanguageCode = typeof SUPPORTED_LANGUAGES[number]['code']
 interface I18nContextType {
   language: SupportedLanguageCode
   setLanguage: (lang: SupportedLanguageCode) => void
+  resetToDetectedLanguage: () => void
   t: (key: string) => string
   isLoading: boolean
 }
@@ -52,10 +53,23 @@ export function I18nProvider({ children }: I18nProviderProps) {
   const [translations, setTranslations] = useState<Record<string, string>>({})
   const [isLoading, setIsLoading] = useState(true)
 
-  // Initialize language on mount
+  // Initialize language on mount - prioritize localStorage, then browser detection
   useEffect(() => {
-    const detectedLanguage = detectBrowserLanguage()
-    setLanguageState(detectedLanguage)
+    if (typeof window !== 'undefined') {
+      const savedLanguage = localStorage.getItem('smartcamp-language') as SupportedLanguageCode
+      if (savedLanguage && SUPPORTED_LANGUAGES.some(lang => lang.code === savedLanguage)) {
+        // User has previously selected a language, use that
+        setLanguageState(savedLanguage)
+      } else {
+        // No saved preference, detect browser language
+        const detectedLanguage = detectBrowserLanguage()
+        setLanguageState(detectedLanguage)
+      }
+    } else {
+      // SSR fallback
+      const detectedLanguage = detectBrowserLanguage()
+      setLanguageState(detectedLanguage)
+    }
   }, [])
 
   // Load translations when language changes
@@ -85,9 +99,18 @@ export function I18nProvider({ children }: I18nProviderProps) {
 
   const setLanguage = (lang: SupportedLanguageCode) => {
     setLanguageState(lang)
-    // Save to localStorage for persistence
+    // Save to localStorage for persistence when user manually selects
     if (typeof window !== 'undefined') {
       localStorage.setItem('smartcamp-language', lang)
+    }
+  }
+
+  const resetToDetectedLanguage = () => {
+    // Clear localStorage and reset to browser-detected language
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('smartcamp-language')
+      const detectedLanguage = detectBrowserLanguage()
+      setLanguageState(detectedLanguage)
     }
   }
 
@@ -96,19 +119,10 @@ export function I18nProvider({ children }: I18nProviderProps) {
     return translations[key] || key // Return key if translation not found
   }
 
-  // Load saved language from localStorage on mount
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const savedLanguage = localStorage.getItem('smartcamp-language') as SupportedLanguageCode
-      if (savedLanguage && SUPPORTED_LANGUAGES.some(lang => lang.code === savedLanguage)) {
-        setLanguageState(savedLanguage)
-      }
-    }
-  }, [])
-
   const value: I18nContextType = {
     language,
     setLanguage,
+    resetToDetectedLanguage,
     t,
     isLoading
   }
