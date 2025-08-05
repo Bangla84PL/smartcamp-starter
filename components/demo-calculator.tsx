@@ -516,13 +516,11 @@ export default function DemoCalculator() {
 
         {/* Column 3: Typography Copy */}
         <div className="rounded-lg border border-white/20 shadow-sm bg-white/15 backdrop-blur" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15) !important' }}>
-          <CardHeader>
-            <CardTitle>Typography Copy</CardTitle>
-            <CardDescription>
-              Duplicate of design system visual styles
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
+          <div className="flex flex-col space-y-1.5 p-6">
+            <h3 className="text-2xl font-semibold leading-none tracking-tight text-white">Typography Copy</h3>
+            <p className="text-sm text-white/70">Duplicate of design system visual styles</p>
+          </div>
+          <div className="p-6 pt-0 space-y-6">
             {/* Typography Scale */}
             <div className="space-y-4">
               <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Typography Scale</h3>
@@ -746,7 +744,7 @@ export default function DemoCalculator() {
                 </div>
               </div>
             </div>
-          </CardContent>
+          </div>
         </div>
 
       </div>
