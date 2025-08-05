@@ -3,6 +3,7 @@ import { Jost } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
+import { I18nProvider } from "@/lib/i18n/context";
 
 const jost = Jost({
   variable: "--font-jost",
@@ -34,11 +35,13 @@ export default function RootLayout({
       <body
         className={`${jost.variable} antialiased min-h-screen flex flex-col jungle-background font-jost`}
       >
-        <Header />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <I18nProvider>
+          <Header />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </I18nProvider>
       </body>
     </html>
   );

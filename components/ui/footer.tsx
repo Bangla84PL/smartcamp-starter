@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import { useI18n } from '@/lib/i18n/context'
 
 // Dynamically import the newsletter component to avoid hydration issues
 const NewsletterSignup = dynamic(() => import('./newsletter-signup'), {
@@ -20,6 +21,8 @@ const NewsletterSignup = dynamic(() => import('./newsletter-signup'), {
 })
 
 export default function Footer() {
+  const { t } = useI18n()
+  
   return (
     <footer className="w-full border-t border-white/20 shadow-md mt-auto" style={{
       backgroundImage: "url('/jungle background.png')",
@@ -49,14 +52,7 @@ export default function Footer() {
               
               {/* Copyright */}
               <div className="text-center lg:text-left text-xs text-white/70">
-                <p>&copy; 2025 <Link 
-                    href="https://smartcamp.ai" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="hover:text-white transition-colors duration-200"
-                  >
-                    SmartCamp AI
-                  </Link>. All rights reserved.</p>
+                <p>{t('footer.copyright')}</p>
               </div>
             </div>
 
@@ -66,10 +62,10 @@ export default function Footer() {
               <div className="w-full lg:max-w-sm">
                 <div className="text-center mb-1">
                   <p className="text-sm text-white/80 mb-0.5">
-                    Stay Updated
+                    {t('newsletterTitle')}
                   </p>
                   <p className="text-xs text-white/60 mb-1">
-                    Get the latest SmartCamp AI updates and features
+                    {t('newsletterDescription')}
                   </p>
                 </div>
                 <NewsletterSignup />

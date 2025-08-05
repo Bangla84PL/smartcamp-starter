@@ -9,6 +9,7 @@ import { RadioGroup } from '@/components/ui/radio-group-demo'
 import { Textarea } from '@/components/ui/textarea'
 import { Toggle, Checkbox } from '@/components/ui/toggle'
 import { DatePicker, DateRangePicker } from '@/components/ui/date-picker'
+import { useI18n } from '@/lib/i18n/context'
 
 // Mock data for demo purposes
 const DEMO_MODELS = [
@@ -41,6 +42,7 @@ const DEMO_PRIORITY_OPTIONS = [
 
 
 export default function DemoCalculator() {
+  const { t } = useI18n()
   const [modelId, setModelId] = useState<string>('')
   const [quantization, setQuantization] = useState<string>('')
   const [targetTokensPerSecond, setTargetTokensPerSecond] = useState<number[]>([20])
@@ -66,9 +68,9 @@ export default function DemoCalculator() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-white mb-4">SmartCamp.AI Starter Template</h1>
+        <h1 className="text-4xl font-bold text-white mb-4">{t('title')}</h1>
         <p className="text-white/80 text-lg">
-          This is a demo showcasing the visual design and components. Perfect for building new apps with the same look and feel.
+          {t('description')}
         </p>
       </div>
 
@@ -76,7 +78,7 @@ export default function DemoCalculator() {
         {/* Column 1: Elements - Interactive UI Components */}
         <div className="rounded-lg border border-white/20 shadow-sm bg-white/15 backdrop-blur" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15) !important' }}>
           <div className="flex flex-col space-y-1.5 p-6">
-            <h3 className="text-2xl font-semibold leading-none tracking-tight text-white">Elements</h3>
+            <h3 className="text-2xl font-semibold leading-none tracking-tight text-white">{t('elements')}</h3>
             <p className="text-sm text-white/70">Interactive UI components from our design system</p>
           </div>
           <div className="p-6 pt-0 space-y-6">
@@ -85,7 +87,7 @@ export default function DemoCalculator() {
               <h3 className="text-base font-semibold text-white border-b border-white/20 pb-2">Dropdown & Select</h3>
               
               <div className="space-y-2">
-                <label className="text-sm font-medium">Model Selection</label>
+                <label className="text-sm font-medium">{t('modelLabel')}</label>
                 <Select
                   value={modelId}
                   onChange={(e) => setModelId(e.target.value)}

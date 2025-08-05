@@ -1,20 +1,13 @@
 "use client"
 
 import { useState } from 'react'
-
-// Language configuration for SmartCamp.AI
-const languages = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'pl', name: 'Polski', flag: '🇵🇱' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'zh', name: '中文', flag: '🇨🇳' },
-]
+import { useI18n, SUPPORTED_LANGUAGES } from '@/lib/i18n/context'
 
 export default function LanguageSelector() {
-  const [language, setLanguage] = useState('en')
+  const { language, setLanguage } = useI18n()
   const [isOpen, setIsOpen] = useState(false)
 
-  const currentLanguage = languages.find(lang => lang.code === language)
+  const currentLanguage = SUPPORTED_LANGUAGES.find(lang => lang.code === language)
 
   return (
     <div className="relative inline-block">
@@ -45,7 +38,7 @@ export default function LanguageSelector() {
           }}
         >
           <div className="bg-black/40 backdrop-blur-sm rounded-md">
-            {languages.map((lang) => (
+            {SUPPORTED_LANGUAGES.map((lang) => (
               <button
                 key={lang.code}
                 onClick={() => {
