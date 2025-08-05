@@ -361,31 +361,31 @@ export default function DemoCalculator() {
               <div className="space-y-4">
                 <div>
                   <h1 className="text-4xl font-bold text-white mb-2">Heading 1</h1>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded">text-4xl font-bold</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">text-4xl font-bold</code>
                 </div>
                 <div>
                   <h2 className="text-3xl font-semibold text-white mb-2">Heading 2</h2>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded">text-3xl font-semibold</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">text-3xl font-semibold</code>
                 </div>
                 <div>
                   <h3 className="text-2xl font-medium text-white mb-2">Heading 3</h3>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded">text-2xl font-medium</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">text-2xl font-medium</code>
                 </div>
                 <div>
                   <h4 className="text-xl font-medium text-white mb-2">Heading 4</h4>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded">text-xl font-medium</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">text-xl font-medium</code>
                 </div>
                 <div>
                   <p className="text-base text-white/90 mb-2">Body Text - Regular paragraph text for content</p>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded">text-base text-white/90</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">text-base text-white/90</code>
                 </div>
                 <div>
                   <p className="text-sm text-white/80 mb-2">Small Text - Secondary information and labels</p>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded">text-sm text-white/80</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">text-sm text-white/80</code>
                 </div>
                 <div>
                   <p className="text-xs text-white/70 mb-2">Caption Text - Fine print and metadata</p>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded">text-xs text-white/70</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">text-xs text-white/70</code>
                 </div>
               </div>
             </div>
@@ -400,13 +400,13 @@ export default function DemoCalculator() {
                     <div className="w-full h-12 bg-emerald-500 rounded-md flex items-center justify-center text-white font-medium text-sm">
                       Primary
                     </div>
-                    <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded block">emerald-500</code>
+                    <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded block">emerald-500</code>
                   </div>
                   <div className="space-y-2">
                     <div className="w-full h-12 bg-emerald-600 rounded-md flex items-center justify-center text-white font-medium text-sm">
                       Primary Dark
                     </div>
-                    <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded block">emerald-600</code>
+                    <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded block">emerald-600</code>
                   </div>
                 </div>
                 
@@ -415,13 +415,13 @@ export default function DemoCalculator() {
                     <div className="w-full h-12 bg-white/20 rounded-md flex items-center justify-center text-white font-medium text-sm border border-white/30">
                       Surface
                     </div>
-                    <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded block">bg-white/20</code>
+                    <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded block">bg-white/20</code>
                   </div>
                   <div className="space-y-2">
                     <div className="w-full h-12 bg-white/10 rounded-md flex items-center justify-center text-white font-medium text-sm border border-white/20">
                       Background
                     </div>
-                    <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded block">bg-white/10</code>
+                    <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded block">bg-white/10</code>
                   </div>
                 </div>
 
@@ -494,32 +494,32 @@ export default function DemoCalculator() {
                 <div className="flex items-center space-x-4">
                   <div className="w-1 h-6 bg-emerald-400 rounded"></div>
                   <span className="text-sm text-white/80">4px</span>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded">space-y-1</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">space-y-1</code>
                 </div>
                 <div className="flex items-center space-x-4">
                   <div className="w-2 h-6 bg-emerald-400 rounded"></div>
                   <span className="text-sm text-white/80">8px</span>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded">space-y-2</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">space-y-2</code>
                 </div>
                 <div className="flex items-center space-x-4">
                   <div className="w-3 h-6 bg-emerald-400 rounded"></div>
                   <span className="text-sm text-white/80">12px</span>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded">space-y-3</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">space-y-3</code>
                 </div>
                 <div className="flex items-center space-x-4">
                   <div className="w-4 h-6 bg-emerald-400 rounded"></div>
                   <span className="text-sm text-white/80">16px</span>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded">space-y-4</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">space-y-4</code>
                 </div>
                 <div className="flex items-center space-x-4">
                   <div className="w-6 h-6 bg-emerald-400 rounded"></div>
                   <span className="text-sm text-white/80">24px</span>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded">space-y-6</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">space-y-6</code>
                 </div>
                 <div className="flex items-center space-x-4">
                   <div className="w-8 h-6 bg-emerald-400 rounded"></div>
                   <span className="text-sm text-white/80">32px</span>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded">space-y-8</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">space-y-8</code>
                 </div>
               </div>
             </div>
@@ -531,17 +531,17 @@ export default function DemoCalculator() {
               <div className="space-y-3">
                 <div className="p-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg">
                   <p className="text-sm text-white/90 mb-2">Light Glass Effect</p>
-                  <code className="text-xs text-white/60 bg-black/30 px-2 py-1 rounded">bg-white/10 backdrop-blur-sm</code>
+                  <code className="text-xs text-white/60 bg-white/15 px-2 py-1 rounded">bg-white/10 backdrop-blur-sm</code>
                 </div>
                 
                 <div className="p-4 bg-white/15 backdrop-blur border border-white/30 rounded-lg">
                   <p className="text-sm text-white/90 mb-2">Medium Glass Effect</p>
-                  <code className="text-xs text-white/60 bg-black/30 px-2 py-1 rounded">bg-white/15 backdrop-blur</code>
+                  <code className="text-xs text-white/60 bg-white/15 px-2 py-1 rounded">bg-white/15 backdrop-blur</code>
                 </div>
                 
-                <div className="p-4 bg-black/20 backdrop-blur border border-white/40 rounded-lg">
+                <div className="p-4 bg-white/10 backdrop-blur border border-white/40 rounded-lg">
                   <p className="text-sm text-white/90 mb-2">Dark Glass Effect</p>
-                  <code className="text-xs text-white/60 bg-black/30 px-2 py-1 rounded">bg-black/20 backdrop-blur</code>
+                  <code className="text-xs text-white/60 bg-white/15 px-2 py-1 rounded">bg-white/10 backdrop-blur</code>
                 </div>
               </div>
             </div>
@@ -555,25 +555,25 @@ export default function DemoCalculator() {
                   <div className="w-full h-12 bg-emerald-500/20 border border-emerald-400/50 rounded-sm flex items-center justify-center">
                     <span className="text-xs text-white">rounded-sm</span>
                   </div>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded block text-center">2px</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded block text-center">2px</code>
                 </div>
                 <div className="space-y-2">
                   <div className="w-full h-12 bg-emerald-500/20 border border-emerald-400/50 rounded flex items-center justify-center">
                     <span className="text-xs text-white">rounded</span>
                   </div>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded block text-center">4px</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded block text-center">4px</code>
                 </div>
                 <div className="space-y-2">
                   <div className="w-full h-12 bg-emerald-500/20 border border-emerald-400/50 rounded-md flex items-center justify-center">
                     <span className="text-xs text-white">rounded-md</span>
                   </div>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded block text-center">6px</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded block text-center">6px</code>
                 </div>
                 <div className="space-y-2">
                   <div className="w-full h-12 bg-emerald-500/20 border border-emerald-400/50 rounded-lg flex items-center justify-center">
                     <span className="text-xs text-white">rounded-lg</span>
                   </div>
-                  <code className="text-xs text-white/60 bg-black/20 px-2 py-1 rounded block text-center">8px</code>
+                  <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded block text-center">8px</code>
                 </div>
               </div>
             </div>
