@@ -72,7 +72,7 @@ smartcamp-starter/
 │   ├── layout.tsx               # Root layout with header/footer
 │   └── page.tsx                 # Main page component
 ├── components/                   # React components
-│   ├── demo-calculator.tsx      # Demo component showcasing design
+│   ├── smartcamp-starter.tsx    # Main component showcasing design system
 │   └── ui/                      # Reusable UI components
 │       ├── button.tsx           # Custom button variants
 │       ├── card.tsx             # Glass morphism cards

@@ -112,7 +112,7 @@ Build fails with multiple errors:
 
 #### Error Details
 ```
-./components/demo-calculator.tsx
+./components/smartcamp-starter.tsx
 7:10  Warning: 'Button' is defined but never used.  @typescript-eslint/no-unused-vars
 23:7  Warning: 'DEMO_QUANTIZATION' is assigned a value but never used.  @typescript-eslint/no-unused-vars
 47:10  Warning: 'quantization' is assigned a value but never used.  @typescript-eslint/no-unused-vars
@@ -135,7 +135,7 @@ Type error: Argument of type '{ title: string; ... }' is not assignable to param
 
 #### Solution Implemented
 **Files Modified:**
-1. `components/demo-calculator.tsx`:
+1. `components/smartcamp-starter.tsx`:
    - Removed unused Button import
    - Removed unused DEMO_QUANTIZATION constant
    - Removed unused quantization state variables

@@ -36,7 +36,7 @@ const DEMO_PRIORITY_OPTIONS = [
 
 
 
-export default function DemoCalculator() {
+export default function SmartCampStarter() {
   const { t } = useI18n()
   const [modelId, setModelId] = useState<string>('')
 

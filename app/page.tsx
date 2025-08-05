@@ -1,5 +1,5 @@
-import DemoCalculator from '@/components/demo-calculator'
+import SmartCampStarter from '@/components/smartcamp-starter'
 
 export default function Home() {
-  return <DemoCalculator />
+  return <SmartCampStarter />
 }
