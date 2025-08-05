@@ -28,18 +28,22 @@ function detectBrowserLanguage(): SupportedLanguageCode {
   
   // Get browser languages in order of preference
   const browserLanguages = navigator.languages || [navigator.language]
+  console.log('🌍 Browser languages detected:', browserLanguages)
   
   for (const browserLang of browserLanguages) {
     // Extract language code (e.g., 'en-US' -> 'en', 'pl-PL' -> 'pl')
     const langCode = browserLang.toLowerCase().split('-')[0]
+    console.log('🔍 Checking language code:', langCode)
     
     // Check if we support this language
     const supportedLang = SUPPORTED_LANGUAGES.find(lang => lang.code === langCode)
     if (supportedLang) {
+      console.log('✅ Found supported language:', supportedLang.code)
       return supportedLang.code
     }
   }
   
+  console.log('⚠️ No supported language found, falling back to English')
   // Fallback to English if no supported language found
   return 'en'
 }
@@ -57,12 +61,17 @@ export function I18nProvider({ children }: I18nProviderProps) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const savedLanguage = localStorage.getItem('smartcamp-language') as SupportedLanguageCode
+      console.log('💾 Saved language from localStorage:', savedLanguage)
+      
       if (savedLanguage && SUPPORTED_LANGUAGES.some(lang => lang.code === savedLanguage)) {
         // User has previously selected a language, use that
+        console.log('🔄 Using saved language:', savedLanguage)
         setLanguageState(savedLanguage)
       } else {
         // No saved preference, detect browser language
+        console.log('🆕 No saved preference, detecting browser language')
         const detectedLanguage = detectBrowserLanguage()
+        console.log('🎯 Setting detected language:', detectedLanguage)
         setLanguageState(detectedLanguage)
       }
     } else {
@@ -107,9 +116,12 @@ export function I18nProvider({ children }: I18nProviderProps) {
 
   const resetToDetectedLanguage = () => {
     // Clear localStorage and reset to browser-detected language
+    console.log('🔄 Resetting to detected language...')
     if (typeof window !== 'undefined') {
       localStorage.removeItem('smartcamp-language')
+      console.log('🗑️ Cleared localStorage')
       const detectedLanguage = detectBrowserLanguage()
+      console.log('🎯 Reset to detected language:', detectedLanguage)
       setLanguageState(detectedLanguage)
     }
   }
