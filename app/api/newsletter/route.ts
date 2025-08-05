@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
 
     // Check if email already exists
     const { data: existingUser, error: checkError } = await supabaseServer
-      .from('newsletter-signup')
+      .from('Newsletter-signup')
       .select('email')
       .eq('email', email)
       .single()
@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
 
     // Insert new subscriber
     const { data, error } = await supabaseServer
-      .from('newsletter-signup')
+      .from('Newsletter-signup')
       .insert([
         {
           email: email.toLowerCase().trim(),
@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
 export async function GET() {
   try {
     const { count, error } = await supabaseServer
-      .from('newsletter-signup')
+      .from('Newsletter-signup')
       .select('*', { count: 'exact', head: true })
 
     if (error) {
