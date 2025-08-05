@@ -376,9 +376,9 @@ export default function DemoCalculator() {
                 <div>
                   <p className="text-sm text-white/80 mb-3">Primary Buttons</p>
                   <div className="flex flex-wrap gap-3">
-                    <Button variant="jungle" size="sm">Small</Button>
-                    <Button variant="jungle" size="default">Medium</Button>
-                    <Button variant="jungle" size="lg">Large</Button>
+                    <div className="px-3 py-1 bg-emerald-500 rounded-md text-white text-xs font-medium">Small</div>
+                    <div className="px-4 py-2 bg-emerald-500 rounded-md text-white text-sm font-medium">Medium</div>
+                    <div className="px-6 py-3 bg-emerald-500 rounded-md text-white text-base font-medium">Large</div>
                   </div>
                   <p className="text-xs text-white/60 mt-2">variant="jungle" | emerald background</p>
                 </div>
@@ -386,12 +386,12 @@ export default function DemoCalculator() {
                 <div>
                   <p className="text-sm text-white/80 mb-3">Outline Buttons</p>
                   <div className="flex flex-wrap gap-3">
-                    <Button variant="outline" size="default" className="border-white/30 text-white hover:bg-white/10">
+                    <div className="px-4 py-2 border border-white/30 rounded-md text-white text-sm font-medium">
                       Default
-                    </Button>
-                    <Button variant="outline" size="default" className="border-emerald-400/50 text-emerald-300 hover:bg-emerald-400/10">
+                    </div>
+                    <div className="px-4 py-2 border border-emerald-400/50 rounded-md text-emerald-300 text-sm font-medium">
                       Accent
-                    </Button>
+                    </div>
                   </div>
                   <p className="text-xs text-white/60 mt-2">variant="outline" | transparent with border</p>
                 </div>
@@ -399,12 +399,12 @@ export default function DemoCalculator() {
                 <div>
                   <p className="text-sm text-white/80 mb-3">Secondary & States</p>
                   <div className="flex flex-wrap gap-3">
-                    <Button variant="default" size="default" className="bg-blue-600 hover:bg-blue-700">
+                    <div className="px-4 py-2 bg-blue-600 rounded-md text-white text-sm font-medium">
                       Secondary
-                    </Button>
-                    <Button variant="default" size="default" disabled>
+                    </div>
+                    <div className="px-4 py-2 bg-white/20 rounded-md text-white/50 text-sm font-medium">
                       Disabled
-                    </Button>
+                    </div>
                   </div>
                   <p className="text-xs text-white/60 mt-2">Custom colors and disabled state</p>
                 </div>
