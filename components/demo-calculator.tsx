@@ -419,8 +419,14 @@ export default function DemoCalculator() {
         </div>
 
         {/* Column 4: Elements Copy */}
-              
-              <div className="space-y-4">
+        <div className="rounded-lg border border-white/20 shadow-sm bg-white/15 backdrop-blur" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15) !important' }}>
+          <div className="flex flex-col space-y-1.5 p-6">
+            <h3 className="text-2xl font-semibold leading-none tracking-tight text-white">Elements Copy</h3>
+            <p className="text-sm text-white/70">Interactive UI components from our design system</p>
+          </div>
+          <div className="p-6 pt-0 space-y-6">
+            {/* Dropdown/Select Menus */}
+            <div className="space-y-4">
                 <div>
                   <h1 className="text-4xl font-bold text-white mb-2">Heading 1</h1>
                   <code className="text-xs text-white/60 bg-white/10 px-2 py-1 rounded">text-4xl font-bold</code>
