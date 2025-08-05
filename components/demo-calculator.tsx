@@ -75,7 +75,7 @@ export default function DemoCalculator() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Column 1: Elements - Interactive UI Components */}
-        <Card className="!bg-white/15 backdrop-blur border-white/20">
+        <Card className="!bg-white/15 !backdrop-blur !border-white/20" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
           <CardHeader>
             <CardTitle>Elements</CardTitle>
             <CardDescription>
@@ -280,7 +280,7 @@ export default function DemoCalculator() {
         </Card>
 
         {/* Column 2: Typography - Visual Styles */}
-        <Card className="!bg-white/15 backdrop-blur border-white/20">
+        <Card className="!bg-white/15 !backdrop-blur !border-white/20" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
           <CardHeader>
             <CardTitle>Typography</CardTitle>
             <CardDescription>
