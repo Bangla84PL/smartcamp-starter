@@ -12,8 +12,52 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "SmartCamp.AI Starter Template",
-  description: "A beautiful starter template with jungle tech aesthetic, glass morphism design, and responsive components.",
+  title: "SmartCamp.AI - AI | Automations | Web Dev",
+  description: "AI | Automations | Web Dev - SmartCamp.AI",
+  keywords: ["AI", "Artificial Intelligence", "Automations", "Web Development", "SmartCamp", "Technology", "Innovation"],
+  authors: [{ name: "SmartCamp.AI" }],
+  creator: "SmartCamp.AI",
+  publisher: "SmartCamp.AI",
+  
+  // Open Graph / Facebook
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://smartcamp.ai',
+    siteName: 'SmartCamp.AI',
+    title: 'SmartCamp.AI - AI | Automations | Web Dev',
+    description: 'AI | Automations | Web Dev - SmartCamp.AI',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'SmartCamp.AI - AI, Automations & Web Development',
+        type: 'image/png',
+      },
+    ],
+  },
+  
+  // Twitter
+  twitter: {
+    card: 'summary_large_image',
+    site: '@SmartCampAI',
+    creator: '@SmartCampAI',
+    title: 'SmartCamp.AI - AI | Automations | Web Dev',
+    description: 'AI | Automations | Web Dev - SmartCamp.AI',
+    images: ['/og-image.png'],
+  },
+  
+  // Additional meta tags for other platforms
+  other: {
+    // Telegram
+    'telegram:channel': '@SmartCampAI',
+    // LinkedIn 
+    'article:author': 'SmartCamp.AI',
+    // WhatsApp / General
+    'og:image:alt': 'SmartCamp.AI - AI, Automations & Web Development',
+  },
+  
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
