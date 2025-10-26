@@ -2,73 +2,232 @@
   "title": "SmartCamp.AI",
   "subtitle": "Demostración del Sistema de Diseño",
   "description": "Una demostración integral de componentes de interfaz modernos con efectos glassmorphism y patrones de diseño responsivos.",
-  
-  "elements": "Elementos",
-  "typography": "Tipografía",
-  
-  "modelConfiguration": "Configuración del Modelo",
-  "modelLabel": "Seleccionar Modelo",
-  "quantizationLabel": "Cuantización",
-  "performanceLabel": "Objetivo de Rendimiento",
-  "tokensPerSecond": "tokens/segundo",
-  
-  "demoResults": "Resultados de Demostración",
-  "estimatedRAM": "RAM Estimada",
-  "estimatedVRAM": "VRAM Estimada",
-  "recommendedGPU": "GPU Recomendada",
-  
-  "radioGroup": "Preferencias",
-  "radioOption1": "Opción A",
-  "radioOption2": "Opción B",
-  "radioOption3": "Opción C",
-  
-  "dropdownLabel": "Seleccionar Opción",
-  "dropdownOption1": "Primera Opción",
-  "dropdownOption2": "Segunda Opción",
-  "dropdownOption3": "Tercera Opción",
-  
-  "textareaLabel": "Tu Mensaje",
-  "textareaPlaceholder": "Ingresa tu mensaje detallado aquí...",
-  
-  "togglesAndChecks": "Interruptores y Casillas",
-  "enableNotifications": "Habilitar Notificaciones",
-  "darkMode": "Modo Oscuro",
-  "acceptTerms": "Aceptar Términos",
-  "subscribe": "Suscribirse al Boletín",
-  
-  "dateAndSlider": "Fecha y Deslizador",
-  "selectDate": "Seleccionar Fecha",
-  "dateRange": "Rango de Fechas",
-  "volumeLevel": "Nivel de Volumen",
-  
-  "newsletterTitle": "Mantente Actualizado",
-  "newsletterDescription": "Recibe las últimas actualizaciones y características de SmartCamp AI",
-  "emailPlaceholder": "Ingresa tu email para actualizaciones",
-  "subscribeButton": "Suscribirse",
-  "subscribing": "Suscribiendo...",
-  
+
+  "badges": {
+    "glassMorphism": "Glass Morphism",
+    "jungleTech": "Jungle Tech",
+    "designSystem": "Sistema de Diseño"
+  },
+
+  "column1": {
+    "title": "Elementos de Formulario",
+    "subtitle": "Entradas básicas, selectores y campos de texto",
+    "component": "Componentes: <Input />, <Select />, <Textarea />",
+
+    "textInputs": {
+      "title": "Campos de Texto",
+      "badge": "3 variantes",
+      "emailLabel": "Entrada de Email",
+      "emailPlaceholder": "tu.email@ejemplo.com",
+      "emailSpec": "type=\"email\" • Vidrio: bg-white/10 backdrop-blur",
+      "numberLabel": "Entrada Numérica",
+      "numberPlaceholder": "1000",
+      "numberSpec": "type=\"number\" • min/max • controles step",
+      "textLabel": "Entrada de Texto",
+      "textPlaceholder": "Nombre del proyecto...",
+      "textSpec": "type=\"text\" • Campo de texto estándar"
+    },
+
+    "textarea": {
+      "title": "Área de Texto",
+      "badge": "Multilínea",
+      "label": "Descripción del Proyecto",
+      "placeholder": "Describe los objetivos y requisitos de tu proyecto en detalle...",
+      "spec": "rows={4} • Auto-redimensionar • Efecto de vidrio"
+    },
+
+    "select": {
+      "title": "Menús Desplegables",
+      "badge": "2 ejemplos",
+      "modelLabel": "Seleccionar Modelo",
+      "modelPlaceholder": "Elige un modelo",
+      "modelSpec": "Select nativo • Fondo de selva oscuro del menú",
+      "featuresLabel": "Características",
+      "featuresPlaceholder": "Seleccionar características adicionales",
+      "featuresSpec": "Con emojis • Múltiples opciones",
+      "options": {
+        "monitoring": "Monitoreo de Rendimiento",
+        "backup": "Copias de Seguridad Automáticas",
+        "security": "Seguridad Mejorada",
+        "analytics": "Análisis Avanzados"
+      }
+    },
+
+    "datePicker": {
+      "title": "Selectores de Fecha",
+      "badge": "Individual y Rango",
+      "singleLabel": "Fecha Individual",
+      "singlePlaceholder": "Seleccionar fecha de inicio",
+      "singleSpec": "Selección de fecha individual",
+      "rangeLabel": "Rango de Fechas",
+      "rangeSpec": "Rango de fechas: inicio + fin"
+    },
+
+    "specs": {
+      "title": "Especificaciones de Diseño",
+      "height": "Altura: 40px (h-10)",
+      "border": "Borde: 1px rgba(255, 255, 255, 0.2)",
+      "background": "Fondo: rgba(255, 255, 255, 0.1)",
+      "backdrop": "Desenfoque de fondo: 2px",
+      "radius": "Radio del borde: 6px (rounded-md)",
+      "focus": "Focus: 2px borde blanco 50% opacidad",
+      "placeholder": "Placeholder: white/70 opacidad"
+    }
+  },
+
+  "column2": {
+    "title": "Controles Interactivos",
+    "subtitle": "Deslizadores, interruptores, botones de radio y más",
+    "component": "Componentes: <Slider />, <Toggle />, <RadioGroup />",
+
+    "sliders": {
+      "title": "Deslizadores de Rango 🍌",
+      "badge": "Pulgar personalizado",
+      "performance": "Objetivo de Rendimiento",
+      "performanceMin": "tokens/seg",
+      "performanceMax": "tokens/seg",
+      "performanceSpec": "🍌 Pulgar emoji de plátano • Escala hover 1.25x",
+      "memory": "Límite de Memoria",
+      "memoryMin": "GB",
+      "memoryMax": "GB",
+      "cpu": "Núcleos de CPU",
+      "cpuMin": "núcleo",
+      "cpuMax": "núcleos"
+    },
+
+    "radioGroups": {
+      "title": "Grupos de Botones de Radio",
+      "badge": "2 grupos",
+      "deploymentLabel": "Tipo de Despliegue",
+      "deploymentSpec": "Contenedor de vidrio • Selección esmeralda",
+      "priorityLabel": "Prioridad de Optimización",
+      "prioritySpec": "Etiqueta + descripción • Transiciones suaves"
+    },
+
+    "toggles": {
+      "title": "Interruptores y Casillas",
+      "badge": "4 controles",
+      "advanced": "Habilitar Opciones Avanzadas",
+      "advancedDesc": "Mostrar opciones de configuración adicionales",
+      "notifications": "Notificaciones por Email",
+      "notificationsDesc": "Recibir actualizaciones sobre tu proyecto",
+      "autoScale": "Auto-escalado",
+      "autoScaleDesc": "Ajustar automáticamente los recursos según la demanda",
+      "terms": "Aceptar Términos y Condiciones",
+      "termsDesc": "Acepto los términos de servicio y la política de privacidad",
+      "spec": "Interruptor: Animación de deslizamiento suave • Estado activo esmeralda"
+    },
+
+    "buttons": {
+      "title": "Variantes de Botones",
+      "badge": "4 estilos",
+      "jungleLabel": "Variante Jungle (Primaria)",
+      "jungleSmall": "Botón Pequeño",
+      "jungleMedium": "Botón Mediano",
+      "jungleLarge": "Botón Grande",
+      "jungleSpec": "variant=\"jungle\" • Fondo de selva + superposición negra 40%",
+      "outlineLabel": "Variante Outline",
+      "outlineDefault": "Outline Predeterminado",
+      "outlineEmerald": "Acento Esmeralda",
+      "outlineSpec": "variant=\"outline\" • Transparente con borde",
+      "otherLabel": "Default y Ghost",
+      "defaultBtn": "Estilo Default",
+      "ghostBtn": "Estilo Ghost"
+    },
+
+    "specs": {
+      "title": "Especificaciones Interactivas",
+      "sliderTrack": "Pista del deslizador: bg-white/10, rounded-full",
+      "sliderThumb": "Pulgar del deslizador: 🍌 emoji, 20px, posición absolute",
+      "radio": "Radio: Circular, relleno esmeralda al seleccionar",
+      "toggle": "Interruptor: Animación de deslizamiento, estado activo esmeralda",
+      "checkbox": "Casilla: Icono de marca, fondo esmeralda",
+      "buttonHover": "Botones: Escala hover 1.05x, transición 300ms"
+    }
+  },
+
+  "column3": {
+    "title": "Sistema de Diseño",
+    "subtitle": "Tipografía, colores, espaciado y más",
+    "component": "Fuente: Jost • Tailwind v4 • Glass Morphism",
+
+    "typography": {
+      "title": "Escala Tipográfica",
+      "badge": "5 tamaños",
+      "h1": "Encabezado 1",
+      "h1Spec": "text-4xl • font-bold • 36px",
+      "h2": "Encabezado 2",
+      "h2Spec": "text-3xl • font-semibold • 30px",
+      "h3": "Encabezado 3",
+      "h3Spec": "text-2xl • font-medium • 24px",
+      "body": "Texto del Cuerpo - Párrafo regular",
+      "bodySpec": "text-base • white/90 • 16px",
+      "small": "Texto Pequeño - Etiquetas y subtítulos",
+      "smallSpec": "text-sm • white/80 • 14px"
+    },
+
+    "fontWeights": {
+      "title": "Pesos de Fuente",
+      "badge": "Familia Jost",
+      "light": "Light (300)",
+      "regular": "Regular (400)",
+      "medium": "Medium (500)",
+      "semibold": "Semibold (600)",
+      "bold": "Bold (700)"
+    },
+
+    "colors": {
+      "title": "Paleta de Colores",
+      "badge": "Tema de selva",
+      "emerald500": "Esmeralda 500",
+      "emerald600": "Esmeralda 600",
+      "surface": "Superficie",
+      "background": "Fondo",
+      "gradient": "Acento de Gradiente"
+    },
+
+    "spacing": {
+      "title": "Escala de Espaciado",
+      "badge": "Tailwind"
+    },
+
+    "borderRadius": {
+      "title": "Radio del Borde",
+      "badge": "4 variantes"
+    },
+
+    "glassMorphism": {
+      "title": "Glass Morphism",
+      "badge": "Estilo principal",
+      "standard": "Tarjeta de Vidrio Estándar",
+      "subtle": "Efecto de Vidrio Sutil"
+    },
+
+    "cssSpecs": {
+      "title": "Especificaciones CSS Completas",
+      "colorsTitle": "Colores:",
+      "effectsTitle": "Efectos:",
+      "transitionsTitle": "Transiciones:",
+      "standardTransition": "Estándar: 200ms ease-in-out",
+      "hoverTransition": "Hover: 300ms ease-in-out"
+    }
+  },
+
   "footer": {
+    "title": "Sistema de Diseño SmartCamp.AI",
+    "subtitle": "Estética Jungle Tech",
+    "glassMorphism": "Glass Morphism",
+    "jungleBackground": "Fondo de Selva",
+    "interactiveComponents": "Componentes Interactivos",
     "copyright": "Todos los derechos reservados.",
     "email": "hello@smartcamp.ai",
     "phone": "+48 518 894 156"
   },
-  
-  "typography": {
-    "heading": "Tipografía",
-    "colors": "Colores",
-    "primaryColor": "Primario",
-    "secondaryColor": "Secundario",
-    "accentColor": "Acento",
-    "spacing": "Espaciado",
-    "small": "Pequeño",
-    "medium": "Mediano",
-    "large": "Grande",
-    "xlarge": "Extra Grande",
-    "borderRadius": "Radio del Borde",
-    "buttonStyles": "Estilos de Botones",
-    "primaryButtons": "Botones Primarios",
-    "outlineButtons": "Botones de Contorno",
-    "primaryVariant": "variant=\"jungle\" | fondo de selva",
-    "outlineVariant": "variant=\"outline\" | transparente con borde"
-  }
+
+  "modelLabel": "Seleccionar Modelo",
+  "newsletterTitle": "Mantente Actualizado",
+  "newsletterDescription": "Recibe las últimas actualizaciones y características de SmartCamp AI",
+  "emailPlaceholder": "Ingresa tu email para actualizaciones",
+  "subscribeButton": "Suscribirse",
+  "subscribing": "Suscribiendo..."
 }
