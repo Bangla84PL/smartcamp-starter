@@ -33,28 +33,48 @@ export default function Footer() {
       <div className="bg-black/30 backdrop-blur-sm">
         <div className="container mx-auto px-2 py-1">
           <div className="flex flex-col lg:flex-row lg:items-center space-y-1 lg:space-y-0">
-            {/* Monkey graphic with copyright - left side */}
-            <div className="flex flex-col items-center lg:items-start lg:flex-shrink-0 space-y-1">
-              <Link 
-                href="https://smartcamp.ai" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-lg"
-              >
-                <Image
-                  src="/Monkey_SmartCampAI-no-background.png"
-                  alt="SmartCamp AI Monkey - Visit SmartCamp.ai"
-                  width={240}
-                  height={240}
-                  className="h-40 w-40 sm:h-48 sm:w-48 object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
-                />
-              </Link>
-              
+            {/* Monkey graphic with n8n logo and copyright - left side */}
+            <div className="flex flex-col items-center lg:items-start lg:flex-shrink-0 space-y-2">
+              {/* Logos container */}
+              <div className="flex items-center gap-4 sm:gap-6">
+                {/* Monkey Logo */}
+                <Link
+                  href="https://smartcamp.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-lg"
+                >
+                  <Image
+                    src="/Monkey_SmartCampAI-no-background.png"
+                    alt="SmartCamp AI Monkey - Visit SmartCamp.ai"
+                    width={240}
+                    height={240}
+                    className="h-32 w-32 sm:h-40 sm:w-40 object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
+                  />
+                </Link>
+
+                {/* n8n Certified Creator Badge */}
+                <Link
+                  href="https://n8n.io/creators/smart-camp-ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 rounded-lg"
+                >
+                  <Image
+                    src="/n8n-certified-creator.png"
+                    alt="n8n Certified Creator - SmartCamp AI"
+                    width={200}
+                    height={200}
+                    className="h-28 w-28 sm:h-36 sm:w-36 object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
+                  />
+                </Link>
+              </div>
+
               {/* Copyright */}
               <div className="text-center lg:text-left text-xs text-white/70">
-                <p>&copy; 2025 <Link 
-                    href="https://smartcamp.ai" 
-                    target="_blank" 
+                <p>&copy; 2025 <Link
+                    href="https://smartcamp.ai"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-white transition-colors duration-200"
                   >
