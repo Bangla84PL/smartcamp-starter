@@ -2,73 +2,232 @@
   "title": "SmartCamp.AI",
   "subtitle": "Prezentacja Systemu Projektowego",
   "description": "Kompleksowa demonstracja nowoczesnych komponentów UI z efektami glassmorphism i responsywnymi wzorcami projektowymi.",
-  
-  "elements": "Elementy",
-  "typography": "Typografia",
-  
-  "modelConfiguration": "Konfiguracja Modelu",
-  "modelLabel": "Wybierz Model",
-  "quantizationLabel": "Kwantyzacja",
-  "performanceLabel": "Cel Wydajności",
-  "tokensPerSecond": "tokenów/sekundę",
-  
-  "demoResults": "Wyniki Demo",
-  "estimatedRAM": "Szacowana RAM",
-  "estimatedVRAM": "Szacowana VRAM",
-  "recommendedGPU": "Zalecane GPU",
-  
-  "radioGroup": "Preferencje",
-  "radioOption1": "Opcja A",
-  "radioOption2": "Opcja B",
-  "radioOption3": "Opcja C",
-  
-  "dropdownLabel": "Wybierz Opcję",
-  "dropdownOption1": "Pierwszy Wybór",
-  "dropdownOption2": "Drugi Wybór",
-  "dropdownOption3": "Trzeci Wybór",
-  
-  "textareaLabel": "Twoja Wiadomość",
-  "textareaPlaceholder": "Wprowadź tutaj swoją szczegółową wiadomość...",
-  
-  "togglesAndChecks": "Przełączniki i Zaznaczenia",
-  "enableNotifications": "Włącz Powiadomienia",
-  "darkMode": "Tryb Ciemny",
-  "acceptTerms": "Akceptuj Warunki",
-  "subscribe": "Zapisz się do Newslettera",
-  
-  "dateAndSlider": "Data i Suwak",
-  "selectDate": "Wybierz Datę",
-  "dateRange": "Zakres Dat",
-  "volumeLevel": "Poziom Głośności",
-  
-  "newsletterTitle": "Bądź na Bieżąco",
-  "newsletterDescription": "Otrzymuj najnowsze aktualizacje i funkcje SmartCamp AI",
-  "emailPlaceholder": "Wprowadź swój email dla aktualizacji",
-  "subscribeButton": "Zapisz się",
-  "subscribing": "Zapisywanie...",
-  
+
+  "badges": {
+    "glassMorphism": "Glass Morphism",
+    "jungleTech": "Jungle Tech",
+    "designSystem": "System Projektowy"
+  },
+
+  "column1": {
+    "title": "Elementy Formularzy",
+    "subtitle": "Podstawowe pola, listy rozwijane i pola tekstowe",
+    "component": "Komponenty: <Input />, <Select />, <Textarea />",
+
+    "textInputs": {
+      "title": "Pola Tekstowe",
+      "badge": "3 warianty",
+      "emailLabel": "Pole Email",
+      "emailPlaceholder": "twoj.email@example.com",
+      "emailSpec": "type=\"email\" • Szkło: bg-white/10 backdrop-blur",
+      "numberLabel": "Pole Liczbowe",
+      "numberPlaceholder": "1000",
+      "numberSpec": "type=\"number\" • min/max • kontrolki step",
+      "textLabel": "Pole Tekstowe",
+      "textPlaceholder": "Nazwa projektu...",
+      "textSpec": "type=\"text\" • Standardowe pole tekstowe"
+    },
+
+    "textarea": {
+      "title": "Pole Tekstowe Wieloliniowe",
+      "badge": "Wieloliniowe",
+      "label": "Opis Projektu",
+      "placeholder": "Opisz szczegółowo cele i wymagania swojego projektu...",
+      "spec": "rows={4} • Auto-rozszerzanie • Efekt szkła"
+    },
+
+    "select": {
+      "title": "Listy Rozwijane",
+      "badge": "2 przykłady",
+      "modelLabel": "Wybierz Model",
+      "modelPlaceholder": "Wybierz model",
+      "modelSpec": "Natywny select • Ciemne tło dżungli listy",
+      "featuresLabel": "Funkcje",
+      "featuresPlaceholder": "Wybierz dodatkowe funkcje",
+      "featuresSpec": "Z emoji • Wiele opcji",
+      "options": {
+        "monitoring": "Monitorowanie Wydajności",
+        "backup": "Automatyczne Kopie Zapasowe",
+        "security": "Ulepszone Bezpieczeństwo",
+        "analytics": "Zaawansowana Analityka"
+      }
+    },
+
+    "datePicker": {
+      "title": "Wybór Dat",
+      "badge": "Pojedyncza i Zakres",
+      "singleLabel": "Pojedyncza Data",
+      "singlePlaceholder": "Wybierz datę rozpoczęcia",
+      "singleSpec": "Wybór pojedynczej daty",
+      "rangeLabel": "Zakres Dat",
+      "rangeSpec": "Zakres dat: data rozpoczęcia + zakończenia"
+    },
+
+    "specs": {
+      "title": "Specyfikacje Projektowe",
+      "height": "Wysokość: 40px (h-10)",
+      "border": "Obramowanie: 1px rgba(255, 255, 255, 0.2)",
+      "background": "Tło: rgba(255, 255, 255, 0.1)",
+      "backdrop": "Rozmycie tła: 2px",
+      "radius": "Zaokrąglenie: 6px (rounded-md)",
+      "focus": "Focus: 2px białe obramowanie 50% przezroczystość",
+      "placeholder": "Placeholder: white/70 przezroczystość"
+    }
+  },
+
+  "column2": {
+    "title": "Kontrolki Interaktywne",
+    "subtitle": "Suwaki, przełączniki, przyciski radiowe i więcej",
+    "component": "Komponenty: <Slider />, <Toggle />, <RadioGroup />",
+
+    "sliders": {
+      "title": "Suwaki Zakresu 🍌",
+      "badge": "Niestandardowy uchwyt",
+      "performance": "Cel Wydajności",
+      "performanceMin": "tokenów/sek",
+      "performanceMax": "tokenów/sek",
+      "performanceSpec": "🍌 Uchwyt emoji banana • Powiększenie hover 1.25x",
+      "memory": "Limit Pamięci",
+      "memoryMin": "GB",
+      "memoryMax": "GB",
+      "cpu": "Rdzenie CPU",
+      "cpuMin": "rdzeń",
+      "cpuMax": "rdzeni"
+    },
+
+    "radioGroups": {
+      "title": "Grupy Przycisków Radiowych",
+      "badge": "2 grupy",
+      "deploymentLabel": "Typ Wdrożenia",
+      "deploymentSpec": "Szklany kontener • Wybór emerald",
+      "priorityLabel": "Priorytet Optymalizacji",
+      "prioritySpec": "Etykieta + opis • Płynne przejścia"
+    },
+
+    "toggles": {
+      "title": "Przełączniki i Pola Wyboru",
+      "badge": "4 kontrolki",
+      "advanced": "Włącz Opcje Zaawansowane",
+      "advancedDesc": "Pokaż dodatkowe opcje konfiguracji",
+      "notifications": "Powiadomienia Email",
+      "notificationsDesc": "Otrzymuj aktualizacje o swoim projekcie",
+      "autoScale": "Auto-skalowanie",
+      "autoScaleDesc": "Automatycznie dostosowuj zasoby na podstawie zapotrzebowania",
+      "terms": "Akceptuj Warunki i Zasady",
+      "termsDesc": "Zgadzam się z warunkami usługi i polityką prywatności",
+      "spec": "Przełącznik: Płynna animacja przesunięcia • Aktywny stan emerald"
+    },
+
+    "buttons": {
+      "title": "Warianty Przycisków",
+      "badge": "4 style",
+      "jungleLabel": "Wariant Jungle (Główny)",
+      "jungleSmall": "Mały Przycisk",
+      "jungleMedium": "Średni Przycisk",
+      "jungleLarge": "Duży Przycisk",
+      "jungleSpec": "variant=\"jungle\" • Tło dżungli + 40% czarna nakładka",
+      "outlineLabel": "Wariant Outline",
+      "outlineDefault": "Domyślny Outline",
+      "outlineEmerald": "Akcent Emerald",
+      "outlineSpec": "variant=\"outline\" • Przezroczysty z obramowaniem",
+      "otherLabel": "Default i Ghost",
+      "defaultBtn": "Styl Default",
+      "ghostBtn": "Styl Ghost"
+    },
+
+    "specs": {
+      "title": "Specyfikacje Interaktywne",
+      "sliderTrack": "Ścieżka suwaka: bg-white/10, rounded-full",
+      "sliderThumb": "Uchwyt suwaka: 🍌 emoji, 20px, pozycja absolute",
+      "radio": "Radio: Okrągłe, wypełnienie emerald po wybraniu",
+      "toggle": "Przełącznik: Animacja przesunięcia, aktywny stan emerald",
+      "checkbox": "Pole wyboru: Ikona ptaszka, tło emerald",
+      "buttonHover": "Przyciski: Powiększenie hover 1.05x, przejście 300ms"
+    }
+  },
+
+  "column3": {
+    "title": "System Projektowy",
+    "subtitle": "Typografia, kolory, odstępy i więcej",
+    "component": "Czcionka: Jost • Tailwind v4 • Glass Morphism",
+
+    "typography": {
+      "title": "Skala Typografii",
+      "badge": "5 rozmiarów",
+      "h1": "Nagłówek 1",
+      "h1Spec": "text-4xl • font-bold • 36px",
+      "h2": "Nagłówek 2",
+      "h2Spec": "text-3xl • font-semibold • 30px",
+      "h3": "Nagłówek 3",
+      "h3Spec": "text-2xl • font-medium • 24px",
+      "body": "Tekst Podstawowy - Zwykły akapit",
+      "bodySpec": "text-base • white/90 • 16px",
+      "small": "Tekst Mały - Etykiety i podpisy",
+      "smallSpec": "text-sm • white/80 • 14px"
+    },
+
+    "fontWeights": {
+      "title": "Grubości Czcionki",
+      "badge": "Rodzina Jost",
+      "light": "Light (300)",
+      "regular": "Regular (400)",
+      "medium": "Medium (500)",
+      "semibold": "Semibold (600)",
+      "bold": "Bold (700)"
+    },
+
+    "colors": {
+      "title": "Paleta Kolorów",
+      "badge": "Motyw dżungli",
+      "emerald500": "Emerald 500",
+      "emerald600": "Emerald 600",
+      "surface": "Powierzchnia",
+      "background": "Tło",
+      "gradient": "Akcent Gradientu"
+    },
+
+    "spacing": {
+      "title": "Skala Odstępów",
+      "badge": "Tailwind"
+    },
+
+    "borderRadius": {
+      "title": "Zaokrąglenie Obramowania",
+      "badge": "4 warianty"
+    },
+
+    "glassMorphism": {
+      "title": "Glass Morphism",
+      "badge": "Podstawowy styl",
+      "standard": "Standardowa Karta Szklana",
+      "subtle": "Subtelny Efekt Szkła"
+    },
+
+    "cssSpecs": {
+      "title": "Kompletne Specyfikacje CSS",
+      "colorsTitle": "Kolory:",
+      "effectsTitle": "Efekty:",
+      "transitionsTitle": "Przejścia:",
+      "standardTransition": "Standardowe: 200ms ease-in-out",
+      "hoverTransition": "Hover: 300ms ease-in-out"
+    }
+  },
+
   "footer": {
+    "title": "System Projektowy SmartCamp.AI",
+    "subtitle": "Estetyka Jungle Tech",
+    "glassMorphism": "Glass Morphism",
+    "jungleBackground": "Tło Dżungli",
+    "interactiveComponents": "Komponenty Interaktywne",
     "copyright": "Wszelkie prawa zastrzeżone.",
     "email": "hello@smartcamp.ai",
     "phone": "+48 518 894 156"
   },
-  
-  "typography": {
-    "heading": "Typografia",
-    "colors": "Kolory",
-    "primaryColor": "Podstawowy",
-    "secondaryColor": "Drugorzędny",
-    "accentColor": "Akcentowy",
-    "spacing": "Odstępy",
-    "small": "Mały",
-    "medium": "Średni",
-    "large": "Duży",
-    "xlarge": "Bardzo Duży",
-    "borderRadius": "Zaokrąglenie Krawędzi",
-    "buttonStyles": "Style Przycisków",
-    "primaryButtons": "Główne Przyciski",
-    "outlineButtons": "Przyciski Obramowane",
-    "primaryVariant": "variant=\"jungle\" | tło dżungli",
-    "outlineVariant": "variant=\"outline\" | przezroczyste z obramowaniem"
-  }
+
+  "modelLabel": "Wybierz Model",
+  "newsletterTitle": "Bądź na Bieżąco",
+  "newsletterDescription": "Otrzymuj najnowsze aktualizacje i funkcje SmartCamp AI",
+  "emailPlaceholder": "Wprowadź swój email dla aktualizacji",
+  "subscribeButton": "Zapisz się",
+  "subscribing": "Zapisywanie..."
 }

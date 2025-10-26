@@ -2,73 +2,232 @@
   "title": "SmartCamp.AI",
   "subtitle": "Design System Showcase",
   "description": "A comprehensive demonstration of modern UI components with glassmorphism effects and responsive design patterns.",
-  
-  "elements": "Elements",
-  "typography": "Typography",
-  
-  "modelConfiguration": "Model Configuration",
-  "modelLabel": "Select Model",
-  "quantizationLabel": "Quantization",
-  "performanceLabel": "Performance Target",
-  "tokensPerSecond": "tokens/second",
-  
-  "demoResults": "Demo Results",
-  "estimatedRAM": "Estimated RAM",
-  "estimatedVRAM": "Estimated VRAM",
-  "recommendedGPU": "Recommended GPU",
-  
-  "radioGroup": "Preferences",
-  "radioOption1": "Option A",
-  "radioOption2": "Option B", 
-  "radioOption3": "Option C",
-  
-  "dropdownLabel": "Select Option",
-  "dropdownOption1": "First Choice",
-  "dropdownOption2": "Second Choice",
-  "dropdownOption3": "Third Choice",
-  
-  "textareaLabel": "Your Message",
-  "textareaPlaceholder": "Enter your detailed message here...",
-  
-  "togglesAndChecks": "Toggles & Checks",
-  "enableNotifications": "Enable Notifications",
-  "darkMode": "Dark Mode",
-  "acceptTerms": "Accept Terms",
-  "subscribe": "Subscribe to Newsletter",
-  
-  "dateAndSlider": "Date & Slider",
-  "selectDate": "Select Date",
-  "dateRange": "Date Range",
-  "volumeLevel": "Volume Level",
-  
-  "newsletterTitle": "Stay Updated",
-  "newsletterDescription": "Get the latest SmartCamp AI updates and features",
-  "emailPlaceholder": "Enter your email for updates",
-  "subscribeButton": "Subscribe",
-  "subscribing": "Subscribing...",
-  
+
+  "badges": {
+    "glassMorphism": "Glass Morphism",
+    "jungleTech": "Jungle Tech",
+    "designSystem": "Design System"
+  },
+
+  "column1": {
+    "title": "Form Elements",
+    "subtitle": "Basic inputs, selects, and text fields",
+    "component": "Component: <Input />, <Select />, <Textarea />",
+
+    "textInputs": {
+      "title": "Text Inputs",
+      "badge": "3 variants",
+      "emailLabel": "Email Input",
+      "emailPlaceholder": "your.email@example.com",
+      "emailSpec": "type=\"email\" • Glass: bg-white/10 backdrop-blur",
+      "numberLabel": "Number Input",
+      "numberPlaceholder": "1000",
+      "numberSpec": "type=\"number\" • min/max • step controls",
+      "textLabel": "Text Input",
+      "textPlaceholder": "Project name...",
+      "textSpec": "type=\"text\" • Standard text field"
+    },
+
+    "textarea": {
+      "title": "Textarea",
+      "badge": "Multi-line",
+      "label": "Project Description",
+      "placeholder": "Describe your project goals and requirements in detail...",
+      "spec": "rows={4} • Auto-resize • Glass effect"
+    },
+
+    "select": {
+      "title": "Select Dropdowns",
+      "badge": "2 examples",
+      "modelLabel": "Select Model",
+      "modelPlaceholder": "Choose a model",
+      "modelSpec": "Native select • Dark forest dropdown bg",
+      "featuresLabel": "Features",
+      "featuresPlaceholder": "Select additional features",
+      "featuresSpec": "With emojis • Multiple options",
+      "options": {
+        "monitoring": "Performance Monitoring",
+        "backup": "Automated Backups",
+        "security": "Enhanced Security",
+        "analytics": "Advanced Analytics"
+      }
+    },
+
+    "datePicker": {
+      "title": "Date Pickers",
+      "badge": "Single & Range",
+      "singleLabel": "Single Date",
+      "singlePlaceholder": "Select start date",
+      "singleSpec": "Single date selection",
+      "rangeLabel": "Date Range",
+      "rangeSpec": "Start + End date range"
+    },
+
+    "specs": {
+      "title": "Design Specifications",
+      "height": "Height: 40px (h-10)",
+      "border": "Border: 1px rgba(255, 255, 255, 0.2)",
+      "background": "Background: rgba(255, 255, 255, 0.1)",
+      "backdrop": "Backdrop blur: 2px",
+      "radius": "Border radius: 6px (rounded-md)",
+      "focus": "Focus: 2px white border 50% opacity",
+      "placeholder": "Placeholder: white/70 opacity"
+    }
+  },
+
+  "column2": {
+    "title": "Interactive Controls",
+    "subtitle": "Sliders, toggles, radio buttons & more",
+    "component": "Component: <Slider />, <Toggle />, <RadioGroup />",
+
+    "sliders": {
+      "title": "Range Sliders 🍌",
+      "badge": "Custom thumb",
+      "performance": "Performance Target",
+      "performanceMin": "tokens/sec",
+      "performanceMax": "tokens/sec",
+      "performanceSpec": "🍌 Banana emoji thumb • Hover scale 1.25x",
+      "memory": "Memory Limit",
+      "memoryMin": "GB",
+      "memoryMax": "GB",
+      "cpu": "CPU Cores",
+      "cpuMin": "core",
+      "cpuMax": "cores"
+    },
+
+    "radioGroups": {
+      "title": "Radio Button Groups",
+      "badge": "2 groups",
+      "deploymentLabel": "Deployment Type",
+      "deploymentSpec": "Glass container • Emerald selection",
+      "priorityLabel": "Optimization Priority",
+      "prioritySpec": "Label + description • Smooth transitions"
+    },
+
+    "toggles": {
+      "title": "Toggles & Checkboxes",
+      "badge": "4 controls",
+      "advanced": "Enable Advanced Options",
+      "advancedDesc": "Show additional configuration options",
+      "notifications": "Email Notifications",
+      "notificationsDesc": "Receive updates about your project",
+      "autoScale": "Auto-scaling",
+      "autoScaleDesc": "Automatically adjust resources based on demand",
+      "terms": "Accept Terms and Conditions",
+      "termsDesc": "I agree to the terms of service and privacy policy",
+      "spec": "Toggle: Smooth slide animation • Emerald active"
+    },
+
+    "buttons": {
+      "title": "Button Variants",
+      "badge": "4 styles",
+      "jungleLabel": "Jungle Variant (Primary)",
+      "jungleSmall": "Small Button",
+      "jungleMedium": "Medium Button",
+      "jungleLarge": "Large Button",
+      "jungleSpec": "variant=\"jungle\" • Jungle bg + 40% black overlay",
+      "outlineLabel": "Outline Variant",
+      "outlineDefault": "Default Outline",
+      "outlineEmerald": "Emerald Accent",
+      "outlineSpec": "variant=\"outline\" • Transparent with border",
+      "otherLabel": "Default & Ghost",
+      "defaultBtn": "Default Style",
+      "ghostBtn": "Ghost Style"
+    },
+
+    "specs": {
+      "title": "Interactive Specs",
+      "sliderTrack": "Slider track: bg-white/10, rounded-full",
+      "sliderThumb": "Slider thumb: 🍌 emoji, 20px, absolute positioned",
+      "radio": "Radio: Circular, emerald fill when selected",
+      "toggle": "Toggle: Slide animation, emerald active state",
+      "checkbox": "Checkbox: Checkmark icon, emerald bg",
+      "buttonHover": "Buttons: Hover scale 1.05x, 300ms transition"
+    }
+  },
+
+  "column3": {
+    "title": "Design System",
+    "subtitle": "Typography, colors, spacing & more",
+    "component": "Font: Jost • Tailwind v4 • Glass Morphism",
+
+    "typography": {
+      "title": "Typography Scale",
+      "badge": "5 sizes",
+      "h1": "Heading 1",
+      "h1Spec": "text-4xl • font-bold • 36px",
+      "h2": "Heading 2",
+      "h2Spec": "text-3xl • font-semibold • 30px",
+      "h3": "Heading 3",
+      "h3Spec": "text-2xl • font-medium • 24px",
+      "body": "Body Text - Regular paragraph",
+      "bodySpec": "text-base • white/90 • 16px",
+      "small": "Small Text - Labels and captions",
+      "smallSpec": "text-sm • white/80 • 14px"
+    },
+
+    "fontWeights": {
+      "title": "Font Weights",
+      "badge": "Jost family",
+      "light": "Light (300)",
+      "regular": "Regular (400)",
+      "medium": "Medium (500)",
+      "semibold": "Semibold (600)",
+      "bold": "Bold (700)"
+    },
+
+    "colors": {
+      "title": "Color Palette",
+      "badge": "Jungle theme",
+      "emerald500": "Emerald 500",
+      "emerald600": "Emerald 600",
+      "surface": "Surface",
+      "background": "Background",
+      "gradient": "Gradient Accent"
+    },
+
+    "spacing": {
+      "title": "Spacing Scale",
+      "badge": "Tailwind"
+    },
+
+    "borderRadius": {
+      "title": "Border Radius",
+      "badge": "4 variants"
+    },
+
+    "glassMorphism": {
+      "title": "Glass Morphism",
+      "badge": "Core style",
+      "standard": "Standard Glass Card",
+      "subtle": "Subtle Glass Effect"
+    },
+
+    "cssSpecs": {
+      "title": "Complete CSS Specs",
+      "colorsTitle": "Colors:",
+      "effectsTitle": "Effects:",
+      "transitionsTitle": "Transitions:",
+      "standardTransition": "Standard: 200ms ease-in-out",
+      "hoverTransition": "Hover: 300ms ease-in-out"
+    }
+  },
+
   "footer": {
+    "title": "SmartCamp.AI Design System",
+    "subtitle": "Jungle Tech Aesthetic",
+    "glassMorphism": "Glass Morphism",
+    "jungleBackground": "Jungle Background",
+    "interactiveComponents": "Interactive Components",
     "copyright": "All rights reserved.",
     "email": "hello@smartcamp.ai",
     "phone": "+48 518 894 156"
   },
-  
-  "typography": {
-    "heading": "Typography",
-    "colors": "Colors",
-    "primaryColor": "Primary",
-    "secondaryColor": "Secondary", 
-    "accentColor": "Accent",
-    "spacing": "Spacing",
-    "small": "Small",
-    "medium": "Medium",
-    "large": "Large",
-    "xlarge": "Extra Large",
-    "borderRadius": "Border Radius",
-    "buttonStyles": "Button Styles",
-    "primaryButtons": "Primary Buttons",
-    "outlineButtons": "Outline Buttons",
-    "primaryVariant": "variant=\"jungle\" | jungle background",
-    "outlineVariant": "variant=\"outline\" | transparent with border"
-  }
+
+  "modelLabel": "Select Model",
+  "newsletterTitle": "Stay Updated",
+  "newsletterDescription": "Get the latest SmartCamp AI updates and features",
+  "emailPlaceholder": "Enter your email for updates",
+  "subscribeButton": "Subscribe",
+  "subscribing": "Subscribing..."
 }

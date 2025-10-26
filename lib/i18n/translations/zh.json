@@ -2,73 +2,232 @@
   "title": "SmartCamp.AI",
   "subtitle": "设计系统展示",
   "description": "现代UI组件的综合演示，具有玻璃形态效果和响应式设计模式。",
-  
-  "elements": "元素",
-  "typography": "排版",
-  
-  "modelConfiguration": "模型配置",
-  "modelLabel": "选择模型",
-  "quantizationLabel": "量化",
-  "performanceLabel": "性能目标",
-  "tokensPerSecond": "令牌/秒",
-  
-  "demoResults": "演示结果",
-  "estimatedRAM": "预估内存",
-  "estimatedVRAM": "预估显存",
-  "recommendedGPU": "推荐GPU",
-  
-  "radioGroup": "偏好设置",
-  "radioOption1": "选项A",
-  "radioOption2": "选项B",
-  "radioOption3": "选项C",
-  
-  "dropdownLabel": "选择选项",
-  "dropdownOption1": "第一选择",
-  "dropdownOption2": "第二选择",
-  "dropdownOption3": "第三选择",
-  
-  "textareaLabel": "您的消息",
-  "textareaPlaceholder": "请在此输入您的详细消息...",
-  
-  "togglesAndChecks": "开关和复选框",
-  "enableNotifications": "启用通知",
-  "darkMode": "深色模式",
-  "acceptTerms": "接受条款",
-  "subscribe": "订阅通讯",
-  
-  "dateAndSlider": "日期和滑块",
-  "selectDate": "选择日期",
-  "dateRange": "日期范围",
-  "volumeLevel": "音量级别",
-  
-  "newsletterTitle": "保持更新",
-  "newsletterDescription": "获取SmartCamp AI的最新更新和功能",
-  "emailPlaceholder": "输入您的邮箱以获取更新",
-  "subscribeButton": "订阅",
-  "subscribing": "订阅中...",
-  
+
+  "badges": {
+    "glassMorphism": "玻璃形态",
+    "jungleTech": "丛林科技",
+    "designSystem": "设计系统"
+  },
+
+  "column1": {
+    "title": "表单元素",
+    "subtitle": "基本输入框、选择器和文本字段",
+    "component": "组件：<Input />、<Select />、<Textarea />",
+
+    "textInputs": {
+      "title": "文本输入框",
+      "badge": "3种变体",
+      "emailLabel": "电子邮件输入框",
+      "emailPlaceholder": "your.email@example.com",
+      "emailSpec": "type=\"email\" • 玻璃效果：bg-white/10 backdrop-blur",
+      "numberLabel": "数字输入框",
+      "numberPlaceholder": "1000",
+      "numberSpec": "type=\"number\" • min/max • step 控制",
+      "textLabel": "文本输入框",
+      "textPlaceholder": "项目名称...",
+      "textSpec": "type=\"text\" • 标准文本字段"
+    },
+
+    "textarea": {
+      "title": "文本域",
+      "badge": "多行",
+      "label": "项目描述",
+      "placeholder": "详细描述您的项目目标和要求...",
+      "spec": "rows={4} • 自动调整大小 • 玻璃效果"
+    },
+
+    "select": {
+      "title": "下拉选择器",
+      "badge": "2个示例",
+      "modelLabel": "选择模型",
+      "modelPlaceholder": "选择一个模型",
+      "modelSpec": "原生 select • 深色丛林下拉菜单背景",
+      "featuresLabel": "功能",
+      "featuresPlaceholder": "选择其他功能",
+      "featuresSpec": "带表情符号 • 多个选项",
+      "options": {
+        "monitoring": "性能监控",
+        "backup": "自动备份",
+        "security": "增强安全性",
+        "analytics": "高级分析"
+      }
+    },
+
+    "datePicker": {
+      "title": "日期选择器",
+      "badge": "单日期和日期范围",
+      "singleLabel": "单日期",
+      "singlePlaceholder": "选择开始日期",
+      "singleSpec": "单日期选择",
+      "rangeLabel": "日期范围",
+      "rangeSpec": "开始日期 + 结束日期范围"
+    },
+
+    "specs": {
+      "title": "设计规范",
+      "height": "高度：40px (h-10)",
+      "border": "边框：1px rgba(255, 255, 255, 0.2)",
+      "background": "背景：rgba(255, 255, 255, 0.1)",
+      "backdrop": "背景模糊：2px",
+      "radius": "边框圆角：6px (rounded-md)",
+      "focus": "聚焦：2px 白色边框 50% 不透明度",
+      "placeholder": "占位符：white/70 不透明度"
+    }
+  },
+
+  "column2": {
+    "title": "交互控件",
+    "subtitle": "滑块、切换开关、单选按钮等",
+    "component": "组件：<Slider />、<Toggle />、<RadioGroup />",
+
+    "sliders": {
+      "title": "范围滑块 🍌",
+      "badge": "自定义滑块",
+      "performance": "性能目标",
+      "performanceMin": "令牌/秒",
+      "performanceMax": "令牌/秒",
+      "performanceSpec": "🍌 香蕉表情滑块 • 悬停放大 1.25 倍",
+      "memory": "内存限制",
+      "memoryMin": "GB",
+      "memoryMax": "GB",
+      "cpu": "CPU 核心数",
+      "cpuMin": "核心",
+      "cpuMax": "核心"
+    },
+
+    "radioGroups": {
+      "title": "单选按钮组",
+      "badge": "2个组",
+      "deploymentLabel": "部署类型",
+      "deploymentSpec": "玻璃容器 • 翡翠色选择",
+      "priorityLabel": "优化优先级",
+      "prioritySpec": "标签 + 描述 • 平滑过渡"
+    },
+
+    "toggles": {
+      "title": "切换开关和复选框",
+      "badge": "4个控件",
+      "advanced": "启用高级选项",
+      "advancedDesc": "显示其他配置选项",
+      "notifications": "电子邮件通知",
+      "notificationsDesc": "接收有关项目的更新",
+      "autoScale": "自动扩展",
+      "autoScaleDesc": "根据需求自动调整资源",
+      "terms": "接受条款和条件",
+      "termsDesc": "我同意服务条款和隐私政策",
+      "spec": "切换开关：平滑滑动动画 • 翡翠色激活状态"
+    },
+
+    "buttons": {
+      "title": "按钮变体",
+      "badge": "4种样式",
+      "jungleLabel": "丛林变体（主要）",
+      "jungleSmall": "小按钮",
+      "jungleMedium": "中按钮",
+      "jungleLarge": "大按钮",
+      "jungleSpec": "variant=\"jungle\" • 丛林背景 + 40% 黑色叠加层",
+      "outlineLabel": "轮廓变体",
+      "outlineDefault": "默认轮廓",
+      "outlineEmerald": "翡翠色强调",
+      "outlineSpec": "variant=\"outline\" • 透明带边框",
+      "otherLabel": "默认和幽灵",
+      "defaultBtn": "默认样式",
+      "ghostBtn": "幽灵样式"
+    },
+
+    "specs": {
+      "title": "交互规范",
+      "sliderTrack": "滑块轨道：bg-white/10、rounded-full",
+      "sliderThumb": "滑块：🍌 表情、20px、绝对定位",
+      "radio": "单选：圆形，选中时翡翠色填充",
+      "toggle": "切换开关：滑动动画，翡翠色激活状态",
+      "checkbox": "复选框：对勾图标，翡翠色背景",
+      "buttonHover": "按钮：悬停放大 1.05 倍，过渡 300ms"
+    }
+  },
+
+  "column3": {
+    "title": "设计系统",
+    "subtitle": "排版、颜色、间距等",
+    "component": "字体：Jost • Tailwind v4 • 玻璃形态",
+
+    "typography": {
+      "title": "排版比例",
+      "badge": "5种大小",
+      "h1": "标题1",
+      "h1Spec": "text-4xl • font-bold • 36px",
+      "h2": "标题2",
+      "h2Spec": "text-3xl • font-semibold • 30px",
+      "h3": "标题3",
+      "h3Spec": "text-2xl • font-medium • 24px",
+      "body": "正文文本 - 常规段落",
+      "bodySpec": "text-base • white/90 • 16px",
+      "small": "小号文本 - 标签和标题",
+      "smallSpec": "text-sm • white/80 • 14px"
+    },
+
+    "fontWeights": {
+      "title": "字体粗细",
+      "badge": "Jost 字体系列",
+      "light": "Light (300)",
+      "regular": "Regular (400)",
+      "medium": "Medium (500)",
+      "semibold": "Semibold (600)",
+      "bold": "Bold (700)"
+    },
+
+    "colors": {
+      "title": "调色板",
+      "badge": "丛林主题",
+      "emerald500": "翡翠色 500",
+      "emerald600": "翡翠色 600",
+      "surface": "表面",
+      "background": "背景",
+      "gradient": "渐变强调"
+    },
+
+    "spacing": {
+      "title": "间距比例",
+      "badge": "Tailwind"
+    },
+
+    "borderRadius": {
+      "title": "边框圆角",
+      "badge": "4种变体"
+    },
+
+    "glassMorphism": {
+      "title": "玻璃形态",
+      "badge": "核心样式",
+      "standard": "标准玻璃卡片",
+      "subtle": "微妙玻璃效果"
+    },
+
+    "cssSpecs": {
+      "title": "完整 CSS 规范",
+      "colorsTitle": "颜色：",
+      "effectsTitle": "效果：",
+      "transitionsTitle": "过渡：",
+      "standardTransition": "标准：200ms ease-in-out",
+      "hoverTransition": "悬停：300ms ease-in-out"
+    }
+  },
+
   "footer": {
+    "title": "SmartCamp.AI 设计系统",
+    "subtitle": "丛林科技美学",
+    "glassMorphism": "玻璃形态",
+    "jungleBackground": "丛林背景",
+    "interactiveComponents": "交互组件",
     "copyright": "保留所有权利。",
     "email": "hello@smartcamp.ai",
     "phone": "+48 518 894 156"
   },
-  
-  "typography": {
-    "heading": "排版",
-    "colors": "颜色",
-    "primaryColor": "主要",
-    "secondaryColor": "次要",
-    "accentColor": "强调",
-    "spacing": "间距",
-    "small": "小",
-    "medium": "中",
-    "large": "大",
-    "xlarge": "特大",
-    "borderRadius": "边框圆角",
-    "buttonStyles": "按钮样式",
-    "primaryButtons": "主要按钮",
-    "outlineButtons": "轮廓按钮",
-    "primaryVariant": "variant=\"jungle\" | 丛林背景",
-    "outlineVariant": "variant=\"outline\" | 透明带边框"
-  }
+
+  "modelLabel": "选择模型",
+  "newsletterTitle": "保持更新",
+  "newsletterDescription": "获取 SmartCamp AI 的最新更新和功能",
+  "emailPlaceholder": "输入您的邮箱以获取更新",
+  "subscribeButton": "订阅",
+  "subscribing": "订阅中..."
 }
